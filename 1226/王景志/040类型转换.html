@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关于强制类型转换</title>
+</head>
+<body>
+    <script>
+        // Number() 转为数值型
+        // var a = "5";
+        // var a = "5a";      //转换数值型后为NaN
+        // var a = "";        //转换数值型后为0
+        // var a = true;      // true 是 1
+        // var a = false;     // false 是 0
+        // var a = undefined; //NaN
+        // var a = null;      // null 是 0
+
+        // 使用parseInt 转字符串，从第一个数字字符开始到最后一个非字符类型
+        // var a = "54.1a";    // 54
+        // var a ="a54";       // NaN
+        // var a = true;       // parseInt 只能用在String类型有效果
+        // var a = false;      // NaN
+        // var a = {b:1};       // NaN
+        // parseInt 可以按照指定进制转为十进制
+        // var a = "ff";
+        // console.log(parseInt(a,16));   //255
+        // parseFloat 将字符串转为浮点数
+
+        //Stirng() 转换为字符串
+        // var a = 0xff;   //结果为255，先转为十进制再转为字符串
+        // var a = 1.4e+3;  // 1400
+        // var a = true;    //  字符串 true
+        // var a = {a:5};   // [object Object]
+        // 对象.toString(转换为什么进制); 进制数为 2 ~ 36 键盘0-9加字母26个一共有32个
+        // var a = new Date();
+        // a.toLocaleString();  转换为本地字符串
+        // a.toUTCString()       转换为格林尼治时间字符串
+        // 还有一些不常用的方法,number方法
+        // a.toFiexde(2); 保留几位小数，会四舍五入
+        // a.toPrecision(2); 总共保留几位，会自动四舍五入或者科学记数法
+        // a.toExponential(2); 保留小数点后几位，不会自动四舍五入，一定使用科学计数法。
+
+        // Boolean转为布尔值
+        // var a = "";            // false
+        // var a = 0;             // false
+        // var a = undefined;     // false
+        // var a = null;          // false
+        // var a = NaN;           // false
+        // var a = false;         // false
+        // 除了上面六种，其它都为true
+
+
+        // Object() 转为对象类型
+        // var a = 3;
+        // console.log(Object(a));
+
+
+        // 补充： 隐式类型转换 为这些基本的 String()、Boolean()、Number()这几种。
+        // Number、String、Boolean变量都是伪对象，都拥有该对象的方法
+        /* var num = new Number();
+        console.log(num); */
+    </script>
+</body>
+</html>

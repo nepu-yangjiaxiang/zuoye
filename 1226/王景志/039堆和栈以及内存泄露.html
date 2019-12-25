@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>堆和栈的初识</title>
+</head>
+<body>
+    <script>
+        // 内存泄露指的是，不断有新的对象生成，而旧的对象没有释放。
+        // 释放方法： 1. obj = null; 将对象引用设置为空。 2. 等待垃圾回收机制将该对象释放
+        // 垃圾回收机制也叫gc, 它只在内容占用比较高时，且对象没有被应用了，它才会将对象回收。 在js中没有办法强制让它工作，而且gc执行时也会需要很大的性能。
+
+        //  堆和栈
+        //  栈：先进后出，插入和删除比较快。堆：完全二叉树。
+        //  栈里面存储基本数据类型、函数。 堆里面存放对象引用的值，对象的地址存放在栈中。  堆中的值有一个应用列表，当引用列表为空，它才能被释放    
+    </script>
+</body>
+</html>
