@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a=2;
+        // var b=5;
+        // var c=2,d=4;
+        // var a,b;
+        
+        //先给a赋值，然后赋值给b
+        // var a=b=5;
+        // console.log(a,b);
+    
+        //尽量不要定义window的属性名，ES5中全局变量都会被设置在window的属性中
+        // var a=10;
+        // console.log(window.a);
+        // console.log(a+5);
+
+        // window.status //设置或返回窗口状态栏中的文本
+        // var status=20;
+        // console.log(status);
+        // console.log(window.status);
+        // console.log(status+5);//值为205
+
+        //var _time=20;//临时变量
+
+        // const EVENT_ID="eventid";
+        // console.log(EVENT_ID);
+        // // EVENT_ID="0";           //错误，常量被定义后不能被修改
+        // // console.log(EVENT_ID);
+        // const obj={a:1,b:20};
+        // console.log(obj);
+        // obj={a:10};
+        // console.log(obj);
+
+        /* var const={
+            MIN_NUM=100;
+            MAX_NUM=500;
+        }
+        console.log{MAX_NUM};
+ */
+        
+
+        /* 数据类型 */
+        //字符型    String ""  '' ``
+        //数值型    Number
+        //布尔型    Boolean
+        //未定型    undefined
+        //空值      null
+        //对象      object
+
+
+        //未定型  值和类型相同都是undefined
+        var und1;
+        console.log(und1,typeof(und1));
+        var und2=undefined;
+        console.log(und2,typeof(und1));
+
+        //空值 null     null的类型是object型
+        var nu=null;
+        console.log(nu,typeof(nu));
+        
+        
+        //前五种数据类型尊出在栈中，对象存储在堆中
+        // var obj = {
+        //     id:1001,
+        //     name:"电脑桌",
+        //     price:"700",
+        //     getSum：function(){
+        //         //方法
+        //     }
+        // }；
+    
+        var obj={a:10};
+        console.log(String(obj));//结果是[object Object]
+        // console.log(obj,String(obj));   错误写法
+        console.log(JSON.stringify(obj));   //结果{“a”:10}  JSON字符串
+        console.log(JSON.stringify(obj));
+        console.log(JSON.parse('{"a":10}'));    //将JSON字符串转换为对象
+        console.log(JSON.parse('{"a":5}'));
+        console.log(JSON.parse('{"a":4}'));
+
+        var obj1=JSON.parse(JSON.stringify(obj));
+        console.log(obj1);
+        obj.a=9999;
+        console.log(obj,obj1);
+        console.log(JSON.stringify(obj),JSON.stringify(obj1));
+        console.log(obj===obj1);//不是同一个对象
+            //变量名存储的是引用地址
+            var obj1=obj;//将应用地址赋值给obj1
+            console.log(obj1.a);
+
+            //存在栈中，修改的是值
+            var num=5;
+            var num1=num;
+            num=9999;
+            console.log(num1);//值为5
+            console.log(num);
+
+            //存在堆中，修改引用地址的内容，地址不会发生改变
+            var obj2 = JSON.parse(JSON.stringify(obj));
+            console.log(obj2);
+
+            var obj={a:1,b:{a:20}};
+
+            console.log(obj);
+
+
+            //内存泄漏
+            obj=null;//给变量值设为null
+
+    </script>
+    
+
+</body>
+</html>
