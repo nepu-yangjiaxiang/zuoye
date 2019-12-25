@@ -139,9 +139,87 @@
 
         //任何内容转换为数值型
         //NaN 数值型  非数值
+        // var a="5";
+        // var a= "5a";     //结果为NaN  如果有字符存在，转换后就变成NaN   
+        // var a= "";       //空字符串转换为数值是0
+        // var a = true;    //1
+        // var a = false;   //0
+        // var a =null;        //0
+        //  var a;             //未定义为NaN
+
+        // console.log(Number(a));     
+
+        // var a= "3.14a";  //3     从第一个数字字符开始到第一个字符类型为止转换为数值
+        // var a = "a345";  //NaN   我以为是345，没想到是NaN    易错点！！！！
+        // var a="345q342"; //345
 
 
-        
+        // var a="FF";               //NaN
+        // var a="101010010101";     //101010010101
+      
+      /*   var a=true;               //NaN   
+        var a=false;                 //NaN  只要不是字符串  基本都是NaN
+        */
+
+        // var a;                    //NaN
+        // var a=null;               //NaN
+        //  var a={a:1};                //NaN
+        // console.log(Number(a));   //NaN
+        // console.log(parseInt(a));
+
+        /* color="#FF00FF"-->"rgb(255,0,255)"; */   //16进制数换为rbg颜色
+
+
+
+       /*  var a = 1010100;
+        console.log(parseInt(a,2)); */  //将2进制类型转换为10进制类型
+
+         // 转换为字符串
+        // var a=10;
+        // var a=1555;
+        // var a=0;
+        // var a=0xFF;
+        // var a=4.1e+2;
+        // 先将所有的数值都转换为10进制在转换为字符串
+
+
+       /*  var a=79;
+         console.log(String(a));//转换为字符串 */
+
+
+        // var a=8421;
+        // console.log(a.toString(2));   //转换为什么进制的字符串
+
+        /* var a=new Date();
+        console.log(a.toLocaleString());//转换为本地字符串
+        console.log(a.toUTCString());//转换为格林尼治时间字符串 */
+    
+       //var a=66879784.234324;
+        // console.log(a.toFixed(2));    //保留几位小数 
+         //console.log(a.toPrecision(5));   //总共保留几位，会自动四舍五入或者科学计数法
+            // console.log(a.toPrecision(2)); //小数点后保留几位，不会自动四舍五入，一定科学计数法
+
+
+
+        // 转换为布尔值
+
+        // var a="";//false
+        // var a=0;//false
+        // var a=undefined;//false
+        // var a=null;//false
+        // var a=NaN;//false
+        // var a=false;
+        // console.log(Boolean(a));
+        // "" 0 undefined null NaN false  转换为布尔值都是false
+        // 除上述6种以外转换为布尔值都是true
+
+        // var a="0";
+        // console.log(Boolean(a));
+
+
+        // var a=3;
+        // 强转为对象类型
+        // console.log(Object(a));
     </script>
 </body>
 
