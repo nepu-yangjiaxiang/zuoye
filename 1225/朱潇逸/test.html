@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 打印输出的各种格式 */
+
+        // alert("aaa");
+        /* confirm("你好");
+        confirm("这是一个确认框"); */
+        //    console.log( prompt("请输入你的年龄"));
+        // prompt("需要你输入一些东西");
+        // console.log("向控制台打印一些东西");
+        // console.trace("这是什么");                //具体告诉你代码在哪一行上
+        //  console.dir("打印部分标签内容");             //打印部分标签内容
+        // console.error("错误的");                 //打印错误  红色
+
+
+        /* 变量常量和数据类型 */
+
+        //定义变量  
+        // var num=1;    //直接赋值  并且带有var
+        // var a1,a2;    //代码语句没有结束时用个逗号分隔开来
+
+        //驼峰式命名法
+        /*   var studentName ="张三";
+          var studentBirthday = "1998/01/19";
+          var studentClass = 18;
+
+          alert(studentName);
+          alert(studentBirthday);
+          alert(studentClass); */
+
+        //临时变量或者参数
+        /* var _name;
+        var _birthday */
+
+        //变量
+        /*  var name;
+        var student;
+     */
+
+        //常量
+        /*   const STU_NAME="mike";
+          const STU_AGE = 18; */
+
+        //常量定义后的对象不能够被清除
+        /*  const obj = {
+             a: 1,
+             b: 2
+         };
+         // obj.a = 23;
+         console.log(obj.a); */
+
+        //数据类型
+
+        //字符型
+        //"" '' SE6
+        /*   var str1 = "1";
+          var str2 = '2';
+          var str3 = `3`;
+
+          var str4 ="这个新鞋子'价格'不错";
+          var str5 = '{"a":"4","b":"5"}'; */
+
+        //数值型    Number
+        /*   var num1=1;             //正整型
+        var num2=-1;            //负整型
+        var num3= 1.323         //浮点型
+        var num4 = 0567         //8进制数值，0起头，数值不能大于7
+        var num5 = 0xFF;        //16进制数值，0x起头，单个数值不能大于F
+        var num6 = 1.2e+3;      //科学计数法
+        var num7 = 1.2e-3;      //科学计数法
+ */
+
+        //布尔类型 Boolean
+        /*  var bool1 = true;
+         var bool2 = false; */
+
+        //未定义型
+        /*  var first;                //未赋值等于未定义
+         var second = undefined;   //赋值为undefined;
+          */
+
+        //空值     null    null的类型object型
+        /*     var con = null;
+            console.log(con); */
+        //
+
+        ///对象类型
+        var obj = { //对象名为obj
+            studentName: "张三", //属性：属性值    kv对
+            studentId: 10,
+            studentBirthday: "1998/01/19",
+            student: function () { //属性为函数   内部写方法
+                console.log("学生的名字为" + this.studentName + "生日" + this.studentBirthday + "学号" + this.studentId);
+            }
+        }
+        // obj.student();   //调用对象中的方法
+
+        // 字符型，数值型，布尔型，undefined,null  这五种类型都存在于栈内存中
+        // 对象类型储存在堆内存中
+
+
+        //将对象转换为字符串
+        // console.log(String(obj)); //[object Object]
+        //将对象转换为字符串 （JSON）
+        // console.log(JSON.stringify(obj));
+        //将JSON字符转换为对象
+        // console.log(JSON.parse('{"a":1}'));
+        // var obj1=JSON.parse(JSON.stringify(obj));
+       /*  console.log(obj,obj1);
+
+        //将obj对象转换为字符串类型
+        console.log(JSON.stringify(obj));  
+        //将字符串转换为对象
+        console.log(JSON.parse('{"studentName":"张三","studentId":10,"studentBirthday":"1998/01/19"}')) */
+
+        // console.log(obj===obj1);   //obj1是新重新定义了一个新的对象
+       
+        // var obj2=obj;//将引用地址赋值给obj2
+
+
+        /* var obj={a:10,b:{a:20}};  //对象里嵌套对象
+        console.log(obj.b.a); */
+
+
+            // 内存泄漏  不断的创建新对象，不使用的旧对象不清除
+            // obj=null;//当给变量设置为null
+            // 垃圾回收机制  gc   当对象的引用地址在栈中没有引用时，内存占比过高时，垃圾回收车会将其清除
+
+
+        //任何内容转换为数值型
+        //NaN 数值型  非数值
+        // var a="5";
+        // var a= "5a";     //结果为NaN  如果有字符存在，转换后就变成NaN   
+        // var a= "";       //空字符串转换为数值是0
+        // var a = true;    //1
+        // var a = false;   //0
+        // var a =null;        //0
+        //  var a;             //未定义为NaN
+
+        // console.log(Number(a));     
+
+        // var a= "3.14a";  //3     从第一个数字字符开始到第一个字符类型为止转换为数值
+        // var a = "a345";  //NaN   我以为是345，没想到是NaN    易错点！！！！
+        // var a="345q342"; //345
+
+
+        // var a="FF";               //NaN
+        // var a="101010010101";     //101010010101
+      
+      /*   var a=true;               //NaN   
+        var a=false;                 //NaN  只要不是字符串  基本都是NaN
+        */
+
+        // var a;                    //NaN
+        // var a=null;               //NaN
+        //  var a={a:1};                //NaN
+        // console.log(Number(a));   //NaN
+        // console.log(parseInt(a));
+
+        /* color="#FF00FF"-->"rgb(255,0,255)"; */   //16进制数换为rbg颜色
+
+
+
+       /*  var a = 1010100;
+        console.log(parseInt(a,2)); */  //将2进制类型转换为10进制类型
+
+         // 转换为字符串
+        // var a=10;
+        // var a=1555;
+        // var a=0;
+        // var a=0xFF;
+        // var a=4.1e+2;
+        // 先将所有的数值都转换为10进制在转换为字符串
+
+
+       /*  var a=79;
+         console.log(String(a));//转换为字符串 */
+
+
+        // var a=8421;
+        // console.log(a.toString(2));   //转换为什么进制的字符串
+
+        /* var a=new Date();
+        console.log(a.toLocaleString());//转换为本地字符串
+        console.log(a.toUTCString());//转换为格林尼治时间字符串 */
+    
+       //var a=66879784.234324;
+        // console.log(a.toFixed(2));    //保留几位小数 
+         //console.log(a.toPrecision(5));   //总共保留几位，会自动四舍五入或者科学计数法
+            // console.log(a.toPrecision(2)); //小数点后保留几位，不会自动四舍五入，一定科学计数法
+
+
+
+        // 转换为布尔值
+
+        // var a="";//false
+        // var a=0;//false
+        // var a=undefined;//false
+        // var a=null;//false
+        // var a=NaN;//false
+        // var a=false;
+        // console.log(Boolean(a));
+        // "" 0 undefined null NaN false  转换为布尔值都是false
+        // 除上述6种以外转换为布尔值都是true
+
+        // var a="0";
+        // console.log(Boolean(a));
+
+
+        // var a=3;
+        // 强转为对象类型
+        // console.log(Object(a));
+
+
+            var a3="";
+            var a4=0;
+            var a5=undefined;
+            var a6=null;
+            var a7=NaN;
+            var a8=false;
+            console.log(Boolean(a3),Boolean(a4),Boolean(a5),Boolean(a6),Boolean(a7),Boolean(a8));
+            
+           /*  var a9="4a5";
+            var a10="ee4a5";
+            console.log(parseInt(a9).toFixed(2))
+            console.log(parseInt(a10).toFixed(2)) */
+        
+    </script>
+</body>
+
+</html>
