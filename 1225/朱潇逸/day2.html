@@ -1,15 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    var obj={}
+        // var obj={}
 
-// console.log(Boolean( ![]==[]));
-console.log(Boolean(obj));
+        // console.log(Boolean( ![]==[]));
+        // console.log(Boolean(obj));
+
+        //字符相加
+        /*   var a = "a";
+        var b= true;
+        console.log(a+b);      //atrue  字符相加时，首尾相连
+     */
+
+        //布尔值相加不包含加字符
+        // var a = true;
+        //  var b = 3;
+        // var b = null;        //0
+        //     var b;              //NaN于任何数值相加都为NaN
+        //  console.log(a+b);      //4   
+
+
+        //Object 对象相加时都会转换为字符串相加
+        //    var a={a:1};
+        // var b={b:1};
+        // console.log(a+b);     //[object Object][object Object]
+
+
+        //数组转换为字符串时是将数组的元素转换为字符串相连
+        // var arr=[1,2,3];//数组转换为字符串时是将数组的元素转换为字符串相连
+        // var a={a:1};
+        // console.log(arr+a); //1,2,3[object Object]
+        // console.log([]+[]);
+
+        // 减法 乘法 除法 取模都遵循转换为数值运算
+        /*     var a=true;
+           // var b=false;
+           var b="5";
+           // var b;
+           // var b=null;
+           // var b={a:1};
+           console.log(a*b);   */
+
+
+        //赋值运算符和一元运算符
+
+        // 赋值运算符
+        // var a=3;
+        // a+=5;//a=a+5;
+        // a+="";//快速转换字符串
+
+        // a*=3;
+        // a/=3;
+        // a%=2;
+        // a-=2;
+        // 赋值运算符也是有结果的
+        // var s=a+=2;
+        // console.log(s,a);
+        // if(a-=2){
+        //     console.log("a");
+        // }
+
+
+        // 一元运算符
+        // var a="3";
+        // a++;//a=a+1 
+        // a+=1;//31
+        // a++;//一元运算符强制将值转换为数值+1
+
+        // var a = 3;
+        // console.log(a+=1);// a=a+1   a->返回结果
+        // console.log(a++);// a->返回出来  a=a+1;
+        // console.log(++a);//a=a+1  a->返回结果
+        // a++和++a a的结果相同 返回结果不同
+
+        // var y=a++;
+        // var y=++a;
+
+
+        // var x=1;
+        // if(--x){
+        //     console.log("aa");
+        // }
+
+
+        // var x=1;
+        // x=2-3-4-5
+        //   1+2+2+3+4
+        // var y=x++ + x + x++ + x++ + x++;
+        // var y=x + ++x + x++ +x++ + x++;
+        // console.log(y,x);
+
+        /*  var a="aa";
+         var b ="bb";
+         console.log(b>a);   //true */
+
+        //  console.log("a">1);//false 字符串与数值比较时，字符串转换为数值再比较
+        // console.log(undefined>null); //false
+        // console.log(undefined>null); //true
+
+
+        /* console.log("1" == 1);          //true
+        console.log("" == 0);           //true
+        console.log(0 == false);        //true
+        console.log("" == false);       //true */
+
+
+
+        /* console.log( 0==""== false);     //false 
+         console.log(undefined==null);   //true  判读空的结果是否相同 */
+
+        // NaN永远不和任何内容相等，包括NaN
+        /*   var a="a";
+          if(a==NaN){
+              // 判断a是否是NaN
+              // isNaN()里面的内容会自动隐式转换为数值
+          }
+          if(isNaN(a)){
+              console.log("非数值");
+          } */
+
+         /*  console.log(!0==null);
+          console.log(Boolean(!0)); */
     </script>
 </body>
+
 </html>
