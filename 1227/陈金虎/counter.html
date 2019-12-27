@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script>
+        // 输入第一个值
+        var num1 = (parseInt(prompt("请输入第一个数字")));
+        //输入符号
+        var pre = (prompt("请输入符号"))
+        //输入第二个值
+        var num2 = (parseInt(prompt("请输入第二个数字")));
+        // 判断输入的是不是数值
+        if (isNaN(num1) || isNaN(num2)) {
+            alert('请输入数字！');
+        }
+        //判断符号
+        switch (pre) {
+            case "+":
+                alert(parseInt(num1) + parseInt(num2));
+                break;
+            case "-":
+                alert(parseInt(num1) - parseInt(num2));
+                break;
+            case "*":
+                alert(parseInt(num1) * parseInt(num2));
+                break;
+            case "/":
+                alert(parseInt(num1) / parseInt(num2));
+                break;
+            default:
+                alert("请输入正确的符号")
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var value = parseInt(prompt("请输入你的成绩"));
+        // if (value === 100) document.write("A");
+        // else if (value < 100 && value >= 0) {
+        //     switch (parseInt(value / 10)) {
+        //         case 9:
+        //             document.write("A");
+        //             break;
+        //         case 8:
+        //             document.write("B");
+        //             break;
+        //         case 7:
+        //             document.write("c");
+        //             break;
+        //         case 6:
+        //             document.write("d");
+        //             break;
+        //         default:
+        //             document.write("E");
+        //             break;
+        //     }
+        // } else {
+        //     document.write("erro")
+        // }
+
+    </script>
+</body>
+
+</html>
