@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+
+    // 求质数
+    var flag;
+    for (var i = 100; i < 1000; i++) {
+      flag = false;
+      for (var j = 2; j < i - 1; j++) {
+        if (i % j === 0) {
+          flag = true;
+          break;
+        }
+      }
+      if (!flag) {
+        document.write(i + "<br>")
+      }
+
+    }
+
+    // var i = 2,j = 0,bool;
+    // while(i < 100){
+    //   bool = false;
+    //   j = 2;
+    //   while(j < i - 1){
+    //     if(i % j === 0){
+    //       bool = true;
+    //       break;
+    //     }
+    //     j++
+    //   }
+    //   if(!bool){
+    //     console.log(i);
+    //   }
+
+    //   i++
+    // }
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

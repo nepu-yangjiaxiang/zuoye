@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 倒三角
+       /*  var i = 0,j=0,k=0;
+        while(i<10){
+            j=0;
+            k=0;
+            while(k<i){
+                document.write("&ensp;");
+                k++;
+            }
+
+            while(j<19-i*2){
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        } */   
+
+            /* var i =0, j =0, k =0;
+            while (i<10){
+                j = 0;
+                k = 0;
+                if (i<=4){
+                    while(k<10-i){
+                        document.write("&ensp;");
+                        k++;
+                    }
+                    while(j<i*2+1){
+                        document.write("*");
+                        j++;
+                    }
+                    document.write("<br>");
+                }else {
+                    j = 0;
+                    k = 0;
+                    while(k<i+1){
+                        document.write("&ensp;");
+                        k++;
+                    }
+                    while(j<19-i*2){
+                        document.write("*");
+                        j++;
+                    }
+                        document.write("<br>");
+                }
+                i++;
+            } */
+
+            // 水仙花数
+           /*  var daffodilNumber = 0;
+            for (var i = 1; i<10; i++){
+                for (var j = 0; j<10; j++){
+                    for(var k = 0; k<10; k++){
+                        daffodilNumber = 100*i + 10*j + k;
+                        if(daffodilNumber == i*i*i + j*j*j + k*k*k){
+                            document.write(daffodilNumber+"<br>");
+                        }
+                    }
+                }
+            } */
+            
+            // 弹出框计算器
+            // console.log(0.1+0.2);
+            // var num1 = (prompt("请输入第一个操作数："));
+            // if (num1 == null){
+            //     document.write("操作数不能为空");
+            // }else{
+            //     var num2 = (prompt("请输入第二个操作数："));
+            //     if (num2 == null){
+            //         document.write("操作数不能为空");
+            //     }else {
+            //         num1 = Number(num1);
+            //         num2 = Number(num2);
+            //         if ( isNaN(num1) || isNaN(num2) ){
+            //             document.write("您输入的操作数有误!");
+            //         }else {
+            //             var result =0;
+            //             var op = prompt("请输入操作符");
+            //             switch(op){
+            //                 case "+":
+            //                 result = num1 + num2;
+            //                 break;
+            //                 case "-":
+            //                     result = num1 - num2;   
+            //                     break;
+            //                 case "*":
+            //                     result = num1 * num2;
+            //                     break;
+            //                 case "/":
+            //                     result = num1 / num2;
+            //                     break;
+            //                 default:
+            //                     document.write("输入操作符有误");
+            //             }
+            //             document.write(result);
+            //         }
+            //     }
+            // }
+            
+            // 求任意数的阶乘
+            // var value =parseInt(prompt("请输入你想阶乘的数字:"));
+            // if (isNaN(value)){
+            //     alert("能别乱输入吗？");
+            // }else if(value<=0){
+            //     alert("阶乘不能是零或负数");
+            // }else {
+            //     var result = 1;
+            //     for(var i =1;i<=value; i++){
+            //         result*=i;
+            //     }
+            //     document.write(result);
+            // }
+            
+
+            // var data=[
+            //     {id:1001,icon:"images/1.png",name:"餐饮0",num:1,price:10},
+            //     {id:1002,icon:"images/2.png",name:"餐饮1",num:1,price:20},
+            //     {id:1003,icon:"images/3.png",name:"餐饮2",num:1,price:30},
+            //     {id:1004,icon:"images/4.png",name:"餐饮3",num:1,price:40},
+            //     {id:1005,icon:"images/5.png",name:"餐饮4",num:1,price:50},
+            //     {id:1006,icon:"images/6.png",name:"餐饮5",num:1,price:60},
+            //     {id:1007,icon:"images/7.png",name:"餐饮6",num:1,price:70},
+            //     {id:1008,icon:"images/8.png",name:"餐饮7",num:1,price:80},
+            //     {id:1009,icon:"images/9.png",name:"餐饮8",num:1,price:90},
+            //     {id:1010,icon:"images/10.png",name:"餐饮9",num:1,price:100}
+            // ];
+            // var str = "<table>";
+            //     for(var i=0,j=0;i<10;i++){
+            //         str+="<tr>";
+            //             for(prop in data[j]){
+            //                 if(prop === "icon"){
+            //                     str+="<td>";
+            //                     str+= prop;
+            //                     str+="</td>";
+            //                     str+="<td>";
+            //                     str+= "<img src="+data[j][prop]+">";
+            //                     str+="</td>";
+            //                     continue;
+            //                 }
+            //                 str+="<td>";
+            //                 str+= prop;
+            //                 str+="</td>";
+            //                 str+="<td>";
+            //                 str+= data[j][prop];
+            //                 str+="</td>";
+            //             }
+            //             j++;
+            //         str+="</tr>";
+            //     }
+            // str += "</table>";
+            // document.write(str);
+    </script>
+</body>
+</html>
