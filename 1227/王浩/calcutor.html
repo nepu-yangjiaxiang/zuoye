@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num1 =parseInt(prompt("请输入第一个数"));
+        // 判断输入的第一个数值是否是数值，是就输入运算符，否则弹出错误提示
+        if(!isNaN(num1)){
+            var sign = prompt("请输入一个运算符");
+            // 判断输入的运算符是否是 + - * /，如果是就进入下一项否则就弹出错误
+            if(sign==="+" || sign==="-" || sign==="*" ||sign==="/"){
+                var num2 = parseInt(prompt("请输入第二个数字"));
+                // 判断输入的第二个数字是否是数值，是就进入switch case 否则就弹出错误提示
+                if(!isNaN(num2)){
+                    switch(sign){
+                        // 加法运算
+                        case "+":
+                            alert(num1+num2);
+                            break;
+                        // 减法运算
+                         case "-":
+                            alert(num1-num2);
+                            break;
+                        // 乘法运算
+                        case "*":
+                            alert(num1*num2);
+                            break;
+                        // 除法运算
+                        case "/":
+                            alert(num1/num2);
+                            break;
+                        default:
+                    }
+                }else{
+                    // 第一个输入的不是数字，弹出错误提示
+                    alert("请重新输入一个数字");
+                }
+            }else{
+                // 输入的运算符不是+-*/错误提示
+                alert("请输入+-*/任意一个字符")
+            }
+        }else{
+            // 输入的第二个数字不是数值，弹出错误提示
+            alert("请输入一个数字");
+    }
+
+    </script>
+</body>
+</html>
