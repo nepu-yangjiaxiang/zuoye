@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        // 在执行a={n:2}的语句块的时候 相当于断开了一个地址然后将新的地址给a至于
+        //原来a的内容是不会改变的的。
+        // var a={n:1};
+        // var b = a;
+        // a.x=a={n:2};
+        // console.log(a.x,b,a);
+
+        // var a ="564";
+        // var b = 123;
+        // var c = {
+        //     g:2,
+        //     ch:3,
+        // }
+        //a++的返回结果是 先返回结果再返回 a的值
+        // console.log(a++);
+        // 快速转换字符串   b+="";
+        //    var c = "a";
+        //    var d = "AAsd";
+        //     console.log(NaN===NaN);
+
+        var a = Number(prompt("请输入您的成绩", "100"));  //parseInt 和 Number转型的区别？
+        var grades = function (gra) {
+            if (!isNaN(gra)) {
+                if(gra>100){
+                    console.log("出现问题警告");
+                }else if (gra <= 100 && gra > 90) {
+                    console.log("您的成绩是" + gra + ":属于三好学生");
+                } else if (gra <= 90 && gra > 80) {
+                    console.log("您的成绩是" + gra + ":属于优等生");
+                } else if (gra <= 80 && gra > 70) {
+                    console.log("您的成绩是" + gra + ":属于优良生");
+                } else if (gra <= 70 && gra > 60) {
+                    console.log("您的成绩是" + gra + ":属于合格生");
+                } else {
+                    console.log("您的成绩是" + gra + ":属于一只猪");
+                }
+            }else{
+                conosle.log("你输入的有问题");
+            }
+        }
+        // 使用switch case的用法时候不好计算 可以用取余法
+        grades(a);
+    </script>
 </body>
+
 </html>
