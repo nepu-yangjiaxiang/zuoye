@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                var i=0,j=0;
+        var k=0;
+        while(i<10){
+            k=0;
+            while(k<10-i){
+                document.write("&ensp;");
+                                    //&emsp;,一个汉字宽，&ensp；字母宽
+                k++;
+            }
+            j=1;
+            while(j<(i+1)*2){
+                document.write("*");
+                j++;
+            } 
+            document.write("<br>")
+            i++;
+        }
+
+        var i=0,j=0;
+        var k=0;
+        while(i<11){
+            k=0;
+            while(k<i){
+                document.write("&ensp;");
+                                    //&emsp;,一个汉字宽，&ensp；字母宽
+                k++;
+            }
+            j=22;
+            while(j>i*2+1){
+                document.write("*");
+                j--;
+            }
+            
+            document.write("<br>")
+            i++;
+        }
+    
+    
+    </script>
+</body>
+</html>

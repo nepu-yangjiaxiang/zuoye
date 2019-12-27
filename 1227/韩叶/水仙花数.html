@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 水仙花数
+        var num = 100;
+        var x, y, z;
+        while (num < 1000) {
+            x = parseInt(num / 100);
+            y = parseInt(num % 100 / 10);
+            z = parseInt(num % 10);
+            if (num === x * x * x + y * y * y + z * z * z) {
+                document.write(num+" ")
+            }
+            num++
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            height: 500px;
+        }
+
+        td {
+            border: 1px solid #ff00ff;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 1.做一个倒三角 菱形（while循环）
+        // var j = 0;
+        // while (j < 10) {
+        //     // 打印空格
+        //     var h = 0;
+        //     while(h<j){
+        //         document.write("&ensp;");
+        //         h++;
+        //     }
+        //     var i = 0;
+        //     while (i < (10-j)*2-1) {
+        //         document.write("*");
+        //         i++;
+        //     }
+        //     document.write("<br>");
+        //     j++;
+        // }
+
+        
+
+        // 2.菱形（while循环）。
+        // var j = 0;
+        // var k = 11;
+        // while (j < k) {
+        //     var h = 1;
+        //     if (j < k / 2) {
+        //         while (h < (k - 1) - j) {
+        //             document.write("&ensp;");
+        //             h++;
+        //         }
+        //     }else{
+        //         while(h<=j-1){
+        //             document.write("&ensp;");
+        //             h++;
+        //         }
+        //     }
+        //     var i = 0;
+        //     if (j < k / 2) {
+        //         while (i <= j * 2) {
+        //             document.write("*");
+        //             i++;
+        //         }
+        //     } else {
+        //         while (i <= (k - j -1) * 2) {
+        //             document.write("*");
+        //             i++;
+        //         }
+        //     }
+
+        //     document.write("<br>");
+        //     j++;
+        // }
+      /*   var j = 0;
+        while (j < 10) {
+            // 打印空格
+            var h = 0;
+            while(h<j){
+                document.write("&ensp;");
+                h++;
+            }
+            var i = 0;
+            while (i < (10-j)*2-1) {
+                document.write("*");
+                i++;
+            }
+            document.write("<br>");
+            j++;
+        }
+
+        /* alt+shift+a块注释 */
+        // 3.做一个水仙花数（100-999）
+        /* var e = 100;
+        while (e >= 100 && e <= 999) {
+            var a = parseInt(e / 100);
+            var h = e % 100;
+            var b = parseInt(h / 10);
+            var c = e % 10;
+            if ((a * a * a + b * b * b + c * c * c) == e) {
+                document.write(e + "是一个水仙花数");
+                document.write("<br>");
+            }
+            e++;
+        }
+ */
+        //4. 弹窗计算器
+        // var a = Number(prompt("请输入数值", "+/-/*//%"));
+        // var c = prompt("请输入运算符", "+/-/*//%")
+        // var b = Number(prompt("请输入数值", "+/-/*//%"));
+        // ！isNaN()用来获取正确的数值类型
+        /* if (!isNaN(a) && !isNaN(b)) {  
+            switch (c) {
+                case "+": alert(a + b);
+                    break;
+                case "-": alert(a - b);
+                    break;
+                case "*": alert(a * b);
+                    break;
+                case "/": alert(a / b);
+                    break;
+                default: alert("你输入的运算符有错误")
+                    break;
+            }
+        }else{
+            alert("请输入正确的数值")
+        } */ 
+
+        // 求任意数的阶乘。
+        /* var i = prompt("请输入要阶乘的数");
+        if (!isNaN(i) && i!=0) {
+            for (var sum = 1; i > 0; i--) {
+                sum *= i;
+            }
+            document.write("你要的阶乘是" + sum);
+        }else{
+            alert("请输入正确的数字");
+        } */
+
+
+        // 讲一个内容做成一个表格外层用for循环 内层用for in
+        // 提取出数据
+        // 做一张表格
+        // 将数据放进去
+
+       /*  var data = [
+            { id: 1001, icon: "img/1.png", name: "餐饮0", num: 1, price: 10 },
+            { id: 1002, icon: "img/2.png", name: "餐饮1", num: 1, price: 20 },
+            { id: 1003, icon: "img/3.png", name: "餐饮2", num: 1, price: 30 },
+            { id: 1004, icon: "img/4.png", name: "餐饮3", num: 1, price: 40 },
+            { id: 1005, icon: "img/5.png", name: "餐饮4", num: 1, price: 50 },
+            { id: 1006, icon: "img/6.png", name: "餐饮5", num: 1, price: 60 },
+            { id: 1007, icon: "img/7.png", name: "餐饮6", num: 1, price: 70 },
+            { id: 1008, icon: "img/8.png", name: "餐饮7", num: 1, price: 80 },
+            { id: 1009, icon: "img/9.png", name: "餐饮8", num: 1, price: 90 },
+            { id: 1010, icon: "img/10.png", name: "餐饮9", num: 1, price: 100 }
+        ]; */
+        // 取出所有的数据
+        /* for(var index in data){
+            for(var j in data[index]){
+                console.log(data[index][j]);
+            }  
+        } */
+        /*  var str = "";
+         str += "<table>";
+             var h = 0
+             for (var i in data) {       
+                 str += "<tr>"
+                 str += "<td>" + data[i].id + "</td>";
+                 str += "<td> <img src=" + data[i].icon + " alt=''> </td>";
+                 str += "<td>" + data[i].name + "</td>";
+                 str += "<td>" + data[i].num + "</td>";
+                 str += "<td>" + data[i].price + "</td>";
+                 str += "</tr>"
+             }
+         str += "</table>"; */
+
+        var str = ""
+        str += "<table>";
+        for (var j = 0; j < data.length - 1; j++) {
+            str += "<tr>";
+            for (var i in data[j]) {
+                if (i != "icon") { str += "<td>" + data[j][i] + "</td>"; }
+                else{str += "<td> <img src=" + data[j][i] + " alt=''> </td>";}
+            }
+            str += "</tr>";
+        }
+        str += "</table>";
+        document.write(str);
+    </script>
+</body>
+
+</html>

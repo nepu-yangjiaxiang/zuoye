@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            float: left;
+            margin-left: 5px;
+        }
+
+        td {
+            border: 1px dashed #ff0000;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -30,29 +42,97 @@
         //    var d = "AAsd";
         //     console.log(NaN===NaN);
 
-        var a = Number(prompt("请输入您的成绩", "100"));  //parseInt 和 Number转型的区别？
-        var grades = function (gra) {
-            if (!isNaN(gra)) {
-                if(gra>100){
-                    console.log("出现问题警告");
-                }else if (gra <= 100 && gra > 90) {
-                    console.log("您的成绩是" + gra + ":属于三好学生");
-                } else if (gra <= 90 && gra > 80) {
-                    console.log("您的成绩是" + gra + ":属于优等生");
-                } else if (gra <= 80 && gra > 70) {
-                    console.log("您的成绩是" + gra + ":属于优良生");
-                } else if (gra <= 70 && gra > 60) {
-                    console.log("您的成绩是" + gra + ":属于合格生");
-                } else {
-                    console.log("您的成绩是" + gra + ":属于一只猪");
-                }
-            }else{
-                conosle.log("你输入的有问题");
-            }
-        }
+        // var a = Number(prompt("请输入您的成绩", "100"));  //parseInt 和 Number转型的区别？
+        // var grades = function (gra) {
+        //     if (!isNaN(gra)) {
+        //         if(gra>100){
+        //             console.log("出现问题警告");
+        //         }else if (gra <= 100 && gra > 90) {
+        //             console.log("您的成绩是" + gra + ":属于三好学生");
+        //         } else if (gra <= 90 && gra > 80) {
+        //             console.log("您的成绩是" + gra + ":属于优等生");
+        //         } else if (gra <= 80 && gra > 70) {
+        //             console.log("您的成绩是" + gra + ":属于优良生");
+        //         } else if (gra <= 70 && gra > 60) {
+        //             console.log("您的成绩是" + gra + ":属于合格生");
+        //         } else {
+        //             console.log("您的成绩是" + gra + ":属于一只猪");
+        //         }
+        //     }else{
+        //         conosle.log("你输入的有问题");
+        //     }
+        // }
         // 使用switch case的用法时候不好计算 可以用取余法
-        grades(a);
+        // grades(a);
+
+        // 表格
+        // var str ="";
+        // var j = 0 ;
+        // while(j<5){
+        //     str = "<table>";
+        //         var i  = 0;
+        //         while(i<5){
+        //             str+="<tr>";
+        //             var h = 0;
+        //             while(h<3){
+        //                 str += "<td>";
+        //                 str +="表头"+h;
+        //                 str += "</td>";
+        //                 h++;
+        //             }
+        //             str+="</tr>";
+        //             i++;
+        //         }
+        //     str += "</th>";
+        //     j++;
+        //     document.write(str);
+        // }
+        // 求质数
+        // var str = "";
+        // var i = 2;
+        // while(i<100){
+        //     var j = 1;
+        //     if(i%j){
+        //         j++;
+        //     }
+        //     i++;
+        // }
+
+        //画星星  空格由大变小 ， 星星由少变多  ，在由多变少
+        var j = 0;
+        while (j < 10) {
+            var h = 0;
+            while(h<10-j){
+                document.write("&ensp;");
+                h++;
+            }
+            var i = 0;
+            while (i <= j*2) {
+                document.write("*");
+                i++;
+            }
+            
+            document.write("<br>");
+            j++;
+        }
+
+        /* ~ -- 的运算优先级问题 */
+        // var i = 10;
+        // while(~i--){
+        //     document.write(i+"<br>");
+        // }
+        // while(i = ~i--)  会进入一个死循环
+
+            // 至少打印一次
+            // var n;
+            // do{
+            //     n=Math.random();
+            //     console.log(n);
+            // }while(n<0.5)
+
+
     </script>
+
 </body>
 
 </html>
