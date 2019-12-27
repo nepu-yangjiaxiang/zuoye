@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 打印100-999的水仙花数
+        // 定义一个变量并赋初始值
+        var num=100;
+        // 定义三个变量，分别用来获取一个数的百位十位个位的数值
+        var a,b,c;
+        // 循环100-999
+        while(num<1000){
+            // 通过算术运算将一个数字的百位十位个位提取出来
+            // 提取百位
+            a=parseInt(num/100);
+            // 提取十位
+            b=parseInt(num/10%10);
+            // 提取个位
+            c=parseInt(num%10);
+            // 判断条件百位十位个位分别三次幂如果等于这个数，就输出（即为水仙花数）
+            if(a*a*a+b*b*b+c*c*c===num){
+                document.write(num+"<br>");
+            }
+            num++;
+        }
+    </script>
+</body>
+</html>
