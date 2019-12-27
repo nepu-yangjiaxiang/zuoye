@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table {
+      width: 1000px;
+      height: 600px;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    img {
+      width: 100px;
+      display: block;
+      margin: 0 auto;
+      transition: 0.5s;
+    }
+
+    td:hover img {
+      transform: scale(1.5);
+    }
+
+    td:hover {
+      background-color: pink;
+      color: #fff;
+    }
+
+    td {
+      border: 1px solid pink;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // name : num : price : img
+    var objs = [
+      { address: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577463647203&di=dc9be702d41573d5c1d6a4a54fe14e98&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20160224%2Fmp60279553_1456280060509_44.gif', name: "嗯哼1~", num: 1001, price: 3200 },
+      { address: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577463647203&di=dc9be702d41573d5c1d6a4a54fe14e98&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20160224%2Fmp60279553_1456280060509_44.gif', name: "嗯哼2~", num: 1002, price: 3200 },
+      { address: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577463647203&di=dc9be702d41573d5c1d6a4a54fe14e98&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20160224%2Fmp60279553_1456280060509_44.gif', name: "嗯哼3~", num: 1003, price: 3200 },
+      { address: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577463647203&di=dc9be702d41573d5c1d6a4a54fe14e98&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20160224%2Fmp60279553_1456280060509_44.gif', name: "嗯哼4~", num: 1004, price: 3200 },
+    ]
+
+    var tableStr = "<table>"
+    for (var i = 0; i < objs.length; i++) {
+      tableStr += "<tr>"
+      for (obj in objs[i]) {
+
+        // 字符串模板
+        tableStr += `
+          <td>
+            icon: <img src="${objs[i]["address"]}"> 
+            <p>name: ${objs[i]["name"]}</p>
+            <p>id: ${objs[i]["num"]}</p> 
+            <p>price: ${objs[i]["price"]}</p>
+          </td>`
+
+
+
+        // console.log(objs[i][obj]);
+        // tableStr += "<td>icon:<img src=" + objs[i]["address"] + ">" 
+        //   + objs[i]["name"] + objs[i]["num"] + objs[i]["price"] + "</td>"
+
+      }
+      tableStr += "</tr>"
+
+    }
+
+    tableStr += "</table>"
+    document.write(tableStr)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
