@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           var a=1,
+            b=1,
+            c=0;
+            //控制菱形的打印行数；
+            while(a<=10){
+                c=0;
+                //控制空格数量；
+                while(c<20-a*2){
+                    document.write("&nbsp;");
+                    c++;
+                }
+                b=1;
+                //控制菱形的打印星数；
+                while(b<a*3-1){
+                    document.write("*");
+                    b++;
+                }
+                document.write("<br>");
+                a++;
+            }
+            var a=1,
+            b=0,
+            c=0;
+            //控制行数；
+            while(a<10){
+                c=0;
+                while(c<a*2){
+                    document.write("&nbsp");
+                    c++;
+                }
+                b=0;
+                while(b<28-a*3){
+                    document.write("*");
+                    b++;
+                }
+                document.write("<br>");
+                a++;
+            }
+
+    </script>
+</body>
+</html>
