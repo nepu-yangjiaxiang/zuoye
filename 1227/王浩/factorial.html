@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //通过转换方法将输入框的字符串转为数值型
+        var num = parseInt(prompt("请输入一个整数"));
+        // 判断输入的内容如果是非数值，返回错误提示，如果是数值则会继续执行
+        if(!isNaN(num)){
+            // 进行累乘运算
+            for(var i=1,sum=1;i<=num;sum*=i++){}
+            // 输出结果
+            document.write(sum);
+        }else{
+            // 如果输入的内容是非数值，将会弹出这个错误提示
+            alert("请重新输入一个整数");
+        }
+    </script>
+</body>
+</html>
