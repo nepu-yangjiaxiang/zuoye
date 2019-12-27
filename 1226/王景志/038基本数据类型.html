@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>五种基本数据类型和一种复杂类型</title>
+</head>
+<body>
+    <script>
+        // alert("这是一个是alert对话框。");
+        //confirm("只是一个确认对话框"); //确认返回true,取消返回false;
+        //prompt("这是一个输入对话框！","这里是默认值");
+
+        //临时变量 起名时用_开始
+        //var _time;   // 声明临时变量
+        //常量命名 全部大写，用_连接 ;   常量定义的对象，不能修改、清除
+        //const CURRENT_TIME;
+
+
+
+        // 数据类型  Boolean 、 String 、 Number 、 NUll 、 undefined 
+        // typeof 检测变量类型
+
+        // Boolean
+        // var bool1 = true;
+        // var bool2 = false;
+
+        // String 
+        // var str1 = "hello world";
+        // var str2 = 'hello world';
+        // var str3 = `hello world`;
+
+        // Number 
+        // var num1 = 123;   // 正整数
+        // var num2 = -123;  // 负整数
+        // var num3 = 12.3;  // 浮点型
+        // var num4 = 056;   // 8进制数
+        // var num5 = 0x123;  // 16进制数
+
+
+        
+        // undefined  值和类型相同就为undefined
+        // var abc;   
+        // var abc = undefined; 
+
+        // null      null的类型typeof为object型
+        // var a = null;
+        // console.log(typeof(a));  // 结果为 object
+
+        // object 
+        var obj = {a:123,b:46566,c:"dfasdfa",d:function(){alert("只是一个方法");}};
+        // console.log(JSON.stringify(obj));  //将对象转为Json字符串
+        // var obj1 = JSON.parse(JSON.stringify(obj));  //将Json字符串转为对象
+        // 问题 ： 将一个对象转为Json字符串在转回对象，这个对象和原先全等吗？
+        //  答案： 不想等。原因：用Json.stringify()将内容在堆中复制了一份，用Json.parse()转换成对象，该对象和原先对象的地址不相同，而全等比较的是地址。
+    </script>
+</body>
+</html>
