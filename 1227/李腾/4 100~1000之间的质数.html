@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //100~1000质数,只能被1和自身整除，从2开始
+        var i = 2, n = 100;
+        while (n < 1000) {
+            i = 2;
+            while (i < n) {
+                //不是质数跳出本次循环
+                if (n % i == 0) {
+                    break;
+                }
+                // 判断终止条件，当i为n-1时还没跳出，说明n不能被2~n-1的数除尽，n是质数
+                if (i == n-1) {
+                    document.write(n + "<br>");
+                }
+                i++;
+            }
+            n++;
+        }
+    </script>
+</body>
+
+</html>
