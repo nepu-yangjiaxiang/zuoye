@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i,j,sum,sym;
+        i=Number(prompt("请输入第一个数:"));
+        sym=prompt("请输入运算符:");
+        j=Number(prompt("请输入第二个数:"));
+        if(!isNaN(i && j)){
+            if(sym=="+") sum=i+j;
+            else if(sym=="-") sum=i-j;
+            else if(sym=="*") sum=i*j;
+            else if(sym=="/") sum=i/j;
+            if(sum) console.log(sum);
+            else console.log("运算符输入错误");
+        }else console.log("数字输入错误")
+        
+        /* console.log(i,sym,j,sum); */
+    </script>
+</body>
+</html>

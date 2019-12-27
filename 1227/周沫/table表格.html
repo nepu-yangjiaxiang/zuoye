@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            border: 0;
+            width: 100px;
+            height: 50px;
+        }
+        table{
+            border-collapse: collapse;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        td{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+       var data = [{
+            id: 1001,
+            icon: "img0.jpg",
+            name: "餐饮0",
+            num: 1,
+            price: 10
+        },
+        {
+            id: 1002,
+            icon: "img1.jpg",
+            name: "餐饮1",
+            num: 1,
+            price: 20
+        },
+        {
+            id: 1003,
+            icon: "img2.jpg",
+            name: "餐饮2",
+            num: 1,
+            price: 30
+        },
+        {
+            id: 1004,
+            icon: "img3.jpg",
+            name: "餐饮3",
+            num: 1,
+            price: 40
+        },
+        {
+            id: 1005,
+            icon: "img4.jpg",
+            name: "餐饮4",
+            num: 1,
+            price: 50
+        },
+        {
+            id: 1006,
+            icon: "img5.jpg",
+            name: "餐饮5",
+            num: 1,
+            price: 60
+        },
+        {
+            id: 1007,
+            icon: "img6.jpg",
+            name: "餐饮6",
+            num: 1,
+            price: 70
+        },
+        {
+            id: 1008,
+            icon: "img7.jpg",
+            name: "餐饮7",
+            num: 1,
+            price: 80
+        },
+        {
+            id: 1009,
+            icon: "img8.jpg",
+            name: "餐饮8",
+            num: 1,
+            price: 90
+        },
+        {
+            id: 1009,
+            icon: "img9.jpg",
+            name: "餐饮9",
+            num: 1,
+            price: 100
+        }];
+        var str = "<table>";
+        for(var i = 0; i < data.length; i++) {
+            str += "<tr>";
+            for(var prop in data[i]) {
+                if(prop == "icon") {
+                    str +="<td><img src='./images/" + data[i].icon + "'></td>";
+                }else {
+                    str +="<td>" + data[i][prop] + "</td>";
+                }
+                console.log(prop)
+            }
+            str+="</tr>";
+        }
+        str+= "</table>"
+		document.write(str);
+    </script>
+</body>
+</html>

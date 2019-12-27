@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i,j,sum;
+        i=Number(prompt("请输入需要阶乘的数:"));
+        j=0;
+        sum=1;
+        if(!isNaN(i)){
+            while(j<i){
+                j++;
+                sum*=j;
+            }
+            console.log(sum);
+        }else console.log("输入错误");
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i=0,o=0,j,k,p,q;
+        while(i<10){
+            i++;
+            j=0;
+            while(j<(10-i)){
+                document.write("&ensp;");
+                j++;
+            }
+            k=0;
+            while(k<i*2-1){
+                document.write("*");
+                k++;
+            }
+            document.write("<br>");
+        }
+        while(o<10){
+            o++;
+            p=0;
+            while(p<o){
+                document.write("&ensp;");
+                p++;
+            }
+            q=0;
+            while(q<(10-o)*2-1){
+                document.write("*");
+                q++;
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
