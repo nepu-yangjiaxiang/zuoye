@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒三角 菱形</title>
+</head>
+<body>
+    <script>
+        //倒三角
+        var i=0,j,k;
+        while(i<6){
+            k=0;
+            while(k<i){
+                document.write("&ensp;");
+                k++;
+            }
+            j=0;
+            while(j<(6-i)*2-1){
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        }    
+
+        //菱形
+        var i=0;
+        while(i<6){
+            k=0;
+            while(k<(5-i)){
+                document.write("&ensp;");
+                k++;
+            }
+            j=0;
+            while(j<(i+1)*2-1){
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        }
+        var i=0,j,k;
+        while(i<6){
+            k=0;
+            while(k<(i+1)){
+                document.write("&ensp;");
+                k++;
+            }
+            j=0;
+            while(j<(6-i)*2-3){
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        } 
+    </script>
+</body>
+</html>
