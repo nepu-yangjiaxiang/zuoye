@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹框计算器</title>
+</head>
+<body>
+    <script>
+        // var num1=1,num2=2;
+// document.write(num1+=num2);
+
+        var num1 = parseInt(prompt("请输入第一个数值："));
+        var sign = prompt("请输入一个运算符：+ - * / % ");
+        var num2 = parseInt(prompt("请输入第二个数值："));
+        // document.write(num1+=num2);
+        // var a;
+        // var flag = true;
+        // var num1,num2,sign;
+        // while(true){
+        //     num1 = prompt("请输入第一个数值：");
+        //     sign = prompt("请输入一个运算符：+ - * / % ");
+        //    num2 = prompt("请输入第二个数值：");
+        //    var a;
+            switch(sign){
+                case "+":document.write(num1+=num2);break;
+                case "-":document.write(num1-=num2);break;
+                case "*":document.write(num1*=num2);break;
+                case "/":document.write(num1/=num2);break;
+                case "%":document.write(num1%=num2);break;
+                default:document.write("您输入的运算符不存在哦！");
+            }
+
+
+
+            // a = prompt("如果要退出，请按q，否则，按任意键继续：");
+            // document.write("如果要退出，请按q，否则，按任意键继续：")
+            // if(a==="q")break;
+        // }
+    </script>
+</body>
+</html>

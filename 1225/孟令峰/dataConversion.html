@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //任何内容转换为数值型
+        // var a="5";
+        // var a="5a";     //NaN
+        // var a="";       //0
+        // var a=true;
+        // var a=false;
+        var a;
+        var a=undefined;    //NaN 非数值
+        var a=null;         //0   
+        console.log(Number(a));
+
+        var b="52.1a";
+        var b="51.213";
+        var b="50.913";     //没有四舍五入
+        var b="a23";        //NaN
+        var b="4a5";        //4
+        var b=true;
+        var b=false;
+        var b=null;         //NaN
+        var b={a:1};        //NaN
+        var b="12345.1231";      //这是十进制的数
+        console.log(parseInt(b,2));
+        console.log(parseInt(b,8));
+        console.log(parseInt(b,10));
+        console.log(parseInt(b,16));
+        console.log(parseInt(b,32));
+
+        console.log(parseFloat(b));
+
+
+        //转换为字符串
+        //先将所有数值都转换为10进制在转换为字符串
+        // var c=100;
+        // var c=012;
+        // var c=0xAA;
+        // var c=2.3e+5;
+        // var c=true;
+        // var c=false;
+        // var c;          //undefined
+        // var c="";
+        // var c={a:1};
+        // console.log(String(c));
+
+        var c = new Date();
+        console.log(c.toLocaleString());
+        console.log(c.toUTCString());
+        console.log(c.toString());
+
+        var c=52.12678;
+        console.log(c.toFixed(3));//小数点后，四舍五入
+        console.log(c.toPrecision(6));//总共几位,四舍五入
+        console.log(c.toExponential(2));//小数点后，不四舍五入，科学计数法
+
+
+        
+    </script>
+    
+</body>
+</html>

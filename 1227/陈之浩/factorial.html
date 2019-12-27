@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    test
+    <script>
+        var a = parseInt(prompt("请输入数值"));
+        if(!isNaN(a)){
+        var sum = 1;
+        for(var i =1; i <= a; i++){
+            sum*=i;
+        }
+        document.write(sum);
+    }
+        </script>
 </body>
 </html>

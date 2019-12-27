@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var i=0,
+            j=0,
+            k=0,
+            m=0,
+            n=9,
+            l=0;
+        // 打印上三角形
+        while(i<10){
+            k=0;
+            // 打印空格
+            while(k<9-i){
+                document.write("&ensp;");
+                k++;
+            }
+            j=0;
+            // 打印星星
+            while(j<2*i+1){
+                document.write("*");
+                j++;
+            }
+            // 打印换行
+            document.write("<br>");
+            i++;
+        }
+    //    打印下半部分，倒三角
+        while(n>0){
+            // 打印空格，由于第一行的数目和上方倒数第二行的星星数目相同，因此第一行空格多一个
+            l=0;
+            while(l<10-n){
+                // 输出空格
+                document.write("&ensp;");
+                l++;
+            }
+            m=0;
+            // 打印的星星数目从正三角形的倒数第二行的数目依次进行
+            while(m<2*n-1){
+                // 输出星星
+                document.write("*");
+                m++;
+            }
+            // 换行
+            document.write("<br>");
+            n--;
+        }
+    </script>
+</body>
+</html>
