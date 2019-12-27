@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 计算器
+        var a = Number(prompt("第一个数字"));
+        var b = prompt("运算符");
+        var c = Number(prompt("第二个数字"));
+        if (b === "+") {
+            document.write(a + c)
+        } else if (b === "-") {
+            document.write(a - c)
+        } else if (b === "*") {
+            document.write(a * c)
+        } else if (b === "/") {
+            document.write(a / c)
+        } else {
+            alert("请重新输入")
+        }
+    </script>
+</body>
+
+</html>
