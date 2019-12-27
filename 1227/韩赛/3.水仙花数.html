@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // 水仙花数 (打印水仙花数(100-999之间的数字,236 = 2(3)次幂 + 3(3)次幂 + 6(3)次幂))
+    var ge, shi, bai;
+    for (var i = 100; i < 1000; i++) {
+      // 分别取出一个数的 个位  十位 和 百位
+      ge = parseInt(i % 10)
+      shi = parseInt(i / 10 % 10)
+      bai = parseInt(i / 100)
+
+      if (i === ((ge * ge * ge) + (shi * shi * shi) + (bai * bai * bai)))
+        console.log(i);
+
+    }
+
+    // ge = parseInt(i % 10)
+    // shi = parseInt(i / 10 % 10)
+    // bai = parseInt(i / 100)
+    
+    // document.writeln((ge << 3) + (shi << 3) + (bai << 3))
+    // document.writeln(i === ((ge << 3) + (shi << 3) + (bai << 3)))
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
