@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = parseInt(prompt("请输入正整数"));
+        var j = 1;
+        if (i < 0) alert(i + "的阶乘是" + (-1));
+        if (i === 0 || i === 1){
+            alert(i + "的阶乘是" + 1);
+        }else{
+            while (i>1) {
+                j*=i
+                i--;
+            }
+        alert("阶乘是" +j);
+        }
+        
+    </script>
+</body>
+
+</html>

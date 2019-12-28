@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //if语句
+        var firstValue = Number(prompt("请输入第一个数："));
+        var op = String(prompt("请输入运算符"));
+        var lastValue = Number(prompt("请输入第二个数："));
+        var i = 0;
+        if (op === "+") {
+            i = firstValue + lastValue;
+            alert("结果是：" + i);
+        } else if (op === "-") {
+            i = firstValue - lastValue;
+            alert("结果是：" + i);
+        } else if (op === "*") {
+            i = firstValue * lastValue;
+            alert("结果是：" + i);
+        } else if (op === "/") {
+            if (lastValue !== 0) {
+                i = firstValue / lastValue;
+                alert("结果是：" + i);
+            } else {
+                alert("除数或被除数不能为0");
+            }
+        } else {
+            alert("输入有误！");
+        }
+
+
+        //switch语句
+        var firstValue = Number(prompt("请输入第一个数："));
+        var op = String(prompt("请输入运算符"));
+        var lastValue = Number(prompt("请输入第二个数："));
+        var i = 0;
+        switch (op) {
+            case "+":
+                i = firstValue + lastValue;
+                alert("结果是：" + i);
+                break;
+            case "-":
+                i = firstValue - lastValue;
+                alert("结果是：" + i);
+                break;
+            case "*":
+                i = firstValue * lastValue;
+                alert("结果是：" + i);
+                break;
+            case "/":
+                if(lastValue!==0){
+                    i = firstValue / lastValue;
+                    alert("结果是：" + i);
+                }else{
+                    alert("除数不能为0");
+                }
+                break;
+            default:
+                alert("输入有误");
+        }
+    </script>
+</body>
+
+</html>
