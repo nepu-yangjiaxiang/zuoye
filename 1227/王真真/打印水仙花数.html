@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i=100,j=0,k=0,l=0;
+
+        while(i<1000){
+            j=i%10;//取个位数
+            k=parseInt((i/10)%10);//取十位数
+            l=parseInt((i/100)%10);//取百位数
+            if(l*l*l+k*k*k+j*j*j===i){
+                document.write(i);
+                document.write("<br>");
+            }
+            i++;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 800px;
+            border-collapse: collapse;
+
+        }
+
+        td {
+            border: 1px solid red;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        var data = [
+            { id: 1001, icon: "img/1.png", name: "餐饮0", num: 1, price: 10 },
+            { id: 1002, icon: "img/2.png", name: "餐饮1", num: 1, price: 20 },
+            { id: 1003, icon: "img/3.png", name: "餐饮2", num: 1, price: 30 },
+            { id: 1004, icon: "img/4.png", name: "餐饮3", num: 1, price: 40 },
+            { id: 1005, icon: "img/5.png", name: "餐饮4", num: 1, price: 50 },
+            { id: 1006, icon: "img/6.png", name: "餐饮5", num: 1, price: 60 },
+            { id: 1007, icon: "img/7.png", name: "餐饮6", num: 1, price: 70 },
+            { id: 1008, icon: "img/8.png", name: "餐饮7", num: 1, price: 80 },
+            { id: 1009, icon: "img/9.png", name: "餐饮8", num: 1, price: 90 },
+            { id: 1010, icon: "img/10.png", name: "餐饮9", num: 1, price: 100 }
+        ];
+        var table = "<table>";
+        var i = 0;
+        var dataLength=data.length;
+        while (i < dataLength) {
+            table += "<tr>";
+            for(var j in data[i]){
+                if(j=="icon"){
+                    table+="<td><img src="+data[i][j]+"></td>";
+                }else{
+                    table+="<td>"+data[i][j]+"</td>";
+                }
+            }
+            table += "</tr>";
+            i++;
+        }
+        table += "</table";
+        document.write(table);
+    </script>
+</body>
+
+</html>

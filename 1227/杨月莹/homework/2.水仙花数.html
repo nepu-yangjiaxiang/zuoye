@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 水仙花数 100-999 abc=a(3)+b(3)+c(3)
+        // 这么写冗余了
+        function daffodil() {
+            var i = 100, bool, a, b, c;
+            while (i < 999) {
+                bool = false;
+                // 百位数
+                a = parseInt(i / 100);
+                // 十位数
+                b = parseInt(i / 10) % 10;
+                // 个位数
+                c = i % 10;
+                // 条件判断
+                if (Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3) === i) bool = true;
+                if (bool) console.log(i);
+                i++;
+            }
+        }
+        daffodil();
+
+
+        // 更简洁
+        function daffodil1() {var i = 100,hundreds,tens,units ;
+        while(i<1000){
+            // 百位数
+            hundreds = parseInt(i/100);
+            // 十位数
+            tens = parseInt((i%100)/10);
+            // 个位数
+            units = i%10;
+            // 条件判断
+            if(i === Math.pow(hundreds,3)+Math.pow(tens,3)+Math.pow(units,3)){
+                console.log(i);
+            }
+            i++;
+        }}
+        daffodil1();
+
+
+
+
+    </script>
+</body>
+
+</html>
