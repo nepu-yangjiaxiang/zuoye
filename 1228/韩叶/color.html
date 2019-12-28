@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getColor() {
+            // 第一种
+            var color1 = "rbg(",
+                num1;
+            for (var i = 0; i < 3; i++) {
+                num1 = parseInt(Math.random() * 256)
+                i === 2 ? color1 += num1 : color1 += num1 + ","
+            }
+            color1 += ")"
+            document.write(color1)
+
+
+
+            document.write("<br><br><br><br><br>")
+
+
+            // 第二种
+            var color2 = "#",
+                num2;
+            for (var i = 0; i < 4; i++) {
+                num2 = parseInt(Math.random() * 256).toString(16);
+                color2 += num2;
+            }
+            document.write(color2)
+        }
+
+
+        getColor()
+    </script>
+</body>
+
+</html>

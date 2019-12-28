@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #calculator {
+            background-color: #eee;
+            border: 1px solid #444;
+            width: 220px;
+            height: 440px;
+            margin: 100px auto;
+        }
+
+        #calculator input {
+            width: 160px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #fff;
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            padding: 0 20px;
+        }
+
+        #calculator div {
+            width: 50px;
+            height: 40px;
+            background-color: #fff;
+            margin: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #calculator p {
+            width: 50px;
+            height: 40px;
+            background-color: #fff;
+            margin: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="calculator">
+        <input type="text" id="numberBox">
+        <div id="num1">1</div>
+        <div id="num2">2</div>
+        <div id="num3">3</div>
+        <div id="num4">4</div>
+        <div id="num5">5</div>
+        <div id="num6">6</div>
+        <div id="num7">7</div>
+        <div id="num8">8</div>
+        <div id="num9">9</div>
+        <div id="num0">0</div>
+
+        <div id="add">+</div>
+        <div id="minus">-</div>
+        <div id="mul">*</div>
+        <div id="divide">/</div>
+        <p id="res">=</p>
+        <p id="null">C</p>
+    </main>
+
+    <script>
+        var oDivs = document.getElementsByTagName("div")
+        var oNumberBox = document.getElementById("numberBox");
+        var oRes = document.getElementById("res");
+        var oNull = document.getElementById("null");
+
+        // 输入到文本框
+        function innerInput() {
+            oNumberBox.value += this.innerHTML;
+            return oNumberBox.value;
+        }
+
+        // 绑定到每个按钮 除了等于和清空
+        function buttonMathod() {
+            for (var i = 0; i < oDivs.length; i++) {
+                oDivs[i].onclick = innerInput;
+            }
+        }
+        buttonMathod()
+
+        // 点击清空
+        oNull.onclick = function () {
+            oNumberBox.value = "";
+        }
+
+        // 点击等于
+        oRes.onclick = function () {
+            var count = innerInput().substring(0, innerInput().indexOf("u"));
+            if (count === "") {
+                alert("请输入数字");
+                oNumberBox.value = ""
+                return
+            }
+            console.log(count)
+            oNumberBox.value = eval('(' + count + ')');
+        }
+    </script>
+</body>
+
+</html>
