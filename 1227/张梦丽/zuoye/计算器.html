@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var value1=Number(prompt("请输入你要计算的值"));
+         var value2=Number(prompt("请输入第二个值"));
+         if(isNaN(value1) || isNaN(value2)){
+             document.write("请输入数字");
+         }
+         else if(value1==="" || value2===""){
+             document.write("输入的数值不能为空");
+         }else{
+            var value3=prompt("请输入操作符");
+            switch(value3){
+                case "+":
+                    value3=value1 + value2;
+                    break;
+                case "-":
+                    value3=value1 - value2;
+                    break;
+                case "*":
+                    value3=value1 * value2;
+                    break;
+                case "/":
+                    value3=value1 / value2;
+                    break;
+                default:
+                    document.write("输入的操作符有误");
+            }
+            document.write(value3);
+         }
+        
+
+        
+        
+    </script>
+
+</body>
+</html>
