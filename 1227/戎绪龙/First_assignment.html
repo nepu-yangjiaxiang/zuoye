@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        table {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+            border: solid 1px #000000;
+            border-collapse: collapse;
+           
+        }
+
+        td {
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            border: solid 1px #000000;
+            
+        }
+</style>
+    
+</head>
+
+<body>
+
+    <!-- 第一题，打印倒三角（while语句） -->
+    <!-- <script>
+        var i = 0,
+            j = 0;
+        while (i < 10) {
+            j = 0;
+            while (j <  i) {
+                document.write("&ensp;");
+                j++;
+            }
+            j = 0;
+            while (j <19- 2 * i ) {
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++;
+        }
+    </script> -->
+
+
+
+    <!-- 第二题.打印菱形 (while语句)-->
+    <!-- <script>
+        var i = 0,
+            j = 0;
+
+
+        while (i < 10) {
+            j = 0
+            while (j < 10 - i) {
+                document.write("&ensp;");
+                j++;
+            }
+            j = 0;
+            while (j < 2 * i + 1) {
+                document.write("*");
+                j++;
+            }
+            document.write("<br>");
+            i++
+        }
+        var m=0,n=0;//可不用另定义新变量
+
+        while (m < 9) {
+            n = 0
+            while (n < m+2) {
+                document.write("&ensp;");
+                n++;
+            }
+            n = 0;
+            while (n < 17 - 2 * m) {
+                document.write("*");
+                n++;
+            }
+            document.write("<br>");
+            m++;
+        }
+    </script> -->
+
+
+
+    <!-- 第三题 水仙花 -->
+    <!-- <script>
+       var a,b,c,sum;
+        for (var i = 100; i < 1000; i++) {
+             a = parseInt(i/100);
+             b = parseInt(i/10%10);
+             c = parseInt(i%10);
+             sum = a*a*a+b*b*b+c*c*c;
+            if (sum==i) {
+                document.write(sum,"<br>");   
+            }
+        }
+    </script> -->
+
+
+    <!-- 第四题 弹窗计算器 -->
+
+
+    <!-- <script>
+        var a = Number(prompt("请您输入第一个数："));
+        var b = Number(prompt("请您输入第二个数："));
+        if (isNaN(a) && isNaN(b)) {
+            document.write("您输入有误");
+        } else if (a == "" || b == "") {
+            document.write("您未输入数值");
+        } else {
+            var sum = 0;
+            var operater = prompt("请输入运算符：");
+            switch (operater) {
+                case "+":
+                    sum = a + b;
+                    break;
+                case "-":
+                    sum = a - b;
+                    break;
+                case "*":
+                    sum = a * b;
+                    break;
+                case "/":
+                    sum = a / b;
+                    break;
+                case "%":
+                    sum = a % b;
+                    break;
+                default:
+                    document.write("您输入有误！");
+            }
+            document.write(sum);
+        }
+    </script> -->
+
+
+
+    <!-- 第五题 求任意数的阶乘 -->
+    <!-- <script>
+         var a=Number(prompt("请输入一个数："));
+        
+        if(isNaN(a)){
+            document.write("您输入有误!");
+        }
+        else if(a<=0){
+            document.write("请您输入不小于1的数!");
+        }
+       else if( a=="" ){
+                document.write("您未输入数值！");
+            }
+            else{
+                var sum=1;
+        for(var i=1;i<=a;i++){
+             sum*=i;
+        }
+        document.write(sum);
+    }
+    </script> -->
+
+
+    <!-- 第六题  打印表格 -->
+    <script>
+        var data,str,i,j;
+        data=[
+            {id:1001,icon:"images/1.jpg",name:"餐饮0",num:1,price:10},
+            {id:1002,icon:"images/1.jpg",name:"餐饮1",num:1,price:20},
+            {id:1003,icon:"images/1.jpg",name:"餐饮2",num:1,price:30},
+            {id:1004,icon:"images/1.jpg",name:"餐饮3",num:1,price:40},
+            {id:1005,icon:"images/1.jpg",name:"餐饮4",num:1,price:50},
+            {id:1006,icon:"images/1.jpg",name:"餐饮5",num:1,price:60},
+            {id:1007,icon:"images/1.jpg",name:"餐饮6",num:1,price:70},
+            {id:1008,icon:"images/1.jpg",name:"餐饮7",num:1,price:80},
+            {id:1009,icon:"images/1.jpg",name:"餐饮8",num:1,price:90},
+            {id:1010,icon:"images/1.jpg",name:"餐饮9",num:1,price:100},
+        ]
+        str="<table >";
+        for(i=0;i<10;i++){
+            str+="<tr>"
+           
+           for(var prop in data[i]){
+               if(prop=="icon"){
+                   str+="<td> <img src='./" + data[i].icon + "'></img></td>";
+                
+               }
+               else str+="<td>"+data[i][prop]+"</td>"
+           }
+            str+="</tr>";
+        }
+        str+="</table>";
+        document.write(str);
+    </script>
+
+</body>
+
+</html>
