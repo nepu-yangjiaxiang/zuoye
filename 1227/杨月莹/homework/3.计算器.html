@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num1 = prompt('请输入第一个运算数'),
+            operator = prompt('请输入运算符'),
+            num2 = prompt('请输入第二个运算数'),
+            result;
+        switch (operator) {
+            case '+':
+                result = Number(num1) + Number(num2);
+                break;
+            case '-':
+                result =num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+        }
+        confirm('计算结果是'+result);
+    </script>
+</body>
+
+</html>

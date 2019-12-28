@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var inputNum1 = Number(prompt('Input First Number'));
+        var inputOperator = prompt('Input Operator');
+        var inputNum2 = Number(prompt('Input Second Number'));
+        if (isNaN(inputNum1) || isNaN(inputNum2)) {
+            confirm("Invalid Number!");
+        }
+        else {
+            switch (inputOperator) {
+                case '+':
+                    confirm("Result:" + inputNum1 + inputNum2);
+                    break;
+                case '-':
+                    confirm("Result:" + inputNum1 - inputNum2);
+                    break;
+                case '*':
+                    confirm("Result:" + inputNum1 * inputNum2);
+                    break;
+                case '/':
+                    confirm("Result:" + inputNum1 / inputNum2);
+                    break;
+                case '^':
+                    confirm("Result:" + inputNum1 ^ inputNum2);
+                    break;
+                case '&':
+                    confirm("Result:" + inputNum1 & inputNum2);
+                    break;
+                case '&&':
+                    confirm("Result:" + inputNum1 && inputNum2);
+                    break;
+                case '|':
+                    confirm("Result:" + inputNum1 | inputNum2);
+                    break;
+                case '||':
+                    confirm("Result:" + inputNum1 | inputNum2);
+                    break;
+                case '<<':
+                    confirm("Result:" + inputNum1 << inputNum2);
+                    break;
+                case '>>':
+                    confirm("Result:" + inputNum1 >> inputNum2);
+                    break;
+                case '%':
+                    confirm("Result:" + inputNum1 % inputNum2);
+                    break;
+                default:
+                    confirm("Invalid Input!");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //菱形
+        var i=0,e=0,m=0;
+        while(i<10){
+            i++;
+            m=0;
+            while(m<(10-i)){
+                document.write("&ensp;")
+                m++;
+            }
+            e=0;
+            while(e<i*2-1){
+               document.write("*");
+               e++;
+            }
+            document.write("</br>");
+        }
+        var a=0,b=0,c=0;
+        while(a<10){
+            a++;
+            c=0;
+            while(c<a){
+                document.write("&ensp;");
+                c++;
+            }
+            b=0;
+            while(b<(10-a)*2-1){
+                document.write("*");
+                b++;
+            }
+            document.write("</br>");
+        }
+    </script>
+</body>
+</html>

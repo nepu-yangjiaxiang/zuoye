@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.writeln("-----三角形<br>");
+        //控制行
+       for(var i = 0; i < 5; i ++){
+            //控制空格数,5~1
+            for(var j = 6; j > i; j--){
+                document.writeln("&nbsp");
+            }
+
+            //控制*数
+            //i 0,1,2,3,4
+            //* 1,3,5,7,9
+            //  2*i+1
+            for(var k = 0; k < 2*i + 1; k ++){
+               document.writeln('*'); 
+            }
+            document.writeln('<br>');
+        }
+
+       /*  document.writeln("---倒立三角形<br>");
+        //控制行,0~5
+        for(var x = 0; x < 5; x ++){
+            //控制空格数
+            //x 0，1，2，3，4
+            //y 1，2，3，4，5
+            // y = x + 1;
+            for(var y = 0; y < x + 1; y ++){
+                document.write('&nbsp');
+            }
+            //控制x数，0，1，2，3，4
+            //控制*数，5，4，3，2，1
+            //         * = x + 5;
+            for(var z = 0; z < 5-x; z++){
+                document.write('*');
+            }
+            document.write('<br>');
+        } */
+    </script>
+</body>
+</html>
