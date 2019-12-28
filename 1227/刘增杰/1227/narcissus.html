@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+             // 水仙花
+        var flower=100;
+        while(flower<999){
+            // bool=false;
+            var a=parseInt(flower/100);
+            var b=parseInt(flower/10%10);
+            var c=parseInt(flower%10);
+            // console.log(a,b,c);
+            if(flower==a*a*a+b*b*b+c*c*c){
+                console.log(flower,a,a*a*a,b,b*b*b,c,c*c*c)
+                document.write(flower)
+                document.write("<br>")
+            }
+            flower++;
+        }
+    </script>
+</body>
+</html>
