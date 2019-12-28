@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 水仙花
+    for(var i = 100; i < 999; i++){
+            //个位
+            var a = i % 10;
+            //十位
+            var b = parseInt(i % 100 / 10);
+            //百位
+            var c = parseInt(i / 100);
+            if (a * a * a + b * b * b + c * c * c === i){
+                console.log(i);
+            }
+        }
+
+    </script>
+</body>
+</html>

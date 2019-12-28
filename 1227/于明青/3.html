@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //计算器
+       
+         
+        var num1 = parseInt(prompt("请输入第一个数值"));
+        var ope = prompt("请输入一个运算符");
+        var num2 = parseInt(prompt("请输入第二个数值"));
+        var num
+        switch(ope){
+            case "+":
+                num = parseInt(num1) + parseInt(num2);
+                document.write(num);
+                break;
+            case "-":
+                num = parseInt(num1) - parseInt(num2);
+                document.write(num);
+                break;
+            case "*":
+                num = parseInt(num1) * parseInt(num2);
+                document.write(num);
+                break;
+            case "/":
+                num = parseFloat(num1) / parseFloat(num2);
+                document.write(num);
+                break;
+        }
+        
+    </script>
+</body>
+</html>
