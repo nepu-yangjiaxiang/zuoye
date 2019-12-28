@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 倒三角形
+        var i = 0, j, k;
+        while (i < 10) {
+            k = 0;
+            while (k < i) {
+                document.write('&ensp;')
+                k++;
+            }
+            j = 0;
+            while (j < 19 - i * 2) {
+                document.write('*');
+                j++;
+            }
+            document.write('<br>')
+            i++;
+        }
+        document.write('<br><br><br>')
+
+
+        // 菱形
+        var i = 0, str = '', j, k;
+        while (i < 10) {
+            j = 0;
+            while (j < 9 - i) {
+                str += '&ensp;'
+                j++;
+            }
+            k = 0;
+            while (k < i * 2 + 1) {
+                str += '*'
+                k++;
+            }
+            str += '<br>'
+            i++;
+        }
+        i = 0;
+        while (i < 10) {
+            j = 0;
+            while (j < i +1) {
+                str += '&ensp;'
+                j++;
+            }
+            k = 0;
+            while (k < 17-i*2) {
+                str += '*'
+                k++;
+            }
+            str += '<br>'
+            i++;
+        }
+        document.write(str)
+
+
+    </script>
+</body>
+
+</html>

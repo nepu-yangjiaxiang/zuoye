@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 求任意数的阶乘
+
+        function factorial(num) {
+            var s = 1;
+            // num是非数字
+            if (isNaN(Number(num))) {
+                console.error('输入的是非数字，无法计算');
+                return;
+            }
+            // num是0
+            if (num === 0) return s;
+            // num是数字
+            while (num--) {
+                s *= (num + 1);
+            }
+            return s;
+        }
+        console.log(factorial(10));
+
+
+
+    </script>
+</body>
+
+</html>
