@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        #input { width: 200px; height: 50px;}
+        section { overflow: hidden; width: 200px; height: 320px; background-color: #fff;}
+        #num div{ width: 50px; height: 50px; border: 1px solid #000; text-align: center; line-height: 50px; font-size: 30px; float: left;}
+        #op div { width: 50px; height: 100px; border: 1px solid red; text-align: center; line-height: 100px; font-size: 30px;float: right;}
+        #num #count {width: 150px;}
+        body{ background-color: pink;}
+    </style>
+</head>
+<body>
+    <input id="input" type="text" placeholder="计算器">
+    <section id="num">
+        <div id="div0">0</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>+</div>
+        <div>-</div>
+        <div>*</div>
+        <div>/</div>
+        <div>C</div>
+        <div id="count">=</div>
+    </section>
+  
+        
+    
+
+    <script>
+        // 模仿谢天老师
+        /* function getColor(){
+            var color="#";
+            var  i =0;
+            while(i<8){
+                color += (parseInt(Math.random()*16)).toString(16);
+                i++;
+            }
+            return color;
+        }
+        function setColor(){
+            var div0 = document.getElementById("randomColor");
+            div0.style.backgroundColor = getColor();
+        }
+        setColor();
+         */
+
+         // 我的代码                                其实没区别
+        /* function creatDiv (){
+            var div0 = document.createElement("div");
+            div0.setAttribute("id","randomColor");
+            div0.style.width = "200px";
+            div0.style.height = "200px";
+            div0.style.border = "1px solid #000";
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(div0);
+        }
+
+        function getColor(){
+            var color = "#";
+            var arrc =["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+            for (var i =0; i<8 ;i++){
+                color+= arrc[parseInt(Math.random()*16)];
+            }
+            return color;
+        }
+        function setColor(){
+            var div0 = document.getElementById("randomColor");
+            div0.style.backgroundColor= getColor();
+        }
+        creatDiv();
+        setColor();
+        */
+
+
+        // rbg颜色
+        /* function creatDiv (){
+            var div0 = document.createElement("div");
+            div0.setAttribute("id","randomColor");
+            div0.style.width = "200px";
+            div0.style.height = "200px";
+            div0.style.border = "1px solid #000";
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(div0);
+        }
+
+        function getColor(){
+            var color = "rgb(";
+            for (var i =0; i<3; i++){
+                color += parseInt(Math.random()*256);
+                color += ",";
+            }
+            color = color.slice(0,-2);
+            color += ")";
+            return color;
+        }
+
+        function setColor(){
+            var div0 = document.getElementById("randomColor");
+            div0.style.backgroundColor= getColor();
+        }
+        creatDiv();
+        setColor();
+         */
+        
+        
+        //  计算器
+        function calculator(){
+            var input = document.getElementById("input");
+            var divs = document.getElementsByTagName("div")
+            var op,k,num1,num2;
+
+            for(var i=0; i<divs.length; i++){
+                divs[i].onclick = function(){
+                    if(isNaN(Number(this.innerHTML))){
+                        op = this.innerHTML;
+                        count(op,input);
+                    }
+                    else {
+                        return !clickHander(input,this.innerHTML);
+                    }
+                }
+            }
+        }
+        function clickHander(input,text){
+                input.value +=  text;
+                return true;
+        }
+        function count(op,input){
+            
+            if (op!=="="){
+                k = op;
+               num1 = parseInt(input.value);
+               
+               input.value ="";
+            }else {
+                num2 = parseInt(input.value);
+                switch(k){
+                    case "+": 
+                        input.value= num1 + num2;
+                        break;
+                    case "-":
+                        input.value = num1 - num2;
+                        break;
+                    case "*":
+                        input.value = num1 * num2;
+                        break;
+                    case "/":
+                        input.value = num1 / num2;
+                        break;
+                    case "C":
+                        input.value = "";
+                        break;
+                }
+            }
+        }
+        calculator(); 
+    </script>
+</body>
+</html>
