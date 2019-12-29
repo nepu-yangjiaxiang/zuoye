@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // a();
+        // var h ;
+
+        // function a(name){
+        //     if(name!==undefined){
+        //         var name = "Jack";
+        //         console.log(name)
+        //     }else{
+        //         console.log(name);
+        //     }
+        // }
+        /* var name = "world";
+        (function(){
+            if(name!==undefined){
+                var name = "Jack";
+                console.log(name)
+            }else{
+                console.log(name);
+            }
+        })(); */
+        //先打印一个小方块
+        function createDiv(_width, _height, _color) {
+            var str = "";
+            str += "<div style='";
+            str += "width:" + _width + "px;";
+            str += "height:" + _height + "px;";
+            str += "background:" + _color + ";";
+            str += "position:absolute;";
+            str += "top:" + Math.random() * 300 + "px;";
+            str += "left:" + Math.random() * 500 + "px;";
+            str += "'></div>";
+            document.write(str);
+        }
+        
+        // 在打印多个小方块  大小在随机设置
+        function randomDiv(num) {
+            for (var i = 0; i < num; i++) {
+                var wid = Math.random() * 100;
+                createDiv(wid, wid, setColor());
+            }
+        }
+
+        // 写个函数生成颜色
+        function setColor() {
+            var bg_color1 = "#";
+            for (var j = 0; j < 6; j++) {
+                // 先转换成正数在转换成16进制的字符串
+                bg_color1 += parseInt(Math.random() * 16).toString(16);
+            }
+            return bg_color1;
+        }
+
+        randomDiv(parseInt(Math.random()*20+1));
+
+        //复用性 多态() 解耦 代码的独立性
+    </script>
+</body>
+
+</html>
