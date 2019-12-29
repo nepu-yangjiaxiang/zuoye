@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // #FFFFFFFF （first）
+        // function randomColor() {
+        //     var color = "#";
+        //     for (var i = 0; i < 8; i++) {
+        //         color += parseInt(Math.random() * 16).toString(16);
+        //     }
+        //     color = color.toUpperCase();
+        //     return color;
+        // }
+        // console.log(randomColor());
+
+
+
+        // #FFFFFFFF (second)
+        // function getRandomColor(color) {
+        //     if ((color +='0123456789ABCDEF'[Math.floor(Math.random() * 16)]) && (color.length == 8)) {
+        //         return color;
+        //     }
+        //     else {
+        //         return arguments.callee(color);
+        //     }
+        // }
+        // console.log("#" + getRandomColor(""))
+        
+
+
+        //srg()
+        function getRandomColor(color){
+            for(var i=0;i<3;i++){
+                if(i!==2){
+                    color+=parseInt(Math.random()*256)+",";
+                }
+                else{
+                    color+=parseInt(Math.random()*256);
+                }
+            }
+            return color;
+        }
+        console.log("("+getRandomColor("")+")");
+
+
+    </script>
+</body>
+
+</html>
