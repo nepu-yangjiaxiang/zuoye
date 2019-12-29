@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+   // #FFFFFFFF
+ var color="#";
+ for(var i=0;i<8;i++)
+ {
+     color+=parseInt(Math.random()*16).toString(16);
+ }
+ color+=";"
+ console.log(color);
+
+// rgb();
+var rgb="rgb(";
+var oba="opacity:"
+for(i=0;i<2;i++)
+{
+    rgb+=parseInt(Math.random()*256)+","
+    if(i===1)
+    rgb+=parseInt(Math.random()*256)
+}
+rgb+=");"
+oba+=Math.random().toFixed(2)+";";
+console.log(rgb);
+console.log(oba);
+    </script>
+</body>
+</html>
