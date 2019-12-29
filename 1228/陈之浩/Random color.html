@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <script>
+        var color1="#";
+        for(var i = 0; i < 6; i ++) {
+            color1+=parseInt(Math.random()*16).toString(16);
+        }
+        console.log(color1);
+        
+
+        var color2="rgb(";
+        for(var i=0;i<3 ;i++){
+            if(i>1){
+                color2+=parseInt( Math.random()*256 );
+                break;
+            }
+            color2+=parseInt( Math.random()*256 )+",";
+        }
+        color2+=")";
+        console.log(color2);
+
+
+
+
+
+
+    </script>
+    
+     
+</body>
+</html>

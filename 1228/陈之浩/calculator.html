@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 35px;
+            background-color: rgb(193, 192, 201);
+            margin: 10px 10px;
+            float: left;
+            text-align: center;
+            padding-top: 15px;
+            color: blue;
+        }
+        div:hover{
+            background-color: rgb(180, 238, 225);
+            color: red;
+        }
+        #txt{
+            width: 400px;
+            height: 100px;
+            background-color: rgb(242, 248, 247);
+            float: left;
+        }
+    </style>
+</head>
+<body>
+        <input type="text" id="txt">
+        <div id="div11">+</div>
+        <div id="div12">-</div>
+        <div id="div13">*</div>
+        <div id="div14">/</div>
+        <div id="div10">CE</div>
+        <div id="div15">=</div>
+    <script>
+        function creadiv(n){
+            for(var i = 0; i <= n; i ++){
+                var str="<div id='";
+                str+="div"+i;
+                str+="'>"+i+"</div>";
+                document.write(str);
+            }
+        }
+        creadiv(9);
+        var txt=document.getElementById("txt");
+        console.log(txt);
+        for(var i=0;i<=15;i++){
+            var div=document.getElementById("div"+i);
+            if(i<10) { 
+                div.onclick=clickhandler;
+                }
+            else{
+                
+                div.onclick=clickhandler1;
+            }
+        }
+        
+        var arr=[];
+        var arr1=[];
+        var k=0;
+        var g=0;
+        var flag=0;
+        var op="";
+        function clickhandler(){
+            console.log(this.innerHTML);
+            txt.value+=this.innerHTML;
+            if(!flag){
+            arr[k++]=this.innerHTML;
+            console.log(arr +"我是数组");}
+            else{
+            arr1[g++]=this.innerHTML;
+            console.log(arr1 +"我是数组");}
+        } 
+        var mul;
+        function clickhandler1(){
+            console.log(this.innerHTML);
+            if(this.innerHTML==="CE"){
+                
+                txt.value=0;
+                k=0;
+                g=0;
+                arr.length=0;
+                arr1.length=0;
+                flag=0;
+            }
+            else if(this.innerHTML==="*"){
+                console.log(arr);
+                console.log(arr1);
+                txt.value="";
+                op="*";
+                flag=1;
+
+                var str="";
+                for(var h=0;h<arr.length;h++){
+                    str+=arr[h];
+                }
+                console.log("str为"+str);
+                
+            }
+            else if(this.innerHTML==="+"){
+                console.log(arr);
+                console.log(arr1);
+                txt.value="";
+                op="+";
+                flag=1;
+
+                var str="";
+                for(var h=0;h<arr.length;h++){
+                    str+=arr[h];
+                }
+                console.log("str为"+str);
+            }
+            else if(this.innerHTML==="-"){
+                console.log(arr);
+                console.log(arr1);
+                txt.value="";
+                op="-";
+                flag=1;
+
+                var str="";
+                for(var h=0;h<arr.length;h++){
+                    str+=arr[h];
+                }
+                console.log("str为"+str);
+            }
+            else if(this.innerHTML==="/"){
+                console.log(arr);
+                console.log(arr1);
+                txt.value="";
+                op="/";
+                flag=1;
+
+                var str="";
+                for(var h=0;h<arr.length;h++){
+                    str+=arr[h];
+                }
+                console.log("str为"+str);
+            }
+            else if(this.innerHTML==="="){
+                console.log(arr);
+                console.log(arr1);
+                var str="";
+                var str1="";
+                for(var i=0;i<arr.length;i++){
+                    str+=arr[i];
+                }
+                for(var i=0;i<arr1.length;i++){
+                    str1+=arr1[i];
+                }
+                var a=parseInt(str);
+                var b = parseInt(str1);
+                console.log(parseInt(str));
+                console.log(parseInt(str1));
+                
+                switch(op){
+                    case "*" :
+                    mul=a*b;
+                    
+                    break;
+                    case "+" :
+                    mul=a+b;
+                    
+                    break;
+                    case "-" :
+                    mul=a-b;
+                    
+                    break;
+                    case "/" :
+                    mul=a/b;
+                    
+                    break;
+                    default:
+                    break;
+                }
+                 txt.value=mul;
+            }
+            
+        } 
+    </script>
+</body>
+</html>
