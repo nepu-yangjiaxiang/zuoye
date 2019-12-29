@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{width: 100px;height: 100px;}
+    </style>
+</head>
+<body>
+    <div id="div0"></div>
+    <script>
+        var div=document.getElementById("div0");
+        // 十六进制随机颜色透明度
+        /* function getRandomColor(){
+            var color="#";
+            for(i=0;i<4;i++){
+                var str=parseInt(Math.random()*256);
+                if(str<16){
+                    str="0"+str.toString(16);
+                }else{
+                    str=str.toString(16);
+                }
+                color+=str;
+            }
+            console.log(color);
+            div.style.backgroundColor=color;
+        }
+        getRandomColor(); */
+        
+        // 随机rgb()
+        function setRandomColor(){
+            var color="rgb(";    
+            for(i=0;i<3;i++){
+                if(i!==2) color+=parseInt(Math.random()*256).toString()+",";
+                else color+=parseInt(Math.random()*256).toString();
+            } 
+            color+=")";
+		    console.log(color);
+            div.style.backgroundColor=color;
+	    }
+        setRandomColor();
+ 
+    </script>
+</body>
+</html>

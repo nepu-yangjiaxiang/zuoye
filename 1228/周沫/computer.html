@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            margin: 0 auto;
+            width: 280px;
+            height: 340px;
+            border: 5px solid #000;
+            background-color: #ccc;
+        }
+        #box div{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            margin: 10px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+        }
+        #box div:hover{
+            background-color: bisque;
+        }
+        input{
+            width: 280px;
+            height: 50px;
+            border: 0;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="text0">
+        <div id="div9">9</div>
+        <div id="div8">8</div>
+        <div id="div7">7</div>
+        <div id="symbol3">/</div>
+        <div id="div6">6</div>
+        <div id="div5">5</div>
+        <div id="div4">4</div>
+        <div id="symbol2">*</div>
+        <div id="div3">3</div>
+        <div id="div2">2</div>
+        <div id="div1">1</div>
+        <div id="symbol1">-</div>
+        <div id="symbol4">C</div>
+        <div id="div0">0</div>
+        <div id="Result0">=</div>
+        <div id="symbol0">+</div>
+    </div>
+    
+    <script>
+        var text=document.getElementById("text0"),sum,a,b,c,arr=[];
+            
+        for(var i=0;i<10;i++){
+            var div=document.getElementById("div"+i);
+            div.onclick=clickHandler;
+        }
+        for(var j=0;j<5;j++){
+            var symbol=document.getElementById("symbol"+j);
+            /* console.log(symbol); */
+            symbol.onclick=clickAction;
+        }
+        
+        function clickHandler(){
+            if(text.value=="+" ||text.value== "-" ||text.value== "*" ||text.value== "/") text.value=null;
+            text.value+=this.innerHTML;
+            return a=text.value;
+        }
+
+        function clickAction(){
+            if(this.id=="symbol4"){
+                text.value=null;
+                return;
+            }
+            b=a;
+            a="";
+            if(this.id=="symbol0") text.value="+";
+            else if(this.id=="symbol1") text.value="-";
+            else if(this.id=="symbol2") text.value="*";
+            else if(this.id=="symbol3") text.value="/";
+            c=text.value;
+            return arr=[b,c]
+        }
+        var Result=document.getElementById("Result0");
+        Result.onclick=getResult;
+        function getResult(){
+            if(c=="+") sum=Number(b)+Number(a);
+            else if(c=="-") sum=Number(b)-Number(a);
+            else if(c=="*") sum=Number(b)*Number(a);
+            else if(c=="/") sum=Number(b)/Number(a);
+            text.value=sum;
+        }
+       
+    </script>
+</body>
+</html>
