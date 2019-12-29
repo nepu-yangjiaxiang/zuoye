@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>homework</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        div {
+            width: 100%;
+            height: 100%;
+            line-height: 91px;
+            text-align: center;
+            background: gray;
+            color: #ffffff;
+            float: left;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        input {
+            height: 50px;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        .calculator {
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box"> </div> -->
+
+    <table class="calculator" border="1">
+        <tr>
+            <td colspan="3"> <input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td>
+                <div>0</div>
+            </td>
+            <td>
+                <div>1</div>
+            </td>
+            <td>
+                <div>2</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>3</div>
+            </td>
+            <td>
+                <div>4</div>
+            </td>
+            <td>
+                <div>5</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>6</div>
+            </td>
+            <td>
+                <div>7</div>
+            </td>
+            <td>
+                <div>8</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>9</div>
+            </td>
+            <td>
+                <div>+</div>
+            </td>
+            <td>
+                <div>-</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>*</div>
+            </td>
+            <td>
+                <div>/</div>
+            </td>
+            <td>
+                <div>=</div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        //随机色
+        //#ff4400格式
+        // var div = document.getElementById("box");
+        //   function randomColor(ele) {
+        //     var color="#";
+        //     for(var i=0;i<8;i++){
+        //         color+=parseInt(Math.random()*16).toString(16);
+        //     }
+
+        //     ele.style.backgroundColor=color;
+        //   }
+
+
+        //RGB
+        // function randomColor(ele) {
+        //     var R, G, B, i = 0, color = "";
+        //     R = parseInt(Math.random() * 256);
+        //     G = parseInt(Math.random() * 256);
+        //     B = parseInt(Math.random() * 256);
+        //     color = "rgb(" + R + "," + G + "," + B + ")"
+        //     ele.style.backgroundColor = color;
+        // }
+
+        // randomColor(div);
+
+        //计算器
+        var sum, addend = "", operator = "", i;
+        var text = document.getElementsByTagName('input')[0];
+        var div = document.getElementsByTagName('div');
+
+        start();
+        function start() {
+            for (i = 0; i < 9; i++) {
+                div[i].onclick = getNum;
+            }
+
+            for (i = 10; i < 14; i++) {
+                div[i].onclick = getOperator;
+            }
+
+            div[14].onclick = getSum;
+
+        }
+
+
+        //单机div将对应的值赋值给input.value
+        function getNum() {
+            if (text.value == "+" || text.value == "-" || text.value == "*" || text.value == "/") {
+                text.value = "";
+                text.value += this.innerHTML;
+                addend = text.value
+            }
+            else {
+                text.value += this.innerHTML;
+                addend = text.value
+            }
+        }
+
+
+        //获取运算符的函数
+        function getOperator() {
+            sum = addend;
+            addend = "";
+            text.value = this.innerHTML;
+            operator = text.value;
+        }
+
+        //点击等于输出结果
+        function getSum() {
+            //判断输入的符号
+            switch (operator) {
+                case "+": sum = parseInt(sum) + parseInt(addend); break;
+                case "-": sum -= addend; break;
+                case "*": sum *= addend; break;
+                case "/": sum /= addend; break;
+            }
+            text.value = sum;
+        }
+    </script>
+</body>
+
+</html>
