@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 400px;
+      height: 450px;
+      background-color: gray;
+      margin: 50px auto;
+    }
+
+    .number-con {
+      height: 30%;
+      position: relative;
+      background-color: #f2f2f2;
+    }
+
+
+    .number-con>p {
+      height: 30px;
+      width: 100%;
+      line-height: 30px;
+      font-size: 14px;
+      text-align: right;
+      position: absolute;
+      top: 40px;
+      z-index: 2;
+    }
+
+    .number-con>input {
+      border: 0;
+      width: 100%;
+      height: 60px;
+      text-align: right;
+      background-color: #eff0f1;
+      outline: none;
+      position: absolute;
+      bottom: 0;
+      font-size: 30px;
+      font-weight: bold;
+      color: #232323;
+      text-indent: 2em;
+    }
+
+    .handle-con {
+      height: 70%;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: space-evenly;
+      align-content: flex-start;
+    }
+
+    .handle-con>div {
+      width: 23%;
+      height: 50px;
+      border: 2px solid #fff;
+      background-color: #fcfcfc;
+      margin: 2px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      color: #000;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .handle-con>div:hover {
+      background-color: #dfdede;
+      border: 2px solid #c6c6c6;
+    }
+
+    .handle-con>div:nth-child(1) {
+      width: 73%;
+    }
+
+    .handle-con>.equal {
+      background-color: #f8acac;
+      border-color: #f8acac;
+    }
+
+    .handle-con>.equal:hover {
+      background-color: #fb7777;
+      border-color: #fb7777;
+
+    }
+
+    .handle-con>.symbol {
+      font-weight: normal;
+      color: #323232;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="number-con">
+      <p></p>
+      <input type="text" maxlength="35" value="0">
+    </div>
+    <div class="handle-con">
+      <div class="num">0</div>
+      <div class="equal symbol">=</div>
+      <div class="num">1</div>
+      <div class="num">2</div>
+      <div class="num">3</div>
+      <div class="symbol">+</div>
+      <div class="num">4</div>
+      <div class="num">5</div>
+      <div class="num">6</div>
+      <div class="symbol">-</div>
+      <div class="num">7</div>
+      <div class="num">8</div>
+      <div class="num">9</div>
+      <div class="symbol">*</div>
+      <div class="symbol">Del</div>
+      <div class="symbol clear">C</div>
+      <div class="symbol">%</div>
+      <div class="symbol">/</div>
+    </div>
+  </div>
+
+  <script>
+
+    var inputText = document.querySelector("input");
+    var p = document.querySelector(".number-con > p");
+    var num1, num2, obj;  // 存放两个数
+    init();
+
+    //  init()
+    function init() {
+      var clearButton = document.querySelector(".clear");
+      clearButton.onclick = function () {
+        inputText.value = 0
+      }
+
+      // 点击获得数字
+      getNumber();
+      getOper();
+
+    }
+
+    function getNumber() {
+      var divs = document.getElementsByClassName("num");
+      for (var i = 0; i < divs.length; i++) {
+        var temps = divs[i];
+        temps.index = i;
+        temps.onclick = function () {
+          console.log(this.textContent);
+          if (inputText.value === "0" || obj === 1) {
+            inputText.value = "";
+            p.textContent += inputText.value
+          }
+          inputText.value += this.textContent;
+        }
+      }
+
+    }
+
+    function getOper() {
+      var divs = document.getElementsByClassName("symbol");
+
+      for (var i = 0; i < divs.length; i++) {
+        var temps = divs[i];
+        temps.index = i;
+        temps.count = 0;
+        temps.op = null;
+
+        temps.onclick = function () {
+          console.log(this.textContent);
+          // 判断是第几次点击这个
+          temps.count++;
+          obj = temps.count;  // 存全局变量
+          if (temps.count === 1) {
+            num1 = parseInt(inputText.value);
+            temps.op = this.textContent;  // 存一个运算符
+            p.textContent += num1 + temps.op;
+            console.log(obj + "----");
+          }
+          // 清除
+          if (this.textContent === "C") {
+            inputText.value = "0"
+            p.textContent = ""
+          } else if (this.textContent === "Del") {  // 从后往前删除
+            inputText.value = inputText.value.substr(0, inputText.value.length - 1);
+            p.textContent = "";
+            if (inputText.value === "")
+              inputText.value = "0"
+          } else if (this.textContent === "=" && temps.count === 2) {  // 如果点的是等号，就计算两个数的值
+            num2 = parseInt(inputText.value);  // 存入第一个值
+            p.textContent += num2;
+            console.log(num1, temps.op, num2);
+            inputText.value = count(temps.op, num1, num2);  // 调用计算
+
+          }
+
+        }
+      }
+    }
+
+    // 计算方法
+    function count(_operator, num1, num2) {
+      if (_operator === "C" || _operator === "Del")
+        return "错误!";
+      switch (_operator) {
+        case '+':
+          return num1 + num2;
+        case '-':
+          return num1 - num2;
+        case '*':
+          return num1 * num2;
+        case '/':
+          return num1 / num2;
+        case '%':
+          return num1 % num2;
+      }
+    }
+  </script>
+</body>
+
+</html>
