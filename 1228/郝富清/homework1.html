@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="back"></div>
+    <script>
+        function divDefined(rain) {
+            var h = document.getElementById(back);
+            back.style.backgroundColor = rain;
+            back.style.width = "200px";
+            back.style.height = "200px";
+        }
+// 采用#ffffffff的模式来设置背景颜色
+       /*  function getColor() {
+            var colorMath = "#";
+            var i = 0;
+            while (i < 8) {
+                colorMath += parseInt(Math.random() * 16).toString(16);
+                i++;
+            }
+            return colorMath;
+        } */
+
+        function getColor() {
+            var colorMath = "rgb(";
+            var i = 0;
+            while (i < 3) {
+                colorMath += parseInt(Math.random() * 256 );
+                if(i!==2) colorMath +=",";
+               
+                i++;
+            }
+            colorMath += ")";
+            return colorMath;
+        } 
+        console.log(getColor()); 
+
+        var ids = setInterval("divDefined(getColor())",600); //在做定时的时候函数需要用双引号包起来
+        clearInterval(ids);
+        
+    </script>
+</body>
+
+</html>
