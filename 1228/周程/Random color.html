@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div0"></div>
+    <div id="div1"></div>
+    <div id="div3"></div>
+    <script>
+            function a(){
+                var div=document.getElementById("div0");
+                div.style.width="100px";
+                div.style.height="100px";
+                div.style.backgroundColor=randomColor();
+                div.onclick= function click1(){
+                    var bool=false;
+                    bool=!bool;
+                    div.style.backgroundColor=bool? randomColor() :randomColor()
+                };
+                
+            }
+           
+            function randomColor(){
+                    var color="#";
+                    for(var i=0;i<8;i++){
+                    color+=parseInt(Math.random()*16).toString(16);
+                    
+                    }
+                    console.log(color);
+                return color;
+                
+                }
+            a();
+
+
+            function b(){
+                var div=document.getElementById("div1");
+                div.style.width="200px";
+                div.style.height="200px";
+                div.style.backgroundColor=randomColor1();
+                div.onclick= function click2(){
+                    var bool=false;
+                    bool=!bool;
+                    div.style.backgroundColor=bool ? randomColor1() : randomColor1()
+                }
+
+            }
+            function randomColor1(){
+                var color1="rgb(";
+                for(i=0;i<3;i++){
+                    
+                    color1+=parseInt(Math.random()*256)+",";  
+                    if(i===2){
+                        color1+=parseInt(Math.random()*256)
+                    }                   
+                }
+                color1+=")"
+                console.log(color1)
+                return color1;
+            }
+            b();
+    
+
+
+    </script>
+</body>
+</html>
