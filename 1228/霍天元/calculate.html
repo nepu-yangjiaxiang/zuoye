@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #cal {
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 3px solid #ccc;
+
+        }
+
+        #inp {
+            width: 400px;
+            height: 100px;
+            outline: 0;
+            float: left;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            margin-left: 48px;
+        }
+
+        .num {
+            width: 100px;
+            height: 50px;
+            background: pink;
+            float: left;
+            border: 1px solid blue;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cal">
+        <input type="text" id="inp">
+        <div id="div11" class="num">+</div>
+        <div id="div12" class="num">-</div>
+        <div id="div13" class="num">*</div>
+        <div id="div14" class="num">/</div>
+        <div id="div15" class="num">ce</div>
+        <div id="div0" class="num">0</div>
+        <div id="div1" class="num">1</div>
+        <div id="div2" class="num">2</div>
+        <div id="div3" class="num">3</div>
+        <div id="div4" class="num">4</div>
+        <div id="div5" class="num">5</div>
+        <div id="div6" class="num">6</div>
+        <div id="div7" class="num">7</div>
+        <div id="div8" class="num">8</div>
+        <div id="div9" class="num">9</div>
+        <div id="div10" class="num">=</div>
+    </div>
+
+    <script>
+        //计算器
+        var txt, i, sum;
+        var txt = document.getElementById("inp");
+        console.log(txt);
+        for (i = 0; i < 16; i++) {
+            var div = document.getElementById("div" + i)
+            if (i < 10) div.onclick = clickhander;
+            else div.onclick = calculate;
+        }
+        var arr = [], k = 0, sum, str1 = "", bool = 0, str2 = "", flag;
+
+        function clickhander() {
+            console.log(this.innerHTML);
+            txt.value = this.innerHTML;
+            if (!bool) {
+                str1 += txt.value;
+            }
+            else str2 += txt.value;
+
+        }
+
+        function calculate() {
+
+            console.log(this.innerHTML);
+            txt.value = str1;
+            switch (this.innerHTML) {
+                case "ce":
+                    txt.value = 0;
+                    str1 = "";
+                    str2 = "";
+                    bool = 0;
+                    break;
+                case "+":
+                
+
+                    bool = 1;
+                    flag = "+";
+                    break;
+                case "-":
+                    bool = 1;
+                    flag = "-"
+                    break;
+                case "*":
+                    bool = 1;
+                    flag = "*"
+                    break;
+                case "/":
+                    bool = 1;
+                    flag = "/"
+                    break;
+                case "=":
+                    if (flag === "+")
+                        txt.value = (parseInt(str1) + parseInt(str2));
+                    else if (flag === "-")
+                        txt.value = (parseInt(str1) - parseInt(str2));
+                    else if (flag === "*")
+                        txt.value = (parseInt(str1) * parseInt(str2));
+                    else txt.value = (parseInt(str1) / parseInt(str2));
+                    bool = 0;
+                    console.log(txt.value);
+                    break;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
