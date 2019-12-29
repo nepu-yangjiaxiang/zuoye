@@ -69,28 +69,23 @@
             
             //  运算函数------------------------------------------------
             function operation(id){            
-                if( getid("display").value != "0"){
-                    if(left == 0)
+
+                if(left == 0)
                     {
                         getid("display").value += getid(id).innerHTML;
                         left = parseFloat(getid("display").value);
                     }
-                }
+        
             }
             //   传入数字函数-----------------------------------------------------
             function figure(id)
             {                
-                if(left == 0)
+
+                if (getid("display").value === "0" ) 
                 {
-                    if (getid("display").value === "0" ) 
-                    {
                          getid("display").value = getid(id).innerHTML; 
-                    }
-                    else
-                    {
-                        getid("display").value += getid(id).innerHTML;    
-                    }                                
                 }
+
 
                 else
                 {
@@ -229,7 +224,7 @@
             // 等号
             getid("equal").onclick = function(){  
                 var symbol = "";           
-                if(left != 0 && right != 0){
+
                     for (var i = 0; i < getid("display").value.length; i ++ ) 
                     {
                         symbol = getid("display").value[i];
@@ -250,7 +245,7 @@
                             getid("display").value = result;
                         }
                     }
-                }                            
+                                          
             }
 
         

@@ -64,33 +64,23 @@
             var right = 0;  //第二个数
             var result = 0;    //结果  
             
-            //  运算函数------------------------------------------------
+            //  输入运算符函数------------------------------------------------
             function operation(id){            
-                if( getid("display").value != "0"){
-                    if(left == 0)
-                    {
-                        getid("display").value += getid(id).innerHTML;
-                        left = parseInt(getid("display").value);
-                    }
-                }
+                    getid("display").value += getid(id).innerHTML;
+                    left = parseInt(getid("display").value);
             }
+           
             //   传入数字函数-----------------------------------------------------
             function figure(id)
             {                
-                if(left == 0)
-                {
-                    if (getid("display").value === "0" ) 
-                    {
-                         getid("display").value = getid(id).innerHTML; 
-                    }
-                    else
-                    {
-                        getid("display").value += getid(id).innerHTML;    
-                    }                                
-                }
 
+                if (getid("display").value === "0" ) 
+                {
+                         getid("display").value = getid(id).innerHTML;     //一开始显示0，替换成点击输入的数
+                }
                 else
                 {
+
                     getid("display").value += getid(id).innerHTML;
                     var str = getid("display").value;           
                     var num = "";                    
@@ -134,7 +124,7 @@
                             };
                             right = parseInt(num);
                         }
-                    };                    
+                    }                   
                 }
 
                 // 清空所有数据  
@@ -204,19 +194,15 @@
 
             // 清0
             getid("res").onclick = function()
-            {
-            if(getid("display").value != "0")
-                {                        
+            {                      
                     left = 0;
                     right = 0;
                     result = 0;
                     getid("display").value = "0";
-                }
             }
             // 等号
             getid("equal").onclick = function(){  
                 var symbol = "";           
-                if(left != 0 && right != 0){
                     for (var i = 0; i < getid("display").value.length; i ++ ) {
                         symbol = getid("display").value[i];
                         if(symbol == "+"){
@@ -235,8 +221,7 @@
                             result = left / right;
                             getid("display").value = result;
                         }
-                    }
-                }                            
+                    }                           
             }
 
         
