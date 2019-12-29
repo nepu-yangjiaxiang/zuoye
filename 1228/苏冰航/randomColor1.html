@@ -1,0 +1,163 @@
+<!-- 十六进制随机颜色，含透明度 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div0"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <script>
+    // var div=document.getElementById("div0");
+    // div.style.width="100px";
+    // div.style.height="100px";
+    // div.style.backgroundColor=randomColor7();
+
+    // var div=document.getElementById("div1");
+    // div.style.width="100px";
+    // div.style.height="100px";
+    // div.style.backgroundColor=randomColor2();
+
+    // var div=document.getElementById("div2");
+    // div.style.width="100px";
+    // div.style.height="100px";
+    // div.style.backgroundColor=randomColor2();
+
+    // var div=document.getElementById("div3");
+    // div.style.width="100px";
+    // div.style.height="100px";
+    // div.style.backgroundColor=randomColor3();
+
+    // var div=document.getElementById("div4");
+    // div.style.width="100px";
+    // div.style.height="100px";
+    // div.style.backgroundColor=randomColor4();
+
+
+
+
+
+
+        /* method 1   生成8位10进制数转16进制*/
+        
+        function randomColor1(){
+        var color="#";
+        for(var i=0;i<8;i++){
+            color+=parseInt(Math.random()*16).toString(16);              
+        }
+        console.log(color);      
+        return color;
+        }       
+        randomColor1();
+        
+        
+        /* method 2  生成32位2进制数转16进制*/
+        function randomColor2(){
+        var color="#";
+        var a="";   
+            for(var i=0;i<32;i++)
+            {       
+                a+=parseInt(Math.random()*2);
+                                       
+            }
+            color+=parseInt(a,2).toString(16)
+        console.log(color);
+        return color;
+        }
+        randomColor2();
+
+        /* method 3 生成4个0-255的随机数转成16进制 */
+
+        function randomColor3(){
+        var color="#";  
+            for(var i=0;i<4;i++)
+            {       
+                color+=parseInt(Math.random()*256).toString(16);
+                                       
+            }
+        console.log(color);
+        return color;
+        }
+        randomColor3();
+
+
+
+
+        /* method 4  这个太蠢了 */
+        function randomColor4(){
+        var color="#";
+        var tmp;
+        for(i=0;i<8;i++){
+            tmp =  parseInt((Math.random() * 16));//取出一位十六进制的整数
+            if(tmp > 9){//依次判断随机数
+                switch(tmp){
+                    case(10)://如果随机数等于10，换为a
+                        color += 'a';
+                        break;
+                    case(11):
+                        color += 'b';//如果随机数等于11，换为b
+                        break;
+                    case(12):
+                        color += 'c';//如果随机数等于12，换为c
+                        break;
+                    case(13):
+                        color += 'd';//如果随机数等于13，换为d
+                        break;
+                    case(14):
+                        color += 'e';//如果随机数等于14，换为e
+                        break;
+                    case(15):
+                        color += 'f';//如果随机数等于15，换为f
+                        break;
+                }
+            }else{
+                color += tmp;
+            }
+        }
+        console.log(color);
+        return color;
+        }
+        randomColor4();
+        
+
+        /* method 5  直接利用小数转16进制，然后.substr截取一个随机数的后八位*/
+        function randomColor5(){
+        var color = "#"+ Math.random().toString(16).substr(-8); 
+        console.log(color);
+        return color;
+        }
+        randomColor5();
+        // var a=1.6594515.toString(16);
+        // console.log(a);
+
+
+        /* method 6  可以直接生成一个0到#ffffffff(4294967295‬)的十位数然后转为16进制 */
+        function randomColor6(){
+        var color = "#"+ parseInt(Math.random()*4294967295).toString(16); 
+        console.log(color);
+        return color;
+        }
+        randomColor6();
+
+
+        /* method 7   方法6的改进，可以直接生成一个0到#ffffffff的数，然后通过左移运算符转换为整数再转成16进制 */
+        function randomColor7(){
+        var color = "#"+ ((Math.random()*0xffffffff) << 0).toString(16); 
+        console.log(color);
+        return color;
+        }
+        randomColor7();
+        /* 有问题：应该是位数不够 */
+
+
+
+
+    </script>
+</body>
+</html>
