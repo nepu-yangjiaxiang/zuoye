@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #num{width: 350px;height: 355px;border: 1px solid #000;}
+        #num #num15{width: 350px;}
+        #textValue{width: 350px;height: 50px; border: none;font-size: 20px;border: 1px solid #000;}
+        #num div{width: 116px;height: 50px;cursor:pointer;float:left; background: pink;font-size:20px;text-align: center;line-height: 50px;}
+        #num div:hover{background: green;}
+    </style>
+</head>
+<body>
+    
+    <div id="num">
+        <input type="text" value="0" id="textValue">
+        <div id="num0">0</div>
+        <div id="num1">1</div>
+        <div id="num2">2</div>
+        <div id="num3">3</div>
+        <div id="num4">4</div>
+        <div id="num5">5</div>
+        <div id="num6">6</div>
+        <div id="num7">7</div>
+        <div id="num8">8</div>
+        <div id="num9">9</div>
+        <div id="num10">+</div>
+        <div id="num11">-</div>
+        <div id="num12">*</div>
+        <div id="num13">/</div>
+        <div id="num14">=</div>
+        <div id="num15">c</div>
+    </div>
+    <script>
+        // 获取所有的div
+        var firstNum;
+        var SecondNum;
+        var key="";
+        var textValue = document.getElementById("textValue");
+        init();
+        function init(){
+            for(var i=0;i<16;i++){
+                var div = document.getElementById("num"+i);
+                div.onclick=animation;
+            }
+        }
+        function animation(){
+            // 判断当前input框的值
+            // 通过判断输入的是数值和非数值来计算
+            if(!isNaN(this.innerHTML)){
+                if(textValue.value ==="0"){
+                    textValue.value=this.innerHTML;
+                }else{
+                    textValue.value+=this.innerHTML;
+                }
+            }else{
+                switch(this.innerHTML){
+                    case "+":
+                    getFirstNum(this);
+                        break;
+                    case "-":
+                    getFirstNum(this);
+                        break;
+                    case "*":
+                    getFirstNum(this);
+                        break;
+                    case "/":
+                    getFirstNum(this);
+                        break;
+                    case "=":
+                        SecondNum =textValue.value;
+                        switch(key){
+                            case "+":
+                                getResult(key)
+                                break;
+                            case "-":
+                                getResult(key)
+                                break;
+                            case "*":
+                                getResult(key)
+                                break;
+                            case "/":
+                                getResult(key)
+                                break;
+                        }
+                        break;
+                    case "c":
+                        textValue.value="0";
+                        firstNum="0";
+                        SecondNum="0";
+                }
+            }
+        }
+        // 获取第一个参数和运算符
+        function getFirstNum(mis){
+            firstNum=textValue.value;
+            key=mis.innerHTML;
+            textValue.value="0";
+        }
+        // 根据不同的运算符计算结果
+        function getResult(key){
+            if(key==="+"){
+                textValue.value =Number(firstNum) +Number(SecondNum);
+            }
+            if(key==="-"){
+                textValue.value =Number(firstNum) -Number(SecondNum);
+            }
+            if(key==="*"){
+                textValue.value =Number(firstNum) *Number(SecondNum);
+            }
+            if(key==="/"){
+                textValue.value =(Number(firstNum) /Number(SecondNum)).toFixed(2);
+                
+            }
+        } 
+    </script>
+</body>
+</html>
