@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1\求随机色1-2种方法 #FFFFFFFF rgb();</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+    <div id="box4">4</div>
+    <div id="box5">5</div>
+    <div id="box6">6</div>
+    <div id="box7">7</div>
+    <script>
+        document.getElementById("box1").style.backgroundColor=colorTrans();
+        var div2 = document.getElementById("box2");
+        div2.style.backgroundColor=colorTrans2();
+        div2.style.opacity = colorTrans22();
+        var div3 = document.getElementById("box3");
+        div3.style.backgroundColor=colorTrans3();
+        div3.style.opacity = colorTrans22();
+        document.getElementById("box4").style.backgroundColor=colorTrans4();
+        document.getElementById("box5").style.backgroundColor=colorTrans5();
+        document.getElementById("box6").style.backgroundColor=colorTrans6();
+        document.getElementById("box7").style.backgroundColor=colorTrans7();
+        //1
+        function colorTrans(){
+            var color = "#";
+            for(var i=0;i<4;i++){
+                color += parseInt(Math.random()*256).toString(16);
+            }
+            return color;
+        }
+        //2
+        function colorTrans2(){
+            var color = "#";
+            for(var i=0;i<3;i++){
+                color += parseInt(Math.random()*256).toString(16);
+            }
+            return color;
+        }
+        function colorTrans22(alpha){
+            alpha = alpha==undefined ? Math.random().toFixed(2) : alpha;
+            alpha = Number(alpha);
+            if(isNaN(alpha)||alpha>1) alpha = 1;
+            return alpha;
+        }
+        //3
+        function colorTrans3(){
+            var color = "rgb(";
+            for(var i=0;i<3;i++){
+                if(i==2){
+                    color += parseInt(Math.random()*256)+")";
+                    return color;
+                } 
+                color += parseInt(Math.random()*256)+",";
+            }
+        }
+        // 4 自己的
+        function colorTrans4(){
+            return  '#' + (function(color){    
+                return (color +=  (parseInt(Math.random()*16).toString(16)))&& (color.length == 8) ?  color : arguments.callee(color);    
+            })(''); 
+        // function colorTrans4(){
+        //     var color = "#";
+        //     color+=(function(color){    
+        //         return (color +=  (parseInt(Math.random()*16).toString(16)))&& (color.length == 8) ?  color : arguments.callee(color);    
+        //     })('')
+        //     return color;
+        }
+        // 4 人家的
+        // function colorTrans4(){
+        //     return  '#' + (function(color){    
+        //         return (color +=  (Math.floor(Math.random()*16)))&& (color.length == 8) ?  color : arguments.callee(color);    
+        //     })(''); 
+
+        // }
+
+        //4 尝试的
+    //     function tryColor(acolor2){       
+    //         return (color2+=parseInt(Math.random()*16).toString(16))&&(color2.length==9) ? color2:arguments.callee(color2);           
+    //     }
+    //    console.log( tryColor("#"));
+
+    //5 别人的 单求颜色
+    function colorTrans5(){
+        console.log( '#'+Math.floor(Math.random()*256).toString(10));
+        return '#'+Math.floor(Math.random()*256).toString(10);
+    }
+    //6
+    function colorTrans6(){ 
+        console.log('#'+Math.floor(Math.random()*0xffffff).toString(16));
+        return '#'+Math.floor(Math.random()*0xffffff).toString(16);
+
+    }
+    //7
+    function colorTrans7(){ 
+        console.log('#'+Math.random().toString(16).slice(2,8));
+        return  '#'+Math.random().toString(16).slice(2,8);
+
+    }
+    
+    
+
+    </script>
+</body>
+</html>

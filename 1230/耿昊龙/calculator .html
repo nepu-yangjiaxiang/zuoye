@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #div0 {
+                width: 320px;
+                height: 425px;
+                border: 1px solid #000;
+                box-shadow: 3px 3px 3px #000;
+                position: relative;
+                margin: auto;
+                padding: 20px 30px;
+                background: linear-gradient(to top,rgb(248, 234, 234),rgb(184, 184, 250));
+            }
+    
+            input {
+                width: 300px;
+                height: 50px;
+                text-align: right;
+                font-size: 25px;
+                line-height: 30px;
+                padding: 0 10px;
+                outline: none;
+                background: linear-gradient(to right bottom,rgb(248, 234, 234),rgb(184, 184, 250));
+            }
+    
+            #div0>div {
+                float: left;
+                width: 70px;
+                height: 70px;
+                margin: 10px 10px 10px 0;
+                border: 1px solid #000;
+                text-align: center;
+                font-size: 30px;
+                line-height: 70px;
+                user-select: none;
+                box-shadow: 1px 1px 1px #000;
+            }
+
+            #div0>div:nth-of-type(4n+0) {
+                margin-right: 0;
+            }
+    
+            #div0>div:hover {
+                box-shadow: none;
+            }
+        </style>
+</head>
+
+<body>
+    <div id="div0">
+        <input type="text" value="0" disabled id="input0">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div11">+</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+        <div id="div12">-</div>
+        <div id="div7">7</div>
+        <div id="div8">8</div>
+        <div id="div9">9</div>  
+        <div id="div13">*</div>
+        <div id="div16">c</div>
+        <div id="div10">0</div> 
+        <div id="div14">/</div>
+        <div id="div15">=</div>
+    </div>
+    <script>
+        var input,type;
+        var value = "0";
+        init();
+        function init() {
+            input = document.getElementById("input0");
+            for (var i = 1; i < 17; i++) {
+                var div = document.getElementById("div" + i);
+                div.onclick = clickHandler;
+            }
+        }
+        function clickHandler() {
+            // console.log(this.innerHTML);
+            switch (this.innerHTML) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    type = this.innerHTML;
+                    value = input.value;
+                    // console.log(input);
+                    input.value = "0";
+                    break;
+                case "=":
+                    getSum();
+                    break;
+                case "c":
+                    input.value = "0";
+                    value = "0";
+                    type = "";
+                    break;
+                default:
+                    input.value = Number(input.value + this.innerHTML);
+            }
+        }
+
+        function getSum() {
+            switch (type) {
+                case "+":
+                    input.value = Number(value) + Number(input.value);
+                    return;
+                case "-":
+                    input.value = Number(value) - Number(input.value);
+                    return;
+                case "*":
+                    input.value = Number(value) * Number(input.value);
+                    return;
+                case "/":
+                    input.value = input.value !== "0" ? Number(value) / Number(input.value) : "cuowu";
+                    return;
+                
+            }
+        }
+    </script>
+</body>
+</html>
