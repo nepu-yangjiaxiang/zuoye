@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div0{
+            width: 360px;
+            height: 550px;
+            box-shadow: 1px 1px 1px #000;
+            border: 1px solid #000;
+            margin: auto;
+            padding: 0 60px;
+            
+        }
+        input{
+            width: 320px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fff;
+            color: #000;
+            font-size: 30px;
+            text-align: right;
+            display: block;
+            margin:auto;
+            margin-top: 40px;
+            padding-right: 10px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+        #div0 div{
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            background-color:lavender;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 3px 3px 3px #ccc;
+
+        }
+        #div0 div:active{
+            box-shadow: -3px -3px 3px #ccc;
+            background-color: khaki;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <input type="text" value="0" disabled id="output">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+        <div id="div7">7</div>
+        <div id="div8">8</div>
+        <div id="div9">9</div>
+        <div id="div10">0</div>
+        <div id="div11">+</div>
+        <div id="div12">-</div>
+        <div id="div13">=</div>
+        <div id="div14">C</div>
+        <div id="div15">*</div>
+        <div id="div16">/</div>
+    </div>
+<script>
+    init();
+        var value,input;
+        var type = "";
+        function init() {
+            for (var i = 1; i < 17; i++) {
+                input = document.getElementById("output");
+                var div = document.getElementById("div" + i);
+                div.onclick = clickHandler;
+            }
+        }
+
+        
+        function clickHandler() {
+            switch (this.innerHTML) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    value = input.value;
+                    type = this.innerHTML;
+                    input.value = "";
+                    break;
+                case "=":
+                    getResult();
+                    break;
+                case "C":
+                    input.value = "0";
+                    value = "0";
+                    type = "";
+                    break;
+                default:
+                input.value = Number(input.value + this.innerHTML);
+            }
+        }
+        function getResult() {
+            switch (type) {
+                case "+":
+                    input.value = Number(value) + Number(input.value);
+                    return;
+                case "-":
+                    input.value = Number(value) - Number(input.value);
+                    return;
+                case "*":
+                    input.value = Number(value) * Number(input.value);
+                    return;
+                case "/":
+                    if (Number(input.value) !== 0) {
+                        input.value = Number(value) / Number(input.value);
+                    } else {
+                        input.value = "输入错误";
+                    }
+                    return;
+                default:
+                input.value = Number(input.value + this.innerHTML);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
