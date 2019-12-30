@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算器</title>
+    <style>
+        .div0 {
+            width: 320px;
+            height: 450px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            background-color: palegoldenrod;
+            box-shadow: 3px 3px 3px #CCCCCC;
+            position: relative;
+            margin: 20px auto;
+            padding: 0 30px;
+        }
+
+        input {
+            width: 280px;
+            height: 30px;
+            display: block;
+            position: relative;
+            border-radius: 10px;
+            left: 0;
+            right: 0;
+            top: 20px;
+            margin-bottom: 20px;
+            padding: 0px 10px;
+            text-align: right;
+            font-size: 25px;
+            line-height: 30px;
+            background-color: gainsboro;
+            border: 1px solid #000000
+        }
+        
+
+        .div0>div {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #000000;
+            border-radius: 40%;
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 70px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            box-shadow: 3px 3px 3px #CCCCCC;
+        }
+
+        .div0>div:nth-of-type(4n) {
+            margin-right: 0px;
+        }
+
+        .div0>div:hover {
+            box-shadow: -3px -3px 3px #CCCCCC;
+            font-size: 50px;
+        
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="div0">
+        <input type="text" value="0" id="input0" ><br>
+        <div id="div1">1</div>
+        <div id="div2">2</div id="div0">
+        <div id="div3">3</div id="div0">
+        <div id="div4">4</div id="div0">
+        <div id="div5">5</div id="div0">
+        <div id="div6">6</div id="div0">
+        <div id="div7">7</div id="div0">
+        <div id="div8">8</div id="div0">
+        <div id="div9">9</div id="div0">
+        <div id="div10">0</div id="div0">
+        <div id="div11">+</div id="div0">
+        <div id="div12">-</div id="div0">
+        <div id="div13">*</div id="div0">
+        <div id="div14">/</div id="div0">
+        <div id="div15">=</div id="div0">
+        <div id="div16">C</div id="div0">
+    </div>
+    <script>
+        var input, type;
+        var value = "";
+        var color=[]
+        
+
+        function init() {
+            input = document.getElementById("input0");
+            input.value.transform='rotateY(0deg)translateZ(-' + Math.random() * 280 + 'px)';
+            for (let i = 1; i < 17; i++) {
+                var div = document.getElementById("div" + i);
+                div.style.backgroundColor=getColor();
+                div.onclick = handlClick;
+            }
+        }
+        init();
+
+        //获取随机颜色
+        function getColor() {
+            var c="#";
+            c +=Math.floor(Math.random()*0xffffff).toString(16);
+            return c;
+        }
+        //点击事件
+        function handlClick() {
+
+            switch (this.innerHTML) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    value = input.value;
+                    type = this.innerHTML;
+                    input.value = "0";
+                    break;
+                case "=":
+                    getNum();
+                    break;
+                case "C":
+                    input.value = "";
+                    type = "";
+                    value = "";
+                    break;
+
+                default:
+                    input.value = Number(input.value + this.innerHTML);
+            }
+        }
+        
+
+        //当点击等于时候计算
+        function getNum() {
+            switch (type) {
+                case "+":
+                    input.value = Number(value) + Number(input.value);
+                    return;
+                case "-":
+                    input.value = Number(value) - Number(input.value);
+                    return;
+                case "*":
+                    input.value = Number(value) * Number(input.value);
+                    return;
+                case "/":
+                    input.value =input.value !=="0" ? Number(value) / Number(input.value):"错误";
+                    return;
+            }
+        }
+
+
+        
+    </script>
+</body>
+
+</html>
