@@ -103,10 +103,7 @@
             }
             firstValue=secondValue;
             secondValue="";
-            if(this.id=="symbol0") text.value="+";
-            else if(this.id=="symbol1") text.value="-";
-            else if(this.id=="symbol2") text.value="*";
-            else if(this.id=="symbol3") text.value="/";
+            if(this.id=="symbol0" || this.id=="symbol1" || this.id=="symbol2" || this.id=="symbol3") text.value="";
             inputSymbol=text.value;
             arr=[firstValue,inputSymbol]
         }
