@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [[1, 2, 3], 2, [3,4], 4, 5,[6,7]], str;
+        function join(arr, str1) {
+            str = "";
+            for (var i = 0; i < arr.length; i++) {
+                if (i !== arr.length - 1) {
+                    if (arr[i].constructor === Array) {
+                        for (var j = 0; j < arr[i].length; j++) {
+                            str+= arr[i][j].toString() + str1;
+                        }  
+                    }else str += arr[i].toString()+str1;
+                }else{
+                     if(arr[i].constructor === Array){
+                        for (var j = 0; j < arr[i].length; j++) {
+                            if (j !== arr[i].length - 1) str += arr[i][j].toString() + str1;
+                            else str += arr[i][j].toString();
+                        }  
+                    }else str+= arr[i].toString();
+                } 
+            }
+            return str;
+        }
+            console.log(join(arr, "+"));
+    </script>
+</body>
+
+</html>
