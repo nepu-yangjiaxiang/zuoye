@@ -168,10 +168,10 @@
             var str2 = rightStr;
             rightStr = '';
             switch (this.innerText) {
-                case '+': text.value = "+"; yun = true; symbl = '+'; break;
-                case '-': text.value = "-"; yun = true; symbl = '-'; break;
-                case '*': text.value = "*"; yun = true; symbl = '*'; break;
-                case '/': text.value = "/"; yun = true; symbl = '/'; break;
+                case '+': text.value = ""; yun = true; symbl = '+'; break;
+                case '-': text.value = ""; yun = true; symbl = '-'; break;
+                case '*': text.value = ""; yun = true; symbl = '*'; break;
+                case '/': text.value = ""; yun = true; symbl = '/'; break;
                 case "C": text.value = ''; leftStr = ''; rightStr = ''; yun = false; break;
                 case '=':
                     if (yun) {
