@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    input,div{
+        margin: 0px;
+        padding: 0px;
+    }
+    #showInput {
+        display: block;
+        width: 406px;
+        height: 100px;
+        font-size: 18px;
+        line-height: 100px;
+        text-align: center;
+        background: whitesmoke;
+        position: absolute;
+        border: 5px solid #000;
+        left: 20%;
+        top: 4%;
+    }
+
+    .container {
+        width: 420px;
+        position: absolute;
+        left: 20%;
+        top: 139px;
+        padding: 0;
+    }
+
+    .container div {
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+        line-height: 100px;
+        background: #eee;
+        border: 2px solid #ccc;
+        text-align: center;
+        float: left;
+    }
+
+    .container div:hover {
+        background: aqua;
+    }
+</style>
+
+<body>
+
+    <input id="showInput" disabled="true"></input>
+    <div class="container">
+        <div class="btn">7</div>
+        <div class="btn">8</div>
+        <div class="btn">9</div>
+        <div class="btn">*</div>
+        <div class="btn">4</div>
+        <div class="btn">5</div>
+        <div class="btn">6</div>
+        <div class="btn">-</div>
+        <div class="btn">1</div>
+        <div class="btn">2</div>
+        <div class="btn">3</div>
+        <div class="btn">+</div>
+        <div class="btn">C</div>
+        <div class="btn">0</div>
+        <div class="btn">=</div>
+        <div class="btn">/</div>
+    </div>
+
+    <script>
+
+        var Num1 = '', Num2 = '', operator = '', bool = false, con, ipt;
+        
+        init();
+
+        //初始化，给所有计算器按钮标签绑定onclick事件
+        function init() {
+            var tag = document.getElementsByClassName("btn");
+            for (var i in tag) tag[i].onclick = onclickHandler;
+        }
+
+        //点击事件
+        function onclickHandler() {
+            con = this.innerHTML;
+            ipt = document.getElementById("showInput");
+            //判断输入是否为数值
+            if (!isNaN(Number(con))) {
+                //bool为false输入Num1,否则输入Num2
+                if (!bool) {
+                    Num1 += con;
+                    ipt.value = Num1;
+                    return;
+                }
+
+                Num2 += con;
+                ipt.value = Num2;
+                return;
+            }
+
+            //清除
+            if (con === 'C') {
+                Num1 = Num2 = operator = '';
+                ipt.value = '0';
+                bool = false;//本次计算结束，下次输入为Num1
+                return;
+            }
+
+            //计算结果
+            if (con === '=') {
+                showResult();
+                Num1 = Num2 = operator = '';
+                bool = false;//本次计算结束，下次输入为Num1
+                return;
+            }
+
+            //输入为+、-、*、/
+            if (isNaN(Number(con))) {
+                ipt.value = operator = con;
+                bool = true;//下次输入为Num2
+            }
+
+        }
+
+        function showResult() {
+            var str = '';//存储并显示计算结果
+            switch (operator) {
+                case '+':
+                    str = Number(Num1) + "+" + Number(Num2) + "=" + (Number(Num1) + Number(Num2));
+                    ipt.value = str;
+                    //本次计算结束，重置
+                    Num1 = Num2 = '';
+                    return;
+                case '-':
+                    str = Number(Num1) + "-" + Number(Num2) + "=" + (Number(Num1) - Number(Num2));
+                    ipt.value = str;
+                    Num1 = Num2 = '';
+                    return;
+                case '*':
+                    str = Number(Num1) + "×" + Number(Num2) + "=" + (Number(Num1) * Number(Num2));
+                    ipt.value = str;
+                    Num1 = Num2 = '';
+                    return;
+                case '/':
+                    //除0处理
+                    if (!Number(Num2)) {
+                        ipt.value = '不能除0';
+                        Num1 = Num2 = '';
+                        return;
+                    }
+                    str = Number(Num1) + "÷" + Number(Num2) + "=" + (Number(Num1) / Number(Num2));
+                    ipt.value = str;
+                    Num1 = Num2 = '';
+                    return;
+                default: return;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

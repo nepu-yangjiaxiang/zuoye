@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div style="background-color:rgb(255, 255, 255)"></div> -->
+    <script>
+        //一个是随机取16倍
+        var str = "#";
+        for (var i = 0; i < 6; i++) {
+            str += parseInt(Math.random() * 16).toString(16);
+        }
+        console.log(str);
+
+
+        //二个随机取255倍
+        var str = '<div style="background-color:rgb(';
+        for (var i = 0; i < 3; i++) {
+            /*  var col = parseInt(Math.random()*255);
+             str+=col + ","; */
+
+            if (i > 1) {
+                var col = parseInt(Math.random() * 255);
+                str += col;
+            } else {
+                var col = parseInt(Math.random() * 255);
+                str += col + ",";
+            }
+
+        }
+        str += ')"';
+        console.log(str);
+    </script>
+</body>
+
+</html>
