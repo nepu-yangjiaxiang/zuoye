@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+
+    </div>
+    <script>
+
+        // rgb(a,b,c)样式
+       /*  var str="rgb(";
+        for(var i=0;i<3;i++){
+            if(i==2){
+                str+=parseInt(Math.random()*256);
+            }else{
+                str+=parseInt(Math.random()*256)+",";
+            }
+        }
+        str+=")";
+        console.log(str); */
+
+        // #ffffffff形式
+       /*  function getColor(n){
+            str="#";
+            while(n<8) {
+               str+=parseInt(Math.random()*16).toString(16); 
+               n++;
+            }
+            return str;
+        }
+        console.log(getColor(0)); */
+
+
+        // 初始化两个全局变量，一个用来计数，一个用来字符串累加
+       /*  var i=0;
+        var color="";
+        function getColor(){
+            i++;
+            // 随机生成一个十六进制
+            color+=parseInt(Math.random()*16).toString(16);
+            // 如果i值小于8，回调自己，继续执行
+            if(i<8)getColor();
+            // 返回颜色
+            return "#"+color;
+        }
+        // 获取div标签
+        var div = document.querySelector("div");
+        // 将颜色赋给作为背景赋给div
+        div.style.backgroundColor=getColor(); */
+    </script>
+</body>
+</html>
