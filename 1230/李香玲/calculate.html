@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div0 {
+            width: 320px;
+            height: 530px;
+            border: 1px solid #000000;
+            box-shadow: 3px 3px 3px white;
+            position: relative;
+            margin: 200px auto;
+            padding: 0 30px;
+            background-color: gainsboro;
+        }
+
+        input {
+            width: 300px;
+            height: 90px;
+            display: block;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 20px;
+            margin: auto;
+            margin-bottom: 43px;
+            padding: 0px 10px;
+            text-align: right;
+            font-size: 55px;
+            line-height: 30px;
+            outline: none;
+            background-color: white;
+            border: 1px solid #000000;
+        }
+
+        .div0>div {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 12px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 70px;
+            margin-bottom: 20px;
+            user-select: none;
+            box-shadow: 3px 3px 3px #CCCCCC;
+            background-color: papayawhip;
+        }
+
+        .div0>div:nth-of-type(4n) {
+            margin-right: 0px;
+        }
+
+        .div0>div:hover {
+            box-shadow: -6px -6px 6px #CCCCCC
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div0">
+        <input type="text" value="0" id="input0" disabled><br>
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+        <div id="div7">7</div>
+        <div id="div8">8</div>
+        <div id="div9">9</div>
+        <div id="div10">0</div>
+        <div id="div11">+</div>
+        <div id="div12">-</div>
+        <div id="div13">*</div>
+        <div id="div14">/</div>
+        <div id="div15">=</div>
+        <div id="div16">C</div>
+    </div>
+    <script>
+        var input, value, type;
+        var value = "0";
+        init();
+        function init() {
+            input = document.getElementById("input0");
+            for (var i = 1; i < 17; i++) {
+                var div = document.getElementById("div" + i)
+                div.onclick = clickHandler;
+            }
+        }
+        function clickHandler() {
+            switch (this.innerHTML) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    type = this.innerHTML;
+                    /* 把输入的数字先存下来 */
+                    value = input.value;
+                    input.value = "0";
+                    break;
+                case "=":
+                    getScore();
+                    break;
+
+                    break;
+                case "C":
+                    input.value = "0";
+                    value = "0";
+                    type = "";
+                    break;
+                default:
+                    input.value = Number(input.value + this.innerHTML);
+            }
+        }
+        function getScore() {
+            switch (type) {
+                case "+":
+                    input.value = Number(value) + Number(input.value);
+                    return;
+                case "-":
+                    input.value = Number(value) - Number(input.value);
+                    return;
+                case "*":
+                    input.value = Number(value) * Number(input.value);
+                    return;
+                case "/":
+                    input.value = input.value === "0" ? "输入有误" : Number(value) / Number(input.value) ;
+                    return;
+            }
+        }
+    </script>
+</body>
+
+</html>

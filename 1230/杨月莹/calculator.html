@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        .div0 {
+            width: 410px;
+            height: 500px;
+            border: 1px solid black;
+            margin: auto;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        input {
+            width: 360px;
+            height: 60px;
+            display: block;
+            margin: auto;
+            outline: none;
+            font-size: 40px;
+            line-height: 60px;
+            text-align: right;
+            color: #494949;
+        }
+
+        .div0>div {
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            float: left;
+            margin: 10px;
+            font-size: 40px;
+            line-height: 80px;
+            text-align: center;
+            box-shadow: 3px 3px 3px gray;
+            border-radius: 5px;
+            color: #494949;
+        }
+
+        .div0>div:hover {
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div0">
+        <input type="text" id="input" value="0"><br>
+        <div class="div">1</div>
+        <div class="div">2</div>
+        <div class="div">3</div>
+        <div class="div">+</div>
+
+        <div class="div">4</div>
+        <div class="div">5</div>
+        <div class="div">6</div>
+        <div class="div">-</div>
+
+        <div class="div">7</div>
+        <div class="div">8</div>
+        <div class="div">9</div>
+        <div class="div">*</div>
+
+        <div class="div">0</div>
+        <div class="div">C</div>
+        <div class="div">=</div>
+        <div class="div">/</div>
+    </div>
+    <script>
+        var value, type;
+        var input = document.getElementById('input');
+        init();
+
+        function init() {
+            // 添加点击侦听事件
+            var divs = document.getElementsByClassName('div');
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].onclick = clickHandler;
+            }
+        }
+
+        function clickHandler() {
+            // console.log(this.innerHTML)
+            // 判断点击类型
+            switch (this.innerHTML) {
+                // 点击运算符
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    // 把运算符存下来赋值给变量
+                    value = input.value;
+                    type = this.innerHTML;
+                    input.value = '0';
+                    break;
+                // 点击 = 执行运算函数
+                case '=':
+                    getCalculator();
+                    break;
+                // 点击 C 清空
+                case 'C':
+                    value = 0;
+                    type = '';
+                    input.value = '0';
+                    break;
+                // 点击数字
+                default:
+                    input.value = Number(input.value + this.innerHTML);
+            }
+        }
+
+        function getCalculator() {
+            switch (type) {
+                case '+':
+                    input.value = Number(value) + Number(input.value);
+                    break;
+                case '-':
+                    input.value = Number(value) - Number(input.value);
+                    break;
+                case '*':
+                    input.value = Number(value) * Number(input.value);
+                    break;
+                case '/':
+                    // 除数为0时
+                    input.value = input.value === '0' ? "除数不能为0" : Number(value) / Number(input.value);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
