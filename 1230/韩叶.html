@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #calculator {
+            background-color: #eee;
+            border: 1px solid #444;
+            width: 288px;
+            height: 320px;
+            margin: 100px auto;
+            opacity: 0.8;
+        }
+
+        #calculator input {
+            width: 225px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #fff;
+            display: block;
+            margin: 10px auto;
+            font-size: 18px;
+            padding: 0 20px;
+            text-align: right;
+            outline: none;
+        }
+
+        #calculator div {
+            width: 50px;
+            height: 40px;
+            background-color: #fff;
+            margin: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            box-shadow: 3px 3px 3px #ccc;
+        }
+
+        #calculator div:hover{
+            box-shadow: -3px -3px 3px #bbb;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main id="calculator">
+        <input type="text" id="inputBox" value="0">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>+</div>
+
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>-</div>
+
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>*</div>
+
+        <div>C</div>
+        <div>0</div>
+        <div>=</div>
+        <div>/</div>
+    </main>
+
+
+    <script>
+        function getDiv() {
+            var div = document.getElementsByTagName("div");
+            // console.log(div)
+            for(var i = 0;i<16;i++){
+                div[i].onclick = clickHandler;
+            }
+        }
+        getDiv()
+
+        var oInput = document.getElementById("inputBox");
+        var type;
+        var num1;
+        var num2;
+
+        function clickHandler() {
+            switch (this.innerHTML) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    num1=Number(oInput.value);
+                    oInput.value="0";
+                    type=this.innerHTML;
+                    // console.log(num1,type)
+                    break;
+                case "=":
+                    getRes();
+                    type="";
+                    break;
+                case "C":
+                    num1=0;
+                    num2=0;
+                    type="";
+                    oInput.value="0"
+                    break;
+                default : 
+                    oInput.value = Number(oInput.value+this.innerHTML);
+            }
+        }
+
+        function getRes(){
+            num2 = Number(oInput.value);
+            console.log(num2)
+            switch(type){
+                case "+":
+                oInput.value=num1+num2;
+                break;
+
+                case "-":
+                oInput.value=num1-num2;
+                break;
+
+                case "*":
+                oInput.value=num1*num2;
+                break;
+
+                case "/":
+                oInput.value=num2===0? "错误": num1/num2;
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
