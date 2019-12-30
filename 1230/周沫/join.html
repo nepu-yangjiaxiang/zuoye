@@ -22,9 +22,9 @@
                     }else str += arr[i].toString()+str1;
                 }else{
                      if(arr[i].constructor === Array){
-                        for (var j = 0; j < arr[i].length; j++) {
-                            if (j !== arr[i].length - 1) str += arr[i][j].toString() + str1;
-                            else str += arr[i][j].toString();
+                        for (var k = 0; k < arr[i].length; k++) {
+                            if (k !== arr[i].length - 1) str += arr[i][k].toString() + str1;
+                            else str += arr[i][k].toString();
                         }  
                     }else str+= arr[i].toString();
                 } 
