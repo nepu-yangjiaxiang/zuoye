@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //1、完成shift功能
+        var arr=[1,2,3,4,5,6];
+        function shift(arr){
+            var item=arr[0];
+            for(var i=1;i<arr.length;i++){
+                arr[i-1]=arr[i];
+            }
+            arr.length--;
+            return item;
+        }
+        console.log(shift(arr));
+        console.log(arr);
+
+        //2、实现join方法
+        var arr=[0,1,2,3,4];
+        function join(arr,str){
+            var arr1=arr[0];
+            for(var i=1;i<arr.length;i++){
+                arr1+=str+arr[i];
+            }
+            return arr1;
+        }
+        console.log(join(arr,"#"));
+        //console.log(join(arr,"-"));
+        //console.log(join(arr,"~"));
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
