@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function myShift(arr){
+            if( arguments.length !== 1 || arguments[0].constructor !== Array){
+                alert("Invalid Input.");
+                return;
+            }
+
+            if(!(arguments[0].length)){
+                alert('Array is empty.')
+                return;
+            }
+
+            var record = arguments[0][0];
+            for(var i = 1; i < arguments[0].length; i ++){
+                arguments[0][i - 1] = arguments[0][i];
+            }
+            
+            arguments[0].length --;
+            return record;
+        }
+        // myShift([4,5,6]);
+        // myShift([]);
+        // myShift([,2,3,4]);
+        // myShift([4,5,6],[4,5,6]);
+        var testArr = [];
+        console.log(myShift(testArr),testArr);
+    </script>
+</body>
+</html>

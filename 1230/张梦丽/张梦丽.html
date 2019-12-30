@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        main { 
+            width: 400px; 
+            height: 500px;
+            border: 1px solid #000;
+            margin: 0 auto; 
+            box-shadow: 3px 3px 3px#ccc;
+            background-color: peachpuff;
+            }
+        #input { 
+            width: 300px; 
+            height: 40px; 
+            border: 1px solid #000; 
+            display: block;
+            padding: 0 40px; 
+            font-size: 20px; 
+            text-align: right; 
+            background-color: #fff; 
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            }
+        section { 
+            width: 360px; 
+            height: 450px; 
+            padding-left: 30px;
+            overflow: hidden; 
+            }
+        #section div{ 
+            width: 70px; 
+            height: 70px; 
+            float: left;
+            border: 1px solid #000; 
+            font-size: 26px; 
+            text-align: center; 
+            line-height: 70px; 
+            margin-left: 10px; 
+            margin-top: 10px; 
+            user-select: none;
+            }
+        #section div:hover {
+            font-size: 34px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input id="input" type="text" placeholder="0" disabled>
+        <section id="section">
+            <div id="div0">0</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>+</div>
+            <div>-</div>
+            <div>*</div>
+            <div>/</div>
+            <div>C</div>
+            <div>=</div>
+        </section>
+  
+    </main>
+    
+        
+    
+
+    <script>
+      
+        function calculator(){
+            //获取input，div
+            var input = document.getElementById("input");
+            var divs = document.getElementsByTagName("div");
+            //type是操作符   j是等于   
+            var type,j,num1,num2;
+            //添加单击事件
+            for(var i=0; i<divs.length; i++){
+                divs[i].onclick = function(){
+                    if(isNaN(Number(this.innerHTML))){
+                        type = this.innerHTML;
+                        count(type,input);
+                    }//如果是数字就拼接
+                    else {
+                        input.value += this.innerHTML;
+                    }
+                }
+            }
+        }
+        function count(type,input){
+            
+            if (type!=="="){
+                j = type;
+               num1 = parseInt(input.value);
+               input.value ="";
+            }else {
+                num2 = parseInt(input.value);
+                //当点击等号的时候，开始运算
+                switch(j){
+                    case "+": 
+                        input.value= num1 + num2;
+                        break;
+                    case "-":
+                        input.value = num1 - num2;
+                        break;
+                    case "*":
+                        input.value = num1 * num2;
+                        break;
+                    case "/":
+                        if(num2 === 0){
+                            input.value = "不能为0";
+                        }else{
+                            input.value = num1 / num2;
+                        }
+                        break;
+                    case "C":
+                        input.value = "";
+                        break;
+                }
+            }
+        }
+        calculator(); 
+    </script>
+</body>
+</html>

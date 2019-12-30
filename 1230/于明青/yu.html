@@ -110,7 +110,7 @@
                         input.value = Number(value) * Number(input.value);
                         return;
                     case "/":
-                        input.value = input.value === 0 ? Number(value) / Number(input.value) : "错误";
+                        input.value = input.value === 0 ? "错误" : Number(value)/Number(input.value);;
                         return;
                 }
 
