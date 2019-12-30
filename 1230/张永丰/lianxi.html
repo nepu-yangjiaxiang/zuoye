@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 380px;
+            height: 500px;
+            margin:auto;
+            background:#3F3F3F;
+            padding-top: 20px;
+            position: absolute;;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+           border-radius: 20px;
+        }
+        table{
+           border-spacing: 10px;
+            margin-top: 20px;
+            margin: 0 auto;
+        }
+        td{
+            height: 80px;
+            line-height: 80px;
+            width: 80px;
+            text-align: center;
+            font-size: 24px;
+            user-select: none;
+            border: 1px solid black;
+            background: #3F3F3F;
+            box-shadow: 3px 3px 2px 2px #000;
+            color: #fff;
+            font-weight: 900;
+            border-radius: 10px;
+        }
+        td:active{
+            box-shadow: 1px 1px 1px #000;
+        }
+        input{
+            display: block;
+            width:350px;
+            height: 80px;
+            margin: 0 auto;
+            text-align: right;
+            font-size: 36px;
+            background:#1A1A1A;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+        #div15{
+            background: #18D516;
+        }
+        #div16{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" disabled value="0" id="input0">
+        <table>
+            <tr>
+                <td id="div1">1</td>
+                <td id="div2">2</td>
+                <td id="div3">3</td>
+                <td id="div4">4</td>
+            </tr>
+            <tr>
+                <td id="div5">5</td>
+                <td id="div6">6</td>
+                <td id="div7">7</td>
+                <td id="div8">8</td>
+            </tr>
+            <tr>
+                <td id="div9">9</td>
+                <td id="div10">0</td>
+                <td id="div11">-</td>
+                <td id="div12">+</td>
+            </tr>
+            <tr>
+                <td id="div13">*</td>
+                <td id="div14">/</td>
+                <td id="div15">=</td>
+                <td id="div16">C</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var input;
+        var value="0";
+        var type;
+        inti();
+        function inti(){
+            input=document.getElementById("input0");
+            for (var i=1;i<17;i++){
+                var div =document.getElementById("div"+i);
+                div.onclick=clivkHandler;
+            }
+        }
+        function clivkHandler(){
+            switch (this.innerHTML){
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                type=this.innerHTML;
+                value=input.value;
+                input.value="0";
+                break;
+                case "=":
+                getSum();
+                break;
+                case "C":
+                type="";
+                input.value="0";
+                value="0";
+                break;
+                default:
+                input.value=Number(input.value+this.innerHTML);
+            }
+        }
+        function getSum(){
+            switch(type){
+                case "+":
+                input.value=Number(value)+Number(input.value);
+                return;
+                case "-":
+                input.value=Number(value)-Number(input.value);
+                return;
+                case "*":
+                input.value=Number(value)*Number(input.value);
+                return;
+                case "/":
+                input.value=input.value!=="0"? Number(value)/Number(input.value):"对不起，输入错误";
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
