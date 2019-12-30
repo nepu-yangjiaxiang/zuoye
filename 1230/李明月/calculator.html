@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body，input{
+            margin: 0;padding:0;
+        }
+        input{
+            border: 0;
+            outline: none;
+        }
+        
+        /* 设置计算器盒子样式 */
+        .cal{
+            width: 380px;
+            height: 500px;
+            /* border: 1px solid #000000; */
+            box-shadow: 4px 4px 4px #cccccc;
+            background: rgb(252, 215, 221);
+            position: relative;
+            margin: auto;
+            padding: 0 20px;
+        }
+        /* 设置计算器输入框样式 */
+        input{
+            display:block;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #000000;
+            position: relative;
+            left: 0;
+            right: 0;
+            top:20px;
+            margin: auto;
+            margin-bottom: 40px;
+            font-size: 24px;
+            text-align: right;
+            line-height: 40px;
+            padding-right: 10px;
+        }
+        /* 设置计算器数字与符号样式 */
+        .cal div{
+            width: 70px;
+            height: 70px;
+            background: plum;
+            border: 1px solid #000000;
+            box-shadow: 4px 4px 4px #000000;
+            float: left;
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            margin: 10px;
+        }
+        /* 鼠标滑过样式 */
+        .cal div:hover{
+            box-shadow: -4px -4px 4px #000000;
+            border: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 基本结构 -->
+    <div class="cal">
+        <input type="text" value="0" id="cal_txt">
+        <div id="cal_1">1</div>
+        <div id="cal_2">2</div>
+        <div id="cal_3">3</div>
+        <div id="cal_11">+</div>
+        <div id="cal_4">4</div>
+        <div id="cal_5">5</div>
+        <div id="cal_6">6</div>
+        <div id="cal_12">-</div>
+        <div id="cal_7">7</div>
+        <div id="cal_8">8</div>
+        <div id="cal_9">9</div>
+        <div id="cal_13">*</div>
+        <div id="cal_10">0</div>
+        <div id="cal_16">C</div>
+        <div id="cal_15">=</div>
+        <div id="cal_14">/</div>
+      
+        
+    </div>
+
+    <script>
+        // 定义变量，与html做关联，设置基本条件
+        var input,type;
+        var value="0";
+        init();
+        function init(){
+            input=document.getElementById("cal_txt");
+            for(var i=1; i<17; i++){
+                var div=document.getElementById("cal_"+i);
+                div.onclick=clickHander;
+            }
+        }
+        // 函数clickHander 设置符号的点击功能
+        function clickHander(){
+            switch(this.innerHTML){
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                type=this.innerHTML;
+                value=input.value;
+                input.value="";
+                break;
+
+                case "=":
+                getAlg();
+                break;
+
+                case "C":
+                input.value="0";
+                value="0";
+                type="";
+                break;
+
+                default:
+                input.value += Number(input.value+this.innerHTML);
+            }
+        }
+        // 函数getAlg 设置符号与数字结合后的结果呈现功能
+        function getAlg(){
+            switch(type){
+                case "+":
+                input.value=Number(value) + Number(input.value);
+                return;
+
+                case "-":
+                input.value=Number(value) - Number(input.value);
+                return;
+
+                case "*":
+                input.value=Number(value) * Number(input.value);
+                return;
+
+                case "/":
+                input.value=input.value!==0 ? Number(value) / Number(input.value) : "输入错误" ;
+                return;
+            }
+        }
+    
+    </script>
+</body>
+</html>

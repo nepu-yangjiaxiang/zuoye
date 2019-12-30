@@ -69,9 +69,14 @@
             var number = document.getElementsByTagName("div"); //数字块的数组
             
             //  输入运算符函数------------------------------------------------
-            function operation(id){            
+            function operation(id){       
+                if( getid("display").value != "0")
+                    {
+                        if(left == 0){     
                     getid("display").value += getid(id).innerHTML;
                     left = parseFloat(getid("display").value);
+                    }
+                    }
             }
            
             //   传入数字函数-----------------------------------------------------
