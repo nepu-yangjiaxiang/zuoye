@@ -103,11 +103,8 @@
             }
             firstValue=secondValue;
             secondValue="";
-            if(this.id=="symbol0") text.value="+";
-            else if(this.id=="symbol1") text.value="-";
-            else if(this.id=="symbol2") text.value="*";
-            else if(this.id=="symbol3") text.value="/";
-            inputSymbol=text.value;
+            if(this.id=="symbol0" || "symbol1" || "symbol2" || "symbol3") text.value=" ";
+            inputSymbol=this.innerHTML;
             arr=[firstValue,inputSymbol]
         }
         /* 点击等号运行函数 */

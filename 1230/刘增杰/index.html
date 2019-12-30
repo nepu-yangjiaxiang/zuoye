@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #big {
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        input {
+            width: 350px;
+            height: 48px;
+            border: 1px solid black;
+            margin: 10px auto 0;
+            display: block;
+            text-align: center;
+            color:pink;
+            font-size: 30px;
+        }
+
+        .center {
+            margin: 30px auto;
+            width: 350px;
+        }
+
+        .center::after {
+            content: '';
+            height: 0;
+            clear: both;
+            display: block;
+        }
+
+        .center div {
+            width: 70px;
+            height: 70px;
+            border: 1px solid pink;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="big">
+        <input type="text">
+        <div class="center">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>0</div>
+            <div>+</div>
+            <div>-</div>
+            <div>*</div>
+            <div>/</div>
+            <div>=</div>
+            <div>c</div>
+        </div>
+    </div>
+    <script>
+        var div1 = document.getElementsByClassName('center')[0];
+        var divs = div1.getElementsByTagName('div');
+        var input = document.getElementsByTagName('input')[0];
+
+        var sum = '';
+        var b = '';
+        var type = '';
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].onclick = function () {
+                sum += this.innerHTML;
+                input.value = sum;
+                switch (this.innerHTML) {
+                    case '+':
+                    case '-':
+                    case '*':
+                    case '/': b = parseInt(input.value);
+                        type = this.innerHTML;
+                        sum = ''; break;
+                    case 'c': b = ''; sum = ''; input.value = '0'; break;
+                    case '=':
+                        ;
+                        switch (type) {
+                            case '+': input.value = b + parseInt(sum); console.log(sum); break;
+                            case '-': input.value = b - parseInt(sum); break;
+                            case '*': input.value = b * parseInt(sum); break;
+                            case '/': input.value = parseInt(sum) == 0 ? '分母不能为0' : b / parseInt(sum);
+                                break;
+                        }
+                        sum=input.value
+                }
+
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
