@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* var arr=[1,2,3,4];//1234123
+        var con=unshift(arr,5,6,7);
+        console.log(con);
+        console.log(arr);
+        function unshift(arr){
+            var len=arguments.length-1;
+            for(var i=arr.length-1;i>=0;i--){
+                arr[i+len]=arr[i]
+            }
+            for(var j=1;j<arguments.length;j++){
+                arr[j-1]=arguments[j]
+            }
+            return arr.length
+        } */
+
+
+        // shift
+        var arr = [1, 2, 3, 4]
+        var ret=shift(arr);
+        console.log(ret)
+        console.log(arr)
+        function shift(arr) {
+            var arr0=arr[0];
+            for(var i=1;i<arr.length;i++){
+                arr[i-1]=arr[i];
+            }
+            arr.length--;
+            return arr0;
+        }
+
+
+        // join
+        var arr2=[1,2,3,4,5];
+        var res2=join(arr2,'+');
+        console.log(res2);
+        function join(arr2,type){
+            type=type||','
+            var str=''
+            for(var i=0;i<arr2.length;i++){
+                str+= i<arr2.length-1 ? arr2[i]+type : arr2[i];
+            }
+            return str
+        }
+
+
+
+    </script>
+</body>
+
+</html>
