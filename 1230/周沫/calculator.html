@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            margin: 0 auto;
+            width: 352px;
+            border: 2px solid #000;
+            background-color: #e6e6e6;
+            box-shadow: 2px 2px 2px #999;
+            padding: 40px 10px 60px;
+            user-select:none;
+        }
+        #box div{
+            width: 80px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #fbfbfb;
+            margin: 10px 2px;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 2px 2px 2px #000;
+            cursor: pointer;
+        }
+        #box div:hover{
+            background-color: #dadada;
+            box-shadow:-4px -4px 4px #000;
+        }
+        input{
+            display: block;
+            box-sizing: border-box;
+            margin: 0 auto 30px;
+            padding-right: 30px;
+            font-size: 40px;
+            background: #e6e6e6;
+            width: 100%;
+            height: 50px;
+            border: 0;
+            outline: none;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="text0" placeholder="0">
+        <div id="div9">9</div>
+        <div id="div8">8</div>
+        <div id="div7">7</div>
+        <div id="symbol3">/</div>
+        <div id="div6">6</div>
+        <div id="div5">5</div>
+        <div id="div4">4</div>
+        <div id="symbol2">*</div>
+        <div id="div3">3</div>
+        <div id="div2">2</div>
+        <div id="div1">1</div>
+        <div id="symbol1">-</div>
+        <div id="symbol4">C</div>
+        <div id="div0">0</div>
+        <div id="Result0">=</div>
+        <div id="symbol0">+</div>
+    </div>
+    
+    <script>
+        var text=document.getElementById("text0"),sum,firstValue,secondValue,inputSymbol,arr=[],div,symbol;
+
+        /* 运行初始函数获取数字与运算符的id */    
+        init()
+        function init(){
+            for(var i=0;i<10;i++){
+                var div=document.getElementById("div"+i);
+                div.onclick=clickHandler;
+            }
+            for(var j=0;j<5;j++){
+                var symbol=document.getElementById("symbol"+j);
+                /* console.log(symbol); */
+                symbol.onclick=clickAction;
+            }
+        }
+        
+        
+        /* 点击数字运行函数 */
+        function clickHandler(){
+            if(text.value=="+" ||text.value== "-" ||text.value== "*" ||text.value== "/") text.value=null;
+            text.value+=this.innerHTML;
+            secondValue=text.value;
+        }
+
+        /* 点击运算符运行函数 */
+        function clickAction(){
+            if(this.id=="symbol4"){
+                text.value=null;
+                firstValue="";
+                secondValue="";
+                inputSymbol="";
+                return;
+            }
+            firstValue=secondValue;
+            secondValue="";
+            if(this.id=="symbol0") text.value="+";
+            else if(this.id=="symbol1") text.value="-";
+            else if(this.id=="symbol2") text.value="*";
+            else if(this.id=="symbol3") text.value="/";
+            inputSymbol=text.value;
+            arr=[firstValue,inputSymbol]
+        }
+        /* 点击等号运行函数 */
+        var Result=document.getElementById("Result0");
+        Result.onclick=getResult;
+        function getResult(){
+            sum=0;
+            if(!firstValue || !secondValue) return text.value="输入错误";
+            else if(secondValue==0 && inputSymbol=="/") return text.value="除数不能为0";
+            else if(inputSymbol=="+") sum=Number(firstValue)+Number(secondValue);
+            else if(inputSymbol=="-") sum=Number(firstValue)-Number(secondValue);
+            else if(inputSymbol=="*") sum=Number(firstValue)*Number(secondValue);
+            else if(inputSymbol=="/") sum=Number(firstValue)/Number(secondValue);
+            else sum="输入错误";
+            text.value=sum;
+        }
+       
+    </script>
+</body>
+</html>
