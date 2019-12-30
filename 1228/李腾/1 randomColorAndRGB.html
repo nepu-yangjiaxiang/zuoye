@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1 randomColor
+        var str = "#", counter = 0;
+        (function randomCR(counter) {
+            if (counter > 7) return; //Export
+            str += parseInt(Math.random() * 16).toString(16);
+            return randomCR(++counter);
+        })(counter);
+        document.write("<div style=background-color:" + str + ";width:100px;height:100px;>CR</div>");
+
+        //2 randomRGB
+        var str = "rgb(", counter = 0;
+        (function randomRGB(counter) {
+            if (counter > 2) return; //Export
+            str += parseInt(Math.random() * 255);
+            if (counter === 2) {
+                str += ")";
+                return randomRGB(++counter);
+            }      
+            str += ",";
+            return randomRGB(++counter);
+        })(counter);
+        // str[str.length -1] = ')';
+        document.write("<div style=background-color:" + str + ";width:100px;height:100px;>RGB</div>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+        }
+
+        #calculator {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            background: #cccccc;
+            border: 1px solid #000000;
+            border-radius: 10px;
+        }
+
+        #calculator .in div {
+            width: 100px;
+            height: 100px;
+            background: #ffffff;
+            box-shadow:3px 3px 3px  #000;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 100px;
+            font-weight: 700px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        #calculator .in div:hover{
+            background: #cccccc;
+        }
+        .in{
+
+            width: 450px;
+            height: 450px;
+            margin-top: 30px;
+            margin: 30px 35px 0px;
+
+        }
+        input{
+            width: 300px;
+            height: 70px;
+            display: block;
+            border: 0;
+            margin: 30px auto ;
+            border-radius: 5px;
+            font-size: 25px;
+            font-weight: 600px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <input type="text">
+        <div class="in">
+            <div id="dom0">0</div>
+            <div id="dom1">1</div>
+            <div id="dom2">2</div>
+            <div id="dom10">+</div>
+            <div id="dom3">3</div>
+            <div id="dom4">4</div>
+            <div id="dom5">5</div>
+            <div id="dom11">-</div>
+            <div id="dom6">6</div>
+            <div id="dom7">7</div>
+            <div id="dom8">8</div>
+            <div id="dom12">*</div>
+            <div id="dom9">9</div>
+            <div id="dom14" style="background: pink;">=</div>
+            <div id="dom15" style="background: pink;">C</div>
+            <div id="dom13">/</div>
+            
+            
+        </div>
+
+    </div>
+
+
+    <script>
+
+        //计算器
+        var sum, addend = "", operator = "";//定义变量
+        var text = document.getElementsByTagName('input')[0]//选择输入框
+        var numClear = document.getElementById("dom15");//选择清除
+        start();
+
+        //启动函数
+        function start() {
+            var getsum,clear
+            getsum=document.getElementById('dom14');
+            clear=document.getElementById('dom15')
+            for (var i = 0; i <= 9; i++) {
+                var div = document.getElementById('dom' + i);
+                div.onclick = getNum;
+            }
+
+            for (var j = 10; j <= 13; j++) {
+                var div=document.getElementById('dom' + j);
+                div.onclick = getOperator;
+            }
+
+            getsum.onclick = getSum;
+
+            numClear.onclick = clearNum;
+
+        }
+
+
+        //单机div将对应的值赋值给input.value
+        function getNum() {
+            if (text.value == "+" || text.value == "-" || text.value == "*" || text.value == "/") {
+                text.value = "";
+                text.value += this.innerHTML;
+                addend = text.value
+            }
+            else {
+                text.value += this.innerHTML;
+                addend = text.value
+
+            }
+        }
+
+
+        //获取运算符的函数
+        function getOperator() {
+            sum = addend;
+            addend = "";
+            text.value = this.innerHTML;
+            operator = text.value;
+        }
+
+        //点击等于输出结果
+        function getSum() {
+            //判断输入的符号
+            switch (operator) {
+                case "+": sum = parseInt(sum) + parseInt(addend); break;
+                case "-": sum -= addend; break;
+                case "*": sum *= addend; break;
+                case "/": if (addend != 0) sum /= addend;
+                else text.value = "分母不可以为0"
+                    return
+            }
+            text.value = sum;
+        }
+
+        function clearNum() {
+            text.value = "";
+            console.log(text.value);
+        }
+    </script>
+</body>
+
+</html>

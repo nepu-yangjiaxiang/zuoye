@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4];
+        function divide(arr, de) {
+            var a = "";
+            for (var i = 0; i < arr.length; i++) {
+                if (i < arr.length - 1) {
+                    if (de === undefined) {
+                        a += arr[i] + ",";
+                    } else {
+                        a += arr[i] + String(de);
+                    }
+                } else {
+                    a += arr[i];
+                }
+            }
+            return a;
+        }
+        console.log(divide(arr, "+"));
+        console.log(arr.join(1));
+    </script>
+</body>
+
+</html>
