@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div0{
+            width:330px;
+            height:460px;
+            box-shadow: 3px 3px 3px #ccc;
+            padding:20px;
+            border: solid 6px dimgrey;
+            margin:50px auto;
+        }
+        #input0{
+            width:300px;
+            height:30px;
+            margin:auto;
+            display: block;
+            position:relative;
+            left:0;
+            top:10px;
+            padding:10px;
+            outline: none;
+            font-size:28px;
+            text-align: right;
+            margin-bottom: 20px;;
+            border-bottom: solid 4px darkgray;
+            font-weight: bold;
+            color: gray;
+            font-family: 黑体;
+        }
+        .div0>div{
+            cursor: pointer;
+            width:70px;
+            height:70px;
+            box-shadow: 3px 3px 3px #ccc;
+            float:left;
+            margin:10px  10px 0 0; 
+            text-align: center;
+            line-height: 70px;
+            font-size:30px;
+            background: dimgrey;
+            border: solid 1px #FFFFFF;
+            color: #ffffff;
+        }
+        .div0>div:hover{
+            background-color: #ccc;
+            box-shadow: -3px -3px 3px #cccccc;
+            background: #fff;
+            color:#000;
+        }
+    </style>
+</head>
+<body>
+    <div class="div0">
+        <input type="text" value="0" id="input0" disabled>
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+        <div id="div7">7</div>
+        <div id="div8">8</div>
+        <div id="div9">9</div>
+        <div id="div10">0</div>
+        <div id="div11">+</div>
+        <div id="div12">-</div>
+        <div id="div13">*</div>
+        <div id="div14">/</div>
+        <div id="div15">C</div>
+        <div id="div16">=</div>
+    </div>
+
+    <script>
+        var input,type;
+        var value="";
+        init();
+        function init(){
+            input = document.getElementById("input0");
+            for(var i=1;i<17;i++){         
+                var div=document.getElementById("div"+i);   
+                console.log(div)
+                div.onclick = getOnclick; 
+            }
+        }
+
+        function getOnclick(){
+            switch(this.innerHTML){
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    type=this.innerHTML;
+                    value = input.value;
+                    input.value="0";
+                    break;
+                case "=":
+                    getSum();
+                    break;
+                case "C":
+                    type="0";
+                    value="0";
+                    input.value="0";
+                    break;
+                default:
+                    input.value = Number(input.value+this.innerHTML); //input.value
+            }
+        }
+
+        function getSum(){
+            switch(type){
+                case "+":
+                    input.value = Number(input.value)+Number(value);
+                    return;
+                case "-":
+                    input.value = Number(value)-Number(input.value);
+                    return;
+                case "*":
+                    input.value = Number(input.value)*Number(value);
+                    return;
+                case "/":
+                    input.value =input.value!=0? Number(value)/Number(input.value):"输入错误";
+                    return;
+            }
+        }
+    </script>
+</body>
+</html>

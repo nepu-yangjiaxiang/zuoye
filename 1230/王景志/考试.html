@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <style>
+        main { 
+            overflow: hidden; 
+            margin: 0 auto; 
+            width: 200px; 
+            border: 1px solid #000; 
+            box-shadow: 3px 3px 3px#ccc;
+            background-color: #EEEEEE;
+            }
+        #input { 
+            width: 111px; 
+            height: 40px; 
+            text-align: right; 
+            padding: 0 40px; 
+            font-size: 20px; 
+            background-color: #fff; 
+            border: 1px solid #000; 
+            margin-left: 3px;
+            }
+        section { 
+            overflow: hidden; 
+            width: 200px; 
+            height: 320px; 
+            background-color: #fff; 
+            padding-left: 18px;
+            }
+        #num div{ 
+            width: 50px; 
+            height: 50px; 
+            border: 1px solid #000; 
+            text-align: center; 
+            line-height: 50px; 
+            font-size: 30px; 
+            float: left;
+            margin-left: 2px; 
+            margin-top: 2px; 
+            cursor: pointer;
+            }
+        #num #count {
+            width: 160px; 
+            height: 40px; 
+            line-height: 40px;
+            }
+    </style>
+</head>
+<body>
+    <main>
+        <input id="input" type="text" placeholder="0" disabled>
+        <section id="num">
+            <div id="div0">0</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>+</div>
+            <div>-</div>
+            <div>*</div>
+            <div>/</div>
+            <div>C</div>
+            <div id="count">=</div>
+        </section>
+  
+    </main>
+    
+        
+    
+
+    <script>
+ 
+        //  计算器
+        function calculator(){
+            var input = document.getElementById("input");
+            var divs = document.getElementsByTagName("div")
+            var op,k,num1,num2;
+
+            for(var i=0; i<divs.length; i++){
+                divs[i].onclick = function(){
+                    if(isNaN(Number(this.innerHTML))){
+                        op = this.innerHTML;
+                        count(op,input);
+                    }
+                    else {
+                        input.value += this.innerHTML;
+                    }
+                }
+            }
+        }
+        function count(op,input){
+            
+            if (op!=="="){
+                k = op;
+               num1 = parseInt(input.value);
+               
+               input.value ="";
+            }else {
+                num2 = parseInt(input.value);
+                switch(k){
+                    case "+": 
+                        input.value= num1 + num2;
+                        break;
+                    case "-":
+                        input.value = num1 - num2;
+                        break;
+                    case "*":
+                        input.value = num1 * num2;
+                        break;
+                    case "/":
+                        if(num2 === 0){
+                            input.value = "输入错误！";
+                        }else{
+                            input.value = num1 / num2;
+                        }
+                        break;
+                    case "C":
+                        input.value = "";
+                        break;
+                }
+            }
+        }
+        calculator(); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+       #div0{
+           width: 290px;
+           height: 600px;
+           border: 1px solid #000;
+           box-shadow: 2px 2px 2px #ccc;
+           margin: 0 auto;
+           padding: 10px 40px;
+           
+       }
+       #in1{
+           display: block;
+           height: 50px;
+           width: 268px;
+           background: #fff;
+           outline: none;
+           border: 1px solid #000;
+           text-align: right;
+           padding-right: 20px;
+           margin-bottom: 20px;
+       }
+       #div0 div{
+           width: 75px;
+           height: 75px;
+           border: 1px solid #000;
+           float: left;
+           margin: 0 29px 10px 0;
+           text-align: center;
+           line-height: 75px;
+           box-shadow: 2px 2px 2px #ccc;
+           user-select: none;
+       }
+       #div0 div:hover{
+           box-shadow: -2px -2px 2px #ccc
+       }
+    #div0>div:nth-of-type(3n+0){
+           margin-right: 0;
+       }
+      #div0  #div17{
+           border: 0;
+           box-shadow: none;
+           background: #fff;
+       }
+       #div0  #div18{
+           border: 0;
+           box-shadow: none;
+           background: #fff;
+       }
+
+
+   </style>
+</head>
+<body>
+    <div id="div0">
+        <input type="text" value="0" id="in1" disabled>
+        <div id="div1">0</div>
+        <div id="div2">1</div>
+        <div id="div3">2</div>
+        <div id="div4">3</div>
+        <div id="div5">4</div>
+        <div id="div6">5</div>
+        <div id="div7">6</div>
+        <div id="div8">7</div>
+        <div id="div9">8</div>
+        <div id="div10">9</div>
+        <div id="div11">+</div>
+        <div id="div12">-</div>
+        <div id="div13">*</div>
+        <div id="div14">/</div>
+        <div id="div15">=</div>
+        <div id="div17"></div>
+        <div id="div16">C</div>
+        <div id="div18"></div>
+    </div>
+    <script>
+        var in1,type;
+        var value="0";
+        init();
+        function init(){
+            in1=document.getElementById("in1")
+            for(var i=1;i<17;i++){
+                var div=document.getElementById("div"+i);
+                div.onclick=clickHandler;
+            }
+        }
+        function clickHandler(){    
+            switch(this.innerHTML){
+                case "+":
+                case "-":
+                case "*":
+                case "/": 
+                    type=this.innerHTML;
+                    value=in1.value;
+                    in1.value="0"
+                    break;
+                case "=":
+                    getsum(); 
+                    break;
+                case "C": 
+                    in1.value="0";
+                    value="0";
+                    type="";
+                    break;
+                default:
+                   in1.value=Number(in1.value+this.innerHTML);
+                   
+                    
+            }
+
+        }
+        function getsum(){
+            switch(type){
+                case "+":
+                    in1.value=Number(value) + Number(in1.value)
+                    return;
+                case "-":
+                    in1.value=Number(value)-Number(in1.value);
+                    return;
+                case "*":
+                in1.value=Number(value)*Number(in1.value);
+                    return;
+                case "/":
+                    // in1.value=in1.value!==0 ? Number(value) / Number(in1.value) : "error"
+                    // return;
+                    if(Number(in1.value)===0){
+                        in1.value= "除数不能为0";
+                        return;
+                    }else{
+                        in1.value=Number(value)/Number(in1.value);
+                        return;
+                    }
+                
+            }
+        }
+    </script>
+</body>
+</html>

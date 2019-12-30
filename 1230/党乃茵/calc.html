@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+            
+        }
+        .box{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+            background-image: linear-gradient(to right, #2d769f , #1ddec2);
+        }
+        table{
+            margin:0 auto;
+            margin-top: 150px;
+            box-shadow:-10px -10px 10px #00000011;
+            border-spacing: 10px;
+            color:#fff;
+        }
+        td{
+            text-align: center;
+            width:100px;
+            height:100px;
+            font-size: 30px;
+            font-weight: bold;
+            background: #00000033;
+            box-shadow: 3px 3px 3px #00000033;
+        }
+        #val{
+            box-shadow:none;
+        }
+        #val:hover{
+            box-shadow:none;
+        }
+        td:hover{
+            box-shadow:-3px -3px 3px #00000033;
+        }
+        .bg{
+            background: #ffffff33;
+        }
+        td input{
+            display: inline-block;
+            width: 100%;
+            height:100%;
+            background: #ffffff33;
+            border:0;
+            font-size: 40px;
+            text-align: right;
+            line-height: 100px;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <table>
+            <tr>
+                <td id="val" colspan="3">
+                    <input type="text" disabled id="inp">
+                </td>
+                <td id="td15" >C</td>
+            </tr>
+            <tr>
+                <td id="td1" class="bg">1</td>
+                <td id="td2" class="bg">2</td>
+                <td id="td3" class="bg">3</td>
+                <td id="td10" >+</td>
+            </tr>
+            <tr>
+                <td id="td4" class="bg">4</td>
+                <td id="td5" class="bg">5</td>
+                <td id="td6" class="bg">6</td>
+                <td id="td11">-</td>
+            </tr>
+            <tr>
+                <td id="td7" class="bg">7</td>
+                <td id="td8" class="bg">8</td>
+                <td id="td9" class="bg">9</td>
+                <td id="td12">*</td>
+            </tr>
+            <tr>
+                <td id="td0" class="bg" colspan="2">0</td>
+                <td id="td14">=</td>
+                <td id="td13" >/</td>
+            </tr>
+        </table>
+    </div>
+        <script>
+            var num,num1,type;
+            for(var i=0;i<16;i++){
+                var tdItem=document.getElementById('td'+i);
+                tdItem.onclick= clickItem;
+            }
+            
+
+            var inp=document.getElementById('inp')
+            function clickItem(){
+                if(this.innerHTML<10){
+                    inp.value=inp.value+this.innerHTML;
+                    
+                }else{
+                    cal(this.innerHTML);
+                }
+            }
+            
+            function cal(sign){
+                console.log(sign)
+                switch(sign){
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                    num1=inp.value;
+                    inp.value='';
+                    type=sign;
+                    
+                    break;
+                    case "=":
+                    res(type);
+                    break;
+                    case "C":
+                    inp.value='';
+                    type='';
+                    break;
+                
+                }
+            }
+
+            function res(type){
+                switch(type){
+                    case "+":
+                        inp.value= Number(num1)+Number(inp.value);
+                        return;
+                    case "-":
+                        inp.value= Number(num1)-Number(inp.value);
+                        return;
+                    case "*":
+                        inp.value= Number(num1)*Number(inp.value);
+                        return;
+                    case "/":
+                        inp.value= inp.value=='0'?'输入错误':Number(num1)/Number(inp.value);
+                        return;
+                }
+            }
+        
+        </script>
+</body>
+</html>

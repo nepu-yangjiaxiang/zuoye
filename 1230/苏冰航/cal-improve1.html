@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cal{
+            width:410px;height:512px;border:1px solid #000033;margin:0 auto;background-color: #ccc
+        }
+        #display{width:408px;
+        height:100px;
+        background-color: #f5f5f5;
+        margin:0 auto;
+        border:1px solid #fff;
+        text-align:right; 
+        font:40px "微软雅黑";     
+        }
+        
+        #cal div,p{width:100px;float:left;height:100px;border:1px solid #fff;font-size:22px;text-align:center;line-height:100px;margin:0}
+        #cal div:hover{background-color:#808080;}
+        #division,#ride,#add,#reduce{background-color: #FAEBD7;}
+        #cal #division:hover{background-color: #FFDEAD}
+        #cal #ride:hover{background-color: #FFDEAD}
+        #cal #add:hover{background-color: #FFDEAD}
+        #cal #reduce:hover{background-color: #FFDEAD}
+        #equal,#res{background-color:	#00CED1;}
+        #cal #equal:hover{background-color: 	#20B2AA}
+        #cal #res:hover{background-color: 	#20B2AA}
+
+    
+    </style>
+</head>
+<body>
+    <h2 id="cal">
+        <input type="text" id="display" value="0" disabled>
+            <div id="seven">7</div>
+            <div id="eight">8</div>
+            <div id="nine">9</div>
+            <p id="division">/</p>
+
+
+            <div id="four">4</div>
+            <div id="five">5</div>
+            <div id="six">6</div>
+            <p id="ride">*</p>
+
+
+            <div id="one">1</div>
+            <div id="two">2</div>
+            <div id="three">3</div>
+            <p id="add">+</p>
+
+
+            <p id="res">C</p>
+            <div id="zero">0</div>
+            <p id="equal">=</p>
+            <p id="reduce">-</p>
+
+    </h2>
+
+    <script>
+        
+            // 获取id函数-------------------------------------------
+            function getid(id){
+                return document.getElementById(id);
+            }
+            //算数-----------------------------------------------
+            var left = 0;   //第一个数
+            var right = 0;  //第二个数
+            var result = 0;    //结果  
+
+            var number = document.getElementsByTagName("div");
+            
+            //  输入运算符函数------------------------------------------------
+            function operation(id){            
+                    getid("display").value += getid(id).innerHTML;
+                    left = parseInt(getid("display").value);
+            }
+           
+            //   传入数字函数-----------------------------------------------------
+            function figure(id)
+            {                
+
+                if (getid("display").value === "0" ) 
+                {
+                         getid("display").value = this.innerHTML;     //一开始显示0，替换成点击输入的数
+                }
+                else
+                {
+
+                    getid("display").value += this.innerHTML;
+                    var str = getid("display").value;           
+                    var num = "";                    
+                    // 获取第二次输入的数字
+                    for (var i = 0; i < str.length; i++) 
+                    {
+                    // 判断是否输入加减乘除
+                        if(str[i]== "+")
+                        {
+                            for (var j = i + 1; j < str.length; j++) 
+                            {
+                                num+=str[j];
+                            
+                            };
+                            right = parseInt(num);
+                        }
+                        else if(str[i]== "-")
+                        {
+                            for (var j = i + 1; j < str.length; j++) 
+                            {
+                                num+=str[j];
+                            
+                            };
+                            right = parseInt(num);
+                        }
+                        else if(str[i]== "*")
+                        {
+                            for (var j = i + 1; j < str.length; j++)
+                            {
+                                num+=str[j];
+                            
+                            };
+                            right = parseInt(num);
+                        }
+                        else if(str[i]== "/")
+                        {
+                            for (var j = i + 1; j < str.length; j++)
+                            {
+                                num+=str[j];
+                            
+                            };
+                            right = parseInt(num);
+                        }
+                    }                   
+                }
+        
+            }
+            // 点击数字区-----------------------------------------------------
+
+            for (var i = 0; i < number.length; i++) {
+                number[i].onclick = figure;
+                    
+           }
+
+            //点击 加减乘除 清零 等号-----------------------------------------------------------
+
+            // 加
+            getid("add").onclick = function(){             
+                operation("add");
+            }
+
+            //减
+            getid("reduce").onclick = function(){             
+                operation("reduce");
+            }
+
+            // 乘
+            getid("ride").onclick = function(){
+                operation("ride");
+            }
+            
+            // 除
+            getid("division").onclick = function(){
+                operation("division");
+            }           
+
+
+            // 清0
+            getid("res").onclick = function()
+            {                      
+                    left = 0;
+                    right = 0;
+                    result = 0;
+                    getid("display").value = "0";
+            }
+            // 等号
+            getid("equal").onclick = function(){  
+                var symbol = "";           
+                    for (var i = 0; i < getid("display").value.length; i ++ )
+                    {
+                        symbol = getid("display").value[i];
+                        if(symbol == "+"){
+                            result = left + right;
+                            getid("display").value = result;
+                        }else if(symbol == "-"){
+                            result = left - right;
+                            getid("display").value = result;
+                        }
+                        else if(symbol == "*"){
+                            result = left * right;
+                            getid("display").value = result;
+
+                        }
+                        else if(symbol == "/"){
+                            if(right===0){
+                                getid("display").value ="除数不能为0";
+                            }
+                            else{
+                                result = left / right;
+                                getid("display").value = result;
+                            }
+                        }
+                    }                           
+            }
+
+        
+
+
+
+
+
+    
+    </script>
+</body>
+</html>
