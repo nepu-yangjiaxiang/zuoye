@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // var arr = [1, 2, 3, 4, 5]
+    // console.log(arr.shift());
+
+    // 删除数组的第一个元素，然后返回被删除的元素
+
+    function myShift(arr) {
+      var first = arr[0];  // 存储第一个元素
+
+      // 从 1 开始遍历数组
+      for (var i = 1; i < arr.length; i++) {
+        arr[i - 1] = arr[i]  // 把数组的元素依次往前移动
+      }
+
+      arr.length--;  // 数组长度 -1
+      
+      console.log(arr);
+      return first;
+    }
+
+    var arr = ["张三", "李四", "王五", "赵6"];
+    console.log(myShift(arr));
+
+
+  </script>
+</body>
+
+</html>

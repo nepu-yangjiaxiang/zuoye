@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易计算器</title>
+    <style>
+        #calc{
+            width: 300px;
+            height: 440px;
+            margin: 50px auto;
+            background: #f7f7f8;
+            box-shadow: 3px 3px 3px #858080;
+            border: 2px solid #7a7a7a;
+            padding: 10px;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+            background: #fdfdfd;
+            border: 1px solid #7c7474;
+            box-shadow: 1px 1px 3px #807f7f;
+            float: left;
+            width: 67px;
+            margin: 5px 3px;
+            text-align: center;
+            line-height: 50px;
+        }
+        input{
+            display: block;
+            text-align: right;
+            width: 300px;
+            height: 70px;
+            background: #fff;
+            border: 0;
+            font-size: 44px;
+            margin-bottom: 10px;
+            /* border: 1px solid #a09c9c; */
+        }
+        .txt_up{
+            height: 30px;
+            margin-bottom: 0;
+            /* border-bottom: 0px; */
+            font-size: 24px;
+        }
+        .txt_down{
+            margin-top: 0;
+            /* border-top: 0; */
+        }
+        .btn:hover{
+            background: #eeeded;
+            box-shadow: 0px 0px 2px #807f7f;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <input class="txt_up" type="text" id="txt_up" disabled>
+        <input class="txt_down" type="text" id="txt" value="0" disabled>
+        
+        <div class="btn">7</div>
+        <div class="btn">8</div>
+        <div class="btn">9</div>
+        <div class="btn">+</div>
+        <div class="btn">4</div>
+        <div class="btn">5</div>
+        <div class="btn">6</div>
+        <div class="btn">-</div>
+        <div class="btn">1</div>
+        <div class="btn">2</div>
+        <div class="btn">3</div>
+        <div class="btn">*</div>
+        <div class="btn">0</div>
+        <div class="btn">/</div>
+        <div class="btn">=</div>
+        <div class="btn">C</div>
+        <div class="btn">.</div>
+        <div class="btn">%</div>
+    </div>
+
+    <script>
+        var input1,type,value="0",flag=true,value2 = "",flag2=true;
+        init();
+        function init(){
+            input1 = document.getElementById("txt"); //主显示屏
+            input2 = document.getElementById("txt_up"); //次显示屏
+            var btn = document.getElementsByClassName("btn"); 
+            for(var i=0;i<btn.length;i++){  
+                btn[i].onclick = clickHandler;
+            }
+        }
+        //点击事件详解
+        function clickHandler(){
+            switch (this.innerHTML){
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                case "%":
+                    value =  input1.value;
+                    
+                    value2 += value+this.innerHTML;//可以实现各种连加减，但还不能计算多个值
+                    input2.value = value2;
+                    type = this.innerHTML;
+                    input1.value = "0";
+                    return type;
+                    break;
+                case "=":
+                    flag2 = !flag2;
+                    countTwo();
+                    break;
+                case "C":
+                    type = "";
+                    input1.value = "0";
+                    input2.value = "";
+                    value2 = "";
+                    value = "0";//暂时不知道啥用，应该是存储第二个输入的数值
+                    break;
+                case ".":
+                    flag = !flag;
+                    input1.value+=this.innerHTML;
+                    // console.log(input1.value);
+                    break;
+                default:
+                    if(!flag2){
+                        input1.value = "";
+                        flag2 = !flag2;
+                    }
+                // input1.value += parseInt(this.innerHTML);//01234 0是初始化的字符
+                    // console.log(input1.value+this.innerHTML);
+                    input1.value = Number(input1.value+this.innerHTML);//1234
+                    
+            }
+        }
+        //计算
+        function countTwo(){
+            value2 = "";
+            input2.value = "";
+            switch(type){
+                case "+":
+                    input1.value = Number(value) + Number(input1.value);
+                    break;
+                case "-":
+                    input1.value = Number(value) - Number(input1.value);
+                    break;
+                case "*":
+                    if(!flag) {input1.value = (Number(value) * Number(input1.value)).toFixed(2);flag = !flag;}
+                    else input1.value = Number(value) * Number(input1.value);//还不知道到该怎么改
+                    break;
+                case "/":
+                    if(input1.value=="0")
+                        input1.value="ERROR!";//0 can not be divisor.
+                    else
+                        input1.value = Number(value) / Number(input1.value);
+                    break;
+                case "%":
+                    if(input1.value=="0")
+                        input1.value="NaN";
+                    else
+                        input1.value = Number(value) % Number(input1.value);
+                    break;
+            }
+            // value = "0";
+        }
+    </script>
+</body>
+</html>

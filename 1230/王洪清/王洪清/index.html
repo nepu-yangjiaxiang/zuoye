@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// shift: 删除数组的第一个元素， 并且返回这个元素
+		// var arr = [3, 6, 2, 9];
+		// var len;
+
+		// function shift(arr) {
+		// 	//保存arr索引为0的值
+		// 	len = arr[0];
+		// 	//遍历数组  arr长度减一为 arr的最长索引
+		// 	for (var i = 0; i < arr.length - 1; i++) {
+		// 		//第一次循环：arr[0]=arr[1];
+		// 		//第二次：arr[1]=arr[2];
+		// 		//把后值赋值给前值
+		// 		//
+		// 		arr[i] = arr[i + 1];
+
+
+		// 	}
+		// 	console.log(arr);
+		// 	arr.length = arr.length - 1;
+
+		// 	return len;
+		// }
+
+
+		// shift(arr);
+		// console.log(arr); //Array(3) [ 6, 2, 9 ]
+		// console.log("数组长度" + arr.length); //3
+		// console.log("返回元素" + shift(arr)); //3
+
+
+		//join:把数组的所有元素放入一个字符串，元素通过指定的分割符号进行分割，转换为字符串，是用参数进行分割
+		var arr = [1, 2, 3];
+		console.log(arr.join("#"));
+		function join(arr, type) {
+			//定义变量赋值为空字符串。
+			var str = "";
+			//遍历数组，
+			for (var i = 0; i < arr.length; i++) {
+				//+=都转换为字符串，
+				str += arr[i] + type;
+			}
+			//去掉最后面的符号  
+			 if (type) str = str.substr(0, str.length - 1);
+
+			return str;
+		}	
+		console.log(join(arr, "#"))//1#2#3
+	</script>
+</html>
