@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        b,
+        strong {
+            font-weight: normal;
+        }
+
+        i,
+        em {
+            font-style: normal;
+        }
+
+        ul,
+        li,
+        ol {
+            list-style: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        body {
+            font-family: 微软雅黑;
+        }
+
+        img {
+            border: 0;
+        }
+
+        input {
+            outline: none;
+        }
+
+        a,
+        u {
+            text-decoration: none;
+        }
+
+        all::after {
+            content: "";
+            clear: both;
+            display: block;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        #box {
+            margin: 100px auto;
+            width: 325px;
+            height: 400px;
+            border: 1px solid #000;
+            background: #66666611;
+        }
+
+        #box div {
+            width: 90px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            margin-left: 15px;
+            margin-top: 10px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px gray;
+            border-left: solid 1px gray;
+            border-top: gray solid 1px;
+        }
+
+        #box div:hover {
+            background-color: #66666600;
+        }
+
+        #box div:active {
+            background-color: black;
+        }
+
+        input {
+            text-align: right;
+            display: block;
+            width: 240px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 26px;
+            margin: 10px auto;
+            outline: none;
+
+            border: 2px solid #66666655;
+        }
+
+        #box #symbol4 {
+            height: 90px;
+            line-height: 90px;
+        }
+
+        #box #Result0 {
+            width: 193px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <input type="text" id="text0">
+        <div id="div7">7</div>
+        <div id="div8">8</div>
+        <div id="div9">9</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div0">0</div>
+        <div id="symbol0">+</div>
+        <div id="symbol1">-</div>
+        <div id="symbol4">C</div>
+        <div id="symbol2">*</div>
+        <div id="symbol3">/</div>
+        <div id="Result0">=</div>
+
+    </div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    var text = document.getElementById('text0');
+    var leftStr = '';
+    var rightStr = '';
+    var yun = false;
+    var sum = false;
+    var symbl = '';
+    var child = box.children;
+    for (var i = 1; i < child.length; i++) {
+        child[i].onclick = handleClick;
+    }
+    function handleClick() {
+        if (Number(this.innerText) <= 9 && Number(this.innerText) >= 0) {
+            if (!yun) {
+                leftStr += this.innerText;
+                text.value = leftStr;
+            } else {
+                rightStr += this.innerText;
+                text.value = rightStr;
+            }
+        } else {
+            var str1 = leftStr;
+            var str2 = rightStr;
+            rightStr = '';
+            switch (this.innerText) {
+                case '+': text.value = "+"; yun = true; symbl = '+'; break;
+                case '-': text.value = "-"; yun = true; symbl = '-'; break;
+                case '*': text.value = "*"; yun = true; symbl = '*'; break;
+                case '/': text.value = "/"; yun = true; symbl = '/'; break;
+                case "C": text.value = ''; leftStr = ''; rightStr = ''; yun = false; break;
+                case '=':
+                    if (yun) {
+                        switch (symbl) {
+                            case "+":
+                                text.value = Number(str1) + Number(str2); break;
+                            case "-":
+                                text.value = Number(str1) - Number(str2); break;
+                            case "*":
+                                text.value = Number(str1) * Number(str2); break;
+                            case "/":
+                                Number(str1) == 0 ? text.value = "输入错误" : text.value = Number(str1) / Number(str2); break;
+                            //
+
+                        }
+                    }
+                    ;
+            }
+        }
+    }
+
+</script>
+
+</html>
