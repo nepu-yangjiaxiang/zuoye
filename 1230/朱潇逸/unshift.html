@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function unshift(arr) {
+            if (arr.constructor !== Array) return "传入参数错误";
+            var del = arr[0];
+            console.log("传入数组为" + arr);
+            for (i = 1; i <= arr.length; i++) {
+                arr[i - 1] = arr[i];
+            }
+            arr.length -= 1;
+            console.log("数组的长度" + arr.length);
+            return del;
+        }
+        var arr = [3, 1, 6, 5, 4, 8, 9];
+        console.log("返回值为" + unshift(arr));
+        console.log("unshift后的数组" + arr);
+    </script>
+</body>
+
+</html>
