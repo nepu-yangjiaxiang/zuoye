@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .divBig {
+            width: 320px;
+            height: 450px;
+            border: 1px solid #000000;
+            box-shadow: 3px 3px 3px #CCCCCC;
+            position: relative;
+            margin: auto;
+            padding: 0 30px;
+            background-color: rgba(42, 217, 223,0.5);
+            border-radius: 2%;
+        }
+         .divBig div {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #000000;
+            float: left;
+            text-align: center;
+            font-size: 30px;
+            line-height: 70px;
+            margin-bottom: 20px;
+            user-select: none;
+            box-shadow: 3px 3px 3px rgb(214, 212, 95);
+        } 
+        .divBig div:hover {
+            background-color: blanchedalmond;
+            box-shadow: -3px -3px 3px #CCCCCC;
+            
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <div class="divBig">
+            <input type="text" id="input" value="0" disabled><br>
+            <div id="div1">1</div>
+            <div id="div2">2</div>
+            <div id="div3">3</div>
+            <div id="div4">4</div>
+            <div id="div5">5</div>
+            <div id="div6">6</div>
+            <div id="div7">7</div>
+            <div id="div8">8</div>
+            <div id="div9">9</div>
+            <div id="div10">0</div>
+            <div id="div11">+</div>
+            <div id="div12">-</div>
+            <div id="div13">*</div>
+            <div id="div14">/</div>
+            <div id="div15">=</div>
+            <div id="div16">C</div>
+        </div>
+        <script>
+            init();
+            var input, value, type;
+            var value = "0";
+
+            function init() {
+                input = document.getElementById("input");
+                for (var i = 1; i < 17; i++) {
+                    var div = document.getElementById("div" + i);
+                    div.onclick = clickHandler;
+                }
+            }
+
+            function clickHandler() {
+                switch (this.innerHTML) {
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                        type = this.innerHTML;
+                        value = input.value;
+                        input.value = 0;
+                        break;
+                    case "=":
+                        getsum();
+                        break;
+                    case "C":
+                        input.value = 0;
+                        value = "0";
+                        type = "";
+                        break;
+                    default:
+                        input.value = Number(input.value + this.innerHTML);
+                }
+            }
+
+            function getsum() {
+                switch (type) {
+                    case "+":
+                        input.value = Number(value) + Number(input.value);
+                        return;
+                    case "-":
+                        input.value = Number(value) - Number(input.value);
+                        return;
+                    case "*":
+                        input.value = Number(value) * Number(input.value);
+                        return;
+                    case "/":
+                        input.value = input.value === 0 ? Number(value) / Number(input.value) : "错误";
+                        return;
+                }
+
+            }
+
+
+
+
+
+            
+        input = document.getElementById("input");
+            input.style.width = "280px";
+            input.style.height = "40px";
+            input.style.display = "block";
+            input.style.position = "relative";
+            input.style.left = "-10px";
+            input.style.right = "0";
+            input.style.top = "20px";
+            input.style.margin = "auto";
+            input.style.marginBottom = "20px";
+            input.style.padding = "0px 10px";
+            input.style.textAlign = "right";
+            input.style.fontSize = "25px";
+            input.style.lineHeight = "40px";
+            input.style.outline = "none";
+            input.style.backgroundColor = "none";
+            input.style.border = "1px solid #000000";
+        </script>
+    </body>
+
+</html>
