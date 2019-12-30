@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cal-box>div {
+            width: 50px;
+            height: 50px;
+            background: #cccccc;
+            text-align: center;
+            float: left;
+            border: 1px solid #f5fcfc;
+            line-height: 50px;
+            font-size: 30px;
+            user-select: none;
+            box-shadow:2px 2px rgb(197, 192, 188) ;
+            margin: 0 0 8px 8px;
+        }
+
+        #cal-box>div:hover {
+            background-color: #00ffff;
+        }
+
+        #inputS {
+            width: 200px;
+            display: block;
+            border: 1px solid #333333;
+            padding: 0px;
+            text-align: right;
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 50px;
+            position: relative;
+            top: 0px; left: 0px;
+            margin: 10px auto 5px;
+            background: #fff;
+        }
+
+        #cal-box {
+            width: 250px;
+            height: 300px;
+            background: none;
+            margin: 50px auto;
+            border: 1px solid #999999;
+            padding-bottom: 10px;
+            box-shadow:4px 4px #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cal-box">
+
+    </div>
+    <script>
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+            "+", "-", "*", "/", "=", "c"];
+        var operator = "";//运算符
+        var firstNumber;//第一个数
+        var inputShow;//input的资源
+
+
+        // 创建一个计算器
+        function createCalculate() {
+            var box = document.getElementById("cal-box");
+            box.innerHTML += "<input id='inputS' type='text/css' value='0' disabled>"
+            //生成所有的数字   按键:上传数据
+            for (var i = 0; i < arr.length; i++) {
+                box.innerHTML += '<div id="div' + i + '">' + arr[i] + '</div>';
+            }
+        }
+
+        // 生成onclick
+        function init() {
+            for (var j = 0; j < arr.length; j++) {
+                var divo = document.getElementById("div" + j);
+                divo.onclick = calculate;
+            }
+        }
+
+        // 计算结果
+        function calculate() {
+            inputShow = document.getElementById("inputS");
+            switch (this.innerHTML) {
+                case "+": ;
+                case "-": ;
+                case "*": ;
+                case "/":
+                    firstNumber = Number(inputShow.value);
+                    operator = this.innerHTML;
+                    inputShow.value = 0;
+                    break;
+                case "=":
+                    ope(operator);
+                    break;
+                case "c":
+                    inputShow.value = 0;
+                    firstNumber = 0;
+                    break;
+                default:  //存取数据
+                    inputShow.value = Number(inputShow.value + this.innerHTML);
+                    break;
+            }
+        }
+
+        // 用来计算结果
+        function ope(o){
+            inputShow = document.getElementById("inputS");
+            if(o==="+") return inputShow.value = firstNumber+Number(inputShow.value);
+            if(o==="-") return inputShow.value = firstNumber-Number(inputShow.value);
+            if(o==="*") return inputShow.value = firstNumber*Number(inputShow.value);
+            if(o==="/") return inputShow.value = firstNumber/Number(inputShow.value);
+        }
+        createCalculate();
+        init();
+    </script>
+</body>
+
+</html>
