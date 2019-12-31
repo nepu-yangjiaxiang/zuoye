@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4,5];
+        var box="";
+        function shift(arr){
+            box=arr[0];
+            for(var i=arr.length;i>0;i--){
+                arr[i-1]=arr[i];
+                arr=arr.length--;
+            }
+        }
+        shift(arr);
+        console.log(arr,box)
+    </script>
+</body>
+</html>
