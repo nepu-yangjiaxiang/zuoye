@@ -17,7 +17,7 @@
             line-height: 50px;
             font-size: 30px;
             user-select: none;
-            box-shadow:2px 2px rgb(197, 192, 188) ;
+            box-shadow: 2px 2px rgb(197, 192, 188);
             margin: 0 0 8px 8px;
         }
 
@@ -26,16 +26,17 @@
         }
 
         #inputS {
-            width: 230px;
+            width: 210px;
+            padding: 0 10px;
             display: block;
             border: 3px solid #c9c9c9;
-            padding: 0px;
             text-align: right;
             font-size: 30px;
             font-weight: 500;
             line-height: 50px;
             position: relative;
-            top: 0px; left: 0px;
+            top: 0px;
+            left: 0px;
             margin: 10px auto 5px;
             background: #fff;
         }
@@ -45,9 +46,9 @@
             height: 300px;
             background: none;
             margin: 50px auto;
-            border: 1px solid #999999;
+            border: 3px solid #cccccc;
             padding-bottom: 10px;
-            box-shadow:4px 4px #cccccc;
+            box-shadow: 4px 4px #cccccc;
         }
     </style>
 </head>
@@ -96,6 +97,7 @@
                     break;
                 case "=":
                     ope(operator);
+                    firstNumber = 0;
                     break;
                 case "c":
                     inputShow.value = 0;
@@ -108,12 +110,12 @@
         }
 
         // 用来计算结果
-        function ope(o){
+        function ope(o) {
             inputShow = document.getElementById("inputS");
-            if(o==="+") return inputShow.value = firstNumber+Number(inputShow.value);
-            if(o==="-") return inputShow.value = firstNumber-Number(inputShow.value);
-            if(o==="*") return inputShow.value = firstNumber*Number(inputShow.value);
-            if(o==="/") return inputShow.value = firstNumber/Number(inputShow.value);
+            if (o === "+") return inputShow.value = firstNumber + Number(inputShow.value);
+            if (o === "-") return inputShow.value = firstNumber - Number(inputShow.value);
+            if (o === "*") return inputShow.value = firstNumber * Number(inputShow.value);
+            if (o === "/") return inputShow.value = firstNumber / Number(inputShow.value);
         }
         createCalculate();
         init();
