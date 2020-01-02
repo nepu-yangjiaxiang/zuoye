@@ -30,8 +30,10 @@
                 console.log(name);
             }
         })(); */
+
+
         //先打印一个小方块
-        function createDiv(_width, _height, _color) {
+        /* function createDiv(_width, _height, _color) {
             var str = "";
             str += "<div style='";
             str += "width:" + _width + "px;";
@@ -62,9 +64,28 @@
             return bg_color1;
         }
 
-        randomDiv(parseInt(Math.random()*20+1));
+        randomDiv(parseInt(Math.random()*20+1)); */
 
         //复用性 多态() 解耦 代码的独立性
+
+        // 
+      /*   var a = 20;
+         function fn(){
+             console.log(a);
+         }
+         function show(fn){
+             var a = 10;
+             fn();                     //20
+             console.log(a);            //10
+         }
+
+         show(fn); */
+         var a = 10;
+         function fn2(a){
+             console.log(arguments);
+         }
+         fn2(a);
+
     </script>
 </body>
 
