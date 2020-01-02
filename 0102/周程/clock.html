@@ -121,6 +121,8 @@
                 div.style.borderRadius="50%";
                 div.style.borderStyle="solid";
                 div.style.borderColor="#C71585";
+                div2.style.transform="rotate("+204+"deg)";
+                div3.style.transform="rotate("+330+"deg)";
                 date();
                 var time1=setInterval(a,10,div1);
                 var time2=setInterval(b,10,div2);
@@ -136,19 +138,16 @@
         function b(div2){
             var date=new Date();
             var ms=parseInt(date.getMilliseconds());
-            var s=parseInt(date.getSeconds())+ms/1000;
-            var m =parseInt(date.getMinutes())+s/60;
-            console.log(m);
+            var s=parseInt(date.getSeconds());
+            var m =parseInt(date.getMinutes());
             div2.style.transform="rotate("+m*6+"deg)";
             div2.style.transformOrigin="0 10px";
         }
         function c(div3){
             var date=new Date();
-            var ms=parseInt(date.getMilliseconds());
-            var s=parseInt(date.getSeconds())+ms/1000;
-            var m =parseInt(date.getMinutes())+s/60;
-            if(parseInt(date.getHours())>=12){var h =parseInt(date.getHours())%12+12+m/60;}else var h=parseInt(date.getHours())%12+m/60
-            console.log(h);
+            var s=parseInt(date.getSeconds());
+            var m =parseInt(date.getMinutes());
+            if(parseInt(date.getHours())>=12){var h =parseInt(date.getHours())%12+12;}else var h=parseInt(date.getHours())%12
             div3.style.transform="rotate("+h*30+"deg)";
             div3.style.transformOrigin="0 10px";
             
