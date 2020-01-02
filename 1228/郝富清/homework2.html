@@ -15,6 +15,7 @@
             float: left;
             border: 1px solid #00ffff;
             line-height: 50px;
+
         }
         div:hover{
             background-color: #00ffff;
@@ -46,7 +47,7 @@
     <script>
         //用来存取数据
         var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        var operator = ["+", "-", "*", "/", "%", "=", "c"];
+        var operator = [];
         var firstNumber;
         var secondNumber;
         var sum = 0;  //用来存放计算的和
@@ -58,7 +59,7 @@
         // 创建一个计算器盒子    可以通过onclick函数里面 this.id 来获取当前对象的对应ID。
         function createCalculate() {
             var box = document.getElementById("cal-box");
-            box.innerHTML += "<input id='inputS' type='text/css' value=''>"
+            box.innerHTML += "<input id='inputS' type='text/css' value='0' disabled>"
             //生成所有的数字   按键:上传数据
             for (i = 0; i < arr.length; i++) {
                 box.innerHTML += '<div id="div' + i + '" onclick="pushData(this.id)">' + arr[i] + '</div>';
@@ -73,7 +74,7 @@
         // 用来实现输入的数据
         function pushData(div1) {
             inputShow = document.getElementById("inputS");
-            inputShow.value += document.getElementById(div1).innerHTML;
+            inputShow.value = Number(inputShow.value + document.getElementById(div1).innerHTML);
             firstNumber = Number(inputShow.value); //将获取的字符转换位数字
         }
         // 用来获取运算符  并获取结果
