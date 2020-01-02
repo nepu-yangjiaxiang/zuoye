@@ -25,7 +25,7 @@
                 if (arr[i].constructor === Array) {
                     // if(Array.isArray(arr[i])){         //第二种当前元素是否为数组的方式
                     if (arr[i])
-                        flatMap(arr[i], item); //当前元素为数组时使用递归的方式继续遍历内数组
+                        flatMap(arr[i], item); //当前元素为数组时使用递归的方式继续遍历内层数组
                 } else {
                     item.push(arr[i]); //将每个元素push到item中去
                 }
