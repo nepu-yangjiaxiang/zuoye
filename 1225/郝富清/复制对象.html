@@ -32,7 +32,7 @@
              }
          } */
 //  return 跳出函数
-        var arr=["零","一","二","三","四","五","六","七","八","九"]
+      /*   var arr=["零","一","二","三","四","五","六","七","八","九"]
         // console.log(arr[5]);
         // var str="123";
          // 0 1 10 15 35 100 200 205 215   从百到十   
@@ -51,7 +51,7 @@
             if(n>20 && n<100) return arr[String(n)[0]]+"十"+arr[String(n)[1]];
             return arr[String(n)[0]]+"百"+arr[String(n)[1]]+"十"+arr[String(n)[2]]
         }
-        console.log(getCNNumber(125));
+        console.log(getCNNumber(125)); */
 
         //实现数字或颜色的来回切换（适用于方法类型的切换）
         /* 1.解题思路，实现个方法先打印出一个红灯，并实现定时打印。
@@ -89,6 +89,26 @@
             colorLight(fn, fn1,color,self,1000);
         } */
         
+        // 复制对象
+        var str = {
+            a:15,
+            name : "hao",
+            sex : "nan",
+        }
+        var c = {};
+        for(var prop in str){
+            c[prop] = str[prop];
+        }
+        console.log(str);
+
+        for(var prop in str){
+            c[prop] = str[prop];
+        }
+
+        // for in循环遍历复制对象， for in循环遍历复制对象  for in循环遍历复制对象
+        for(var prop in str){
+            c[prop] = str[prop];
+        }
     </script>
 </body>
 
