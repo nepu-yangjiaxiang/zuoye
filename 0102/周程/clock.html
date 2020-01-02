@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div0{overflow: hidden;
+            position: relative;
+        }
+        #div0 ul li{
+            list-style: none;
+        }
+        #div0 ul #li12{
+            position: absolute;
+            top: 0;left: 45%;
+        }
+        #div0 ul #li6{
+            position: absolute;
+            bottom: 0;left: 50%;
+        }
+        #div0 ul #li3{
+            position: absolute;
+            top:50%;right:0;
+        }
+        #div0 ul #li9{
+            position: absolute;
+            top:50%;left:0;
+        }
+        #div0 ul #li1{
+            position: absolute;
+            top:7%;right:20%;
+        }
+        #div0 ul #li2{
+            position: absolute;
+            top:27%;right:5%;
+        }
+        #div0 ul #li4{
+            position: absolute;
+            top:70%;right:9%;
+        }
+        #div0 ul #li5{
+            position: absolute;
+            top:85%;right:23%;
+        }
+        #div0 ul #li7{
+            position: absolute;
+            top:85%;left:25%;
+        }
+        #div0 ul #li8{
+            position: absolute;
+            top:70%;left:9%;
+        }
+        #div0 ul #li10{
+            position: absolute;
+            top:27%;left:5%;
+        }
+        #div0 ul #li11{
+            position: absolute;
+            top:7%;left:20%;
+        }
+        #div1{
+            width: 80px;
+            height: 20px;
+            background: pink;
+            position:absolute;
+            top: 50%;left:50%;
+        }
+        #div2{
+            width: 60px;
+            height: 20px;
+            background: greenyellow;
+            position:absolute;
+            top: 50%;left:50%;
+        }
+        #div3{
+            width: 40px;
+            height: 20px;
+            background: red;
+            position:absolute;
+            top: 50%;left:50%;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="div0">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <ul>
+            <li id="li1">1</li>
+            <li id="li2">2</li>
+            <li id="li3">3</li>
+            <li id="li4">4</li>
+            <li id="li5">5</li>
+            <li id="li6">6</li>
+            <li id="li7">7</li>
+            <li id="li8">8</li>
+            <li id="li9">9</li>
+            <li id="li10">10</li>
+            <li id="li11">11</li>
+            <li id="li12">12</li>
+        </ul>
+    </div>
+    <script>
+        init();
+       function date(){
+        var date=new Date();
+        
+       }
+        function init(){
+                var div=document.getElementById("div0");
+                var div1=document.getElementById("div1");
+                var div2=document.getElementById("div2");
+                var div3=document.getElementById("div3");
+                div.style.width="200px";
+                div.style.height="200px";
+                div.style.margin="50px auto";
+                div.style.borderRadius="50%";
+                div.style.borderStyle="solid";
+                div.style.borderColor="#C71585";
+                div2.style.transform="rotate("+204+"deg)";
+                div3.style.transform="rotate("+330+"deg)";
+                date();
+                var time1=setInterval(a,10,div1);
+                var time2=setInterval(b,10,div2);
+                var time3=setInterval(c,10,div3);
+        }
+        function a(div1){
+            var date=new Date();
+            var ms=parseInt(date.getMilliseconds());
+            var s=parseInt(date.getSeconds())+ms/1000;
+            div1.style.transform="rotate("+s*6+"deg)";
+            div1.style.transformOrigin="0 10px";
+        }
+        function b(div2){
+            var date=new Date();
+            var ms=parseInt(date.getMilliseconds());
+            var s=parseInt(date.getSeconds());
+            var m =parseInt(date.getMinutes());
+            div2.style.transform="rotate("+m*6+"deg)";
+            div2.style.transformOrigin="0 10px";
+        }
+        function c(div3){
+            var date=new Date();
+            var s=parseInt(date.getSeconds());
+            var m =parseInt(date.getMinutes());
+            if(parseInt(date.getHours())>=12){var h =parseInt(date.getHours())%12+12;}else var h=parseInt(date.getHours())%12
+            div3.style.transform="rotate("+h*30+"deg)";
+            div3.style.transformOrigin="0 10px";
+            
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [[9, 2, 3], [4, 5, 3], 7, 8, 9];
+        
+        function flatMap(arr, callback) {
+            if (arr.constructor !== Array) return;
+            return callback(arr);
+        }
+        console.log(flatMap(arr,function (arr) {
+            var a = [];
+            for (var i = 0; i < arr.length; i++) a = a.concat(arr[i]);
+            return a;
+        }));
+    </script>
+</body>
+
+</html>
