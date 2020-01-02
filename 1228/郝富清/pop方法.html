@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* var arr = [];
+        function pop(arr) {
+            if (arr === []) {
+                return null;
+            }else {
+                var l = arr[arr.length - 1];
+                arr.length = arr.length-1;
+                return l;
+            }
+
+        }
+        console.log(arr);
+        console.log(pop(arr)); */
+
+        
+        //contact方法   傳入新的
+        var arr = [1, 2, 3, 4];
+        function concat1(arr){
+           var arr1 = [];
+           var index = 0;
+        //做一个新的数组
+            for(var i= 0;i<arr.length;i++,index++){
+                arr1[index]=arr[i];
+            }
+            for(var j = 1;j<arguments.length-1;j++,index++){
+                if(arguments[j].constructor===Array){
+                    for(var h = 0;h<arguments[h].length;h++,index++){
+                        arr1[index]=arguments[j][h];
+                    }
+                    index--;
+                }else{
+                    arr1[index]=arguments[j];
+                }
+            }
+            return arr1;
+        }
+        console.log(concat1(arr,[10,12],1,2,3,4,5));
+
+        // join方法
+        /*  var arr = [1, 2, 3, 4];
+         function divide(arr, de) {
+             var a = "";
+             for (var i = 0; i < arr.length; i++) {
+                 if (i < arr.length - 1) {
+                     if (de === undefined) {
+                         a += arr[i] + ",";
+                     } else {
+                         a += arr[i] + String(de);
+                     }
+                 } else {
+                     a += arr[i];
+                 }
+             }
+             return a;
+         }
+         console.log(divide(arr,2));
+         console.log(arr.join(1)); */
+
+        // shift
+       /*  var arr = [];
+        function shirf(a) {
+            if (a.length === 0) return "undefined";
+            else {
+                var storage = "";//存储第一个数
+                storage = a[0];
+                for (var i = 0; i < a.length - 1; i++) {
+                    a[i] = a[i + 1];
+                }
+                a.length--;
+                return storage;
+            }
+           
+        }
+        console.log(shirf(arr));
+        console.log(arr.length);
+        console.log(arr); */
+    </script>
+</body>
+
+</html>
