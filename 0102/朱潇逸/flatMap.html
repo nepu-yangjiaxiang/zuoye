@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [
+            [1, 2, 3],
+            [4, 5, 6], 7, 8, 9
+        ];
+        /* [1,2,3,4,5,6,7,8,9]; */
+        /* var arr1=arr.flatMap(function(item,index,a){
+            return item;
+        })
+        console.log(arr1); */
+
+        function flatMap(arr, item) { //第一个参数为遍历数组，第二个元素为新数组
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].constructor === Array) {
+                    // if(Array.isArray(arr[i])){         //第二种当前元素是否为数组的方式
+                    if (arr[i])
+                        flatMap(arr[i], item); //当前元素为数组时使用递归的方式继续遍历内层数组
+                } else {
+                    item.push(arr[i]); //将每个元素push到item中去
+                }
+
+            }
+            return item;
+
+        }
+        console.log(flatMap(arr, []));
+    </script>
+</body>
+
+</html>

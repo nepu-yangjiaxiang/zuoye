@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>join</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,9];
+        function join(array,sign){
+            var str = "";
+            if(!sign) sign = "%";
+            if(!(arguments[0].length)){
+                    console.log("error");
+                    return;
+                }
+            for(var item in array){
+                if(item==array.length-1){
+                    sign = "";
+                }
+                str += array[item] + sign;
+            }
+            return str;
+        }
+        console.log(join([]));
+        console.log(join(arr));
+        console.log(join(arr,"#"));
+
+
+        // console.log(typeof item);//string
+        // console.log(typeof array.length);//number
+        // console.log(item);//0 1 2
+        // console.log(typeof arr.indexOf(2));//number
+
+
+
+    //     var obj={
+    //     a:1,
+    //     b:2,
+    //     c:3,
+    //     d:{
+    //         a:1,b:2
+    //     }
+    // }
+
+    // for(var prop in obj){
+    //     // prop 就是obj下的所有属性名 key
+    //     // 每循环一次就将属性名付给prop变量
+    //     console.log(prop,obj[prop]);
+    // }
+    </script>
+</body>
+</html>

@@ -8,19 +8,22 @@
 </head>
 <body>
     <script>
-    var arr=[1,2,3]
+    var arr=[1,2,3,[4,5]]
     function join(arr,symbol){
+        symbol = symbol||","
         var str=""
         for(var i=0;i<arr.length;i++){
-            if(i!=arr.length-1){
-                str+=arr[i]+String(symbol)
-            }else{
-                str+=arr[i]
-            }
+            str+= i===arr.length-1? arr[i] : arr[i]+String(symbol)
         }
-        console.log(str)
+        return str;
+        // console.log(str)
     }
-    join(arr,123)
+    console.log(join(arr,"#"))
+    
+
+    var arr1=[1,2,3,[4,5,6]];
+    console.log(arr1.join("#"))
+    
     </script>
 </body>
 </html>

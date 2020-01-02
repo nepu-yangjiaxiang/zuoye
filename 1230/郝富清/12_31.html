@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox">全选</li>
+        <li><input type="checkbox"></li>
+        <li><input type="checkbox"></li>
+        <li><input type="checkbox"></li>
+        <li><input type="checkbox"></li>
+        <li><input type="checkbox"></li> 
+    </ul>
+
+    <script>
+       /*  var inputs = document.getElementsByTagName("input");
+        var arr = Array.from(inputs);
+        console.log(arr);
+        //全选按钮的设置
+        function all(arr){
+            
+        } */
+
+        //数组去重
+        // var arr = [1, 2, 2, 3, 4, 5, 6, 6, 7, 8];
+       /*  for(var i = 0;i<arr.length;i++){
+            var bool = false;
+            for(var j =0;j<arr1.length;j++){
+                if(arr[i]===arr[j]){
+                    bool = true;
+                    break;
+                }
+            }
+            if(!bool){
+                arr1.push(arr[i]);
+            }
+            arr = arr1.splice(0);
+            arr1 = null;
+        } */
+
+        //统计数组的个数
+        /* var arr = [1, 2, 2, 3, 4, 5, 6, 6, 7, 8];
+        function fn(arr){
+            var index = 0;
+            if(index<arr.length){
+                arr.indexOf(index,arr.length)
+            }
+            
+        } */
+
+        /* function quchong(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = i+1; j < arr.length; j++) {
+                    if (arr[i] === arr[j]) {
+                        var h = j;
+                        if (h === arr.length - 1) {
+                            arr.pop();
+                        } else {
+                             while (h < arr.length) {
+                                arr[h] = arr[h + 1];
+                                arr.pop();
+                                h++;
+                            } 
+                        }
+                    }
+                }
+                console.log("a");
+            }
+            return arr;
+        }
+        console.log(quchong(arr)); */
+        //splice重构
+        /* function splice(arr,start,count){
+            var a = [];
+            start = Number(start);
+            count = Number(count);
+            if(isNaN(start)) return a;
+            if(start<0) start += arr.length;
+            if(isNaN(count)) count=arr.length-start;
+            //替换完了以后再添加    
+            for(var i = start;j<arr.length;i++,j++){
+                if(j<count) a.pusha(arr[i]);
+                arr[i] =arr[i+count];
+            }
+            //从0开始添加到start位置
+            for(var l =0;l<arguments.length-3;l++){
+                for(var m = arr.length - 1;m>=start+1;m--){
+                    arr[m+1] = arr[m];
+                }
+               
+            }
+            //王迅换里面不断插入
+            for(var n =start;n<arguments.length;n++){
+                    arr[n] = arguments[3+n];
+                }
+            for(var k=0;k<count;k++){
+                arr.pop();
+            }
+
+            return a;
+
+        } */
+    //重构slice方法
+        /* var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        function slice(arr,start,end){
+            var arr1 = arr.concat();
+            start = Number(start);
+            end = Number(end);
+            //将负数全部改成正数
+
+
+            if(start==0&&end==0){
+                return arr1;
+            }else{
+                if(!isNaN(start)&&!isNaN(end)){
+                    arr1.splice(start,(end-start));
+                }
+            }
+            return arr1;
+        }
+        console.log(slice(arr)); */
+
+        // forEach
+        // var arr = [1,2,3,4,5,6];
+        // function map(arr,fn){
+        //     var a = [];
+        //     for(var i = 0; i<a.length;i++){
+        //         a[i]=
+        //     }
+        // }
+        // Map
+
+        //filter
+        var arr = Array(4).fill(3);
+        function filter(arr,fn){
+            var a =[];
+            for(var i=0;i<arr.length;i++){
+                if(fn(arr[i],i,arr)) a[a.length]==arr[i];
+            }
+            return a;
+        }
+        filter(arr,filter);
+    </script>
+</body>
+
+</html>
