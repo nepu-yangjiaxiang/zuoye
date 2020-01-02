@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        width: 100px;
+        height: 50px;
+        font-size: 50px;
+        color: #000;
+        line-height: 100px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div>
+        <p id="con">
+            00:00:00
+        </p>
+        <input id="begin" type="button" value="启动">
+        <input id="reset" type="button" value="重置">
+    </div>
+
+    <script>
+        /* 
+            计时器时间 = 当前时刻-(本场计时启动时刻+本场计时暂停累积时间)
+            暂停累积时间 = 本次停止暂停时刻-上次暂停时刻+之前暂停累积时间
+        */
+        var showWatch, beginBtn, resetBtn, beginMoment, stopMoment, stopTime = 0, bool = false;
+
+        init();
+        function init() {
+            beginBtn = document.getElementById("begin");
+            resetBtn = document.getElementById("reset");
+            showWatch = document.getElementById("con");
+            beginBtn.onclick = clickHandler;
+            resetBtn.onclick = clickHandler;
+            setInterval(animation, 20);
+        }
+
+        function animation() {
+            if (!bool) return;
+            //  计时器时间 = 当前时间-(本场计时启动时刻+本场计时暂停累积时间)
+            var theTime = new Date().getTime() - beginMoment - stopTime;
+            var mini = Math.floor(theTime / 60000);//显示分
+            var sec = Math.floor((theTime - mini * 60000) / 1000);//显示秒
+            var minisec = Math.floor((theTime - mini * 60000 - sec * 1000) / 10);//显示毫秒
+            showWatch.innerHTML = zeroPlus(mini) + ":" + zeroPlus(sec) + ":" + zeroPlus(minisec);
+        }
+
+        function zeroPlus(num) {
+            return num = (num < 10 ? '0' + num : num);;
+        }
+
+        function clickHandler() {
+            //启动/暂停按钮
+            if (this === beginBtn) {
+                // console.log(this);
+                //true启动，false暂停
+                bool = !bool;
+                if (bool) {
+                    /* 
+                        计时器启动：
+                                1 按钮value置为暂停
+                                2 记录本次启动时刻,如果已重置或未开始，启动时刻置为当前时刻，否则认为本场计时尚未完成，直接return跳出无需初始化
+                                3 记录本场暂停累积时间(停止暂停时刻-上次暂停时刻+之前暂停累积时间)
+                    */
+                    this.value = "暂停";
+                    stopTime += (!stopTime ? 0 : new Date().getTime() - stopMoment);
+                    if (beginMoment) return;
+                    beginMoment = new Date().getTime();//启动时刻初始化
+                    return;
+                }
+                /* 
+                    计时器暂停：
+                            1 按钮value置为启动
+                            2 记录本次暂停时间
+                */
+                this.value = "启动";
+                stopMoment = new Date().getTime();
+                // alert('暂停');
+                return;
+            }
+            /* 
+                计时器复位：
+                        清空状态
+            */
+            this.innerHTML = "启动";
+            bool = false;
+            beginMoment = 0;
+            stopMoment = null;
+            stopTime = 0;
+            showWatch.innerHTML = "00:00:00";
+        }
+
+    </script>
+</body>
+
+</html>
