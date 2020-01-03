@@ -71,7 +71,7 @@
         console.log(flatMap(arr)); */
 
         // 做时钟
-        function myClock(){
+        /* function myClock(){
             var clock = document.getElementById("clock");
             var item = clock.getElementsByTagName("div");
             time =0;
@@ -86,10 +86,10 @@
             if(time%3600 ===0)
             item[0].style.transform = "rotate("+time/3600*6+"deg)";
         }
-        myClock();
+        myClock(); */
 
         // 定时器 弄不出来,明天搞搞
-        /* function myTimer(){
+        function myTimer(){
             time = document.getElementById("time");
             var start = document.getElementById("start");
             var end = document.getElementById("end");
@@ -100,7 +100,7 @@
         }
         function startHander(){
             startTime = new Date();
-            mintues= startTime.getMinutes(),secondes= startTime.getSeconds(),millisecond= startTime.getTime();
+            millisecond= startTime.getTime();
             id =   setInterval(changeTime,1);
 
         }
@@ -115,16 +115,26 @@
         function changeTime(){
             
             var date = new Date();
-            mintues1 = date.getMinutes() - mintues;
-            secondes1 = date.getSeconds() - secondes;
-            millisecond1 = date.getTime() - millisecond;
-            mintues1 = String(mintues1%12).slice(0,2);
-            secondes1 = String(secondes1%60).slice(0,2);
+            var millisecond1 = date.getTime() - millisecond;
+            var secondes1 = parseInt(millisecond1/1000);
+            var mintues1 = parseInt(secondes1/60);
+            console.log(millisecond1);
             millisecond1 = String(millisecond1%100).slice(0,2);
+            secondes1 = String(secondes1%60).slice(0,2);
+            mintues1 = String(mintues1%100).slice(0,2);
+            if(millisecond1.length<2){
+                millisecond1="0"+millisecond1;
+            }
+            if(secondes1.length<2){
+                secondes1="0"+secondes1;
+            }
+            if(mintues1.length<2){
+                mintues1="0"+mintues1;
+            }
             time.innerHTML = mintues1  +":" + secondes1 +":"+ millisecond1;
+
         }
         myTimer();
-       */
     </script>
 </body>
 
